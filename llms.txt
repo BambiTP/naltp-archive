@@ -5,9 +5,13 @@
 > leagues' Google Sheets, tagproleague.com, tagpro.eu and mltp.gg.
 
 The data is served from a home machine through a Cloudflare quick tunnel whose address changes.
-Get the current base address from https://bambitp.github.io/naltp-archive/tunnel.json (field "url"),
-then append the paths below. <base>/tunnel-check.txt contains "naltp-archive" when the server is up.
-All responses allow cross-origin requests.
+Use https://tagpro-archive-tunnel.bambitagpro.workers.dev/h/naltp/go as <base>: it redirects to
+wherever the tunnel is now, so it does not go stale, and it answers 503 while the host is offline.
+The current address is also in https://bambitp.github.io/naltp-archive/tunnel.json (field "url"),
+but read that again after every rotation if you use it instead. Either way, append the paths below.
+<base>/tunnel-check.txt contains "naltp-archive" when the server is up, and
+https://tagpro-archive-tunnel.bambitagpro.workers.dev/h/naltp/status reports {online, url, updated,
+age}. All responses allow cross-origin requests.
 
 ## Extracted data (start here)
 - <base>/viewer/data/records/games.csv: one row per scheduled game. Columns: season, league, week, played, team_a, team_b, game (the hub's label where the season has a hub, else tagproleague.com's: G1..G5 from S27; G1H1, G1H2... for halves before S27 and for B teams; G1OT, G1OT2... for overtime periods), on_tagpro_eu (yes | no | not checked yet), note (B-team game; B-team game not on any schedule; found on tagpro.eu; found by the hub's score; mltp.gg score; moved here by tagpro.eu line-ups; forfeit; played, the hub has the score, tagpro.eu has no record; played, this half's/game's tagpro.eu record is missing; played, tagpro.eu has only a fragment; probably not played; probably not played (a team didn't show); unknown), score_a, score_b (tagpro.eu's, else the hub's or mltp.gg's), map, replay (tagpro.eu link, or a TagPro replay the hub links). Restart records (under 5 minutes, where a matchup has more records than games) are not games and are left out.
