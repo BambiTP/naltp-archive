@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NALTP match</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+:root{--ground:#eef1f4;--surface:#fff;--ink:#1a1f27;--muted:#5e6776;--line:#d9dee6;--sunk:#f4f6f9;
+  --red:#c7383b;--blue:#2b61c6;--display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ground:#0f1318;--surface:#171c23;--ink:#e6e9ee;
+  --muted:#98a1ae;--line:#2a313b;--sunk:#1d232b;--red:#e0574f;--blue:#7aa7ff}}
+:root[data-theme="dark"]{--ground:#0f1318;--surface:#171c23;--ink:#e6e9ee;--muted:#98a1ae;--line:#2a313b;--sunk:#1d232b;
+  --red:#e0574f;--blue:#7aa7ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:15px/1.5 var(--body);padding-inline:16px;padding-block:20px 48px}
+.wrap{max-width:1000px;margin:0 auto}
+a{color:inherit}
+.back{font-size:13.5px;color:var(--muted);text-decoration:none}
+h1{font:700 clamp(24px,4vw,34px)/1.05 var(--display);text-transform:uppercase;margin:10px 0 4px}
+.meta{color:var(--muted);font-size:14px;margin:0 0 18px}
+.score{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;padding:14px 18px;margin-bottom:16px}
+.score .side{display:flex;align-items:baseline;gap:10px;font:700 22px/1 var(--display);text-transform:uppercase}
+.score .n{font:500 30px/1 var(--mono)}
+.score .dash{color:var(--muted)}
+.side.one .n{color:var(--red)} .side.two .n{color:var(--blue)}
+table{border-collapse:collapse;width:100%;font-size:14px;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+caption{text-align:left;font:700 16px var(--display);text-transform:uppercase;letter-spacing:.05em;padding:10px 12px;color:var(--muted)}
+th,td{padding:6px 10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+thead th{font-weight:600;color:var(--muted);background:var(--sunk);font-size:12.5px}
+tbody tr:last-child td{border-bottom:0}
+td.name{font-weight:600}
+.tables{display:grid;gap:16px;grid-template-columns:1fr}
+@media (min-width:860px){.tables{grid-template-columns:1fr 1fr}}
+.note{color:var(--muted);font-size:13.5px;margin-top:16px}
+.warn{background:var(--sunk);border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:var(--muted);font-size:13.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="./">← NALTP Archive</a>
+  <div id="out"><h1>Loading…</h1></div>
+</div>
+<script>
+(() => {
+  const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+  const id = new URLSearchParams(location.search).get("id") || "";
+  const out = document.getElementById("out");
+  if (!/^[A-Za-z0-9]+$/.test(id)) {
+    out.innerHTML = `<h1>No match chosen</h1><p class="meta">Open a match from the games table or the coverage page.</p>`;
+    return;
+  }
+  const COLS = [["score", "Score"], ["tags", "Tags"], ["pops", "Pops"], ["grabs", "Grabs"], ["drops", "Drops"],
+                ["hold", "Hold"], ["captures", "Caps"], ["prevent", "Prevent"], ["returns", "Returns"], ["pups", "Pups"]];
+  const onTunnel = /trycloudflare\.com$|^127\.0\.0\.1$|^localhost$/.test(location.hostname);
+  const base = async () => {
+    if (onTunnel) return "";
+    const t = await fetch("tunnel.json", {cache: "no-store"}).then(r => r.json());
+    return t.url.replace(/\/?$/, "/");
+  };
+  base().then(b => fetch(`${b}viewer/data/eu/${id}.json`)).then(r => r.ok ? r.json() : Promise.reject()).then(m => {
+    const when = m.date ? new Date(m.date * 1000).toLocaleString(undefined, {dateStyle: "medium", timeStyle: "short"}) : "";
+    const cols = COLS.filter(([k]) => m.teams.some(t => t.players.some(p => p[k] !== undefined && p[k] !== null)));
+    const table = (t, i) => `<table><caption>${esc(t.team || t.name)}${t.team ? ` <span style="color:var(--muted)">(${esc(t.name)})</span>` : ""}</caption>
+      <thead><tr><th>Player</th>${cols.map(([, label]) => `<th>${esc(label)}</th>`).join("")}</tr></thead>
+      <tbody>${t.players.map(p => `<tr><td class="name">${esc(p.name)}</td>${cols.map(([k]) => `<td>${esc(p[k] ?? "")}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+    document.title = `${m.team_1} v ${m.team_2} · ${m.season} week ${m.week}`;
+    out.innerHTML = `<h1>${esc(m.team_1)} v ${esc(m.team_2)}</h1>
+      <p class="meta">${esc(m.season)} ${esc({MLTP: "Majors", mLTP: "Minors", NLTP: "Novice"}[m.league] || m.league)} · week ${esc(m.week)} · ${esc(m.game)}${m.half ? " " + esc(m.half) : ""}${when ? " · " + esc(when) : ""}${m.minutes ? " · " + esc(m.minutes) + " minutes" : ""}${m.map ? " · " + esc(m.map) : ""}${m.map_author ? " by " + esc(m.map_author) : ""}</p>
+      <div class="score">${m.teams.map((t, i) => `<span class="side ${i ? "two" : "one"}"><span>${esc(t.team || t.name)}</span><span class="n">${esc(t.score ?? "?")}</span></span>`).join('<span class="dash">–</span>')}</div>
+      ${m.teams_matched ? "" : `<p class="warn">Which side is which team isn't settled: too few of the players are on either roster, so the two sides are shown as the record has them.</p>`}
+      <div class="tables">${m.teams.map(table).join("")}</div>
+      <p class="note">${m.kind === "tagpro.eu match" ? "The tagpro.eu match record, saved to pastebin" : "A stats sheet saved to pastebin — one row per player"}: <a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.url)}</a>. tagpro.eu no longer has this match.</p>`;
+  }).catch(() => {
+    out.innerHTML = `<h1>Match not held</h1><p class="meta">No saved record for <code>${esc(id)}</code>.</p>`;
+  });
+})();
+</script>
+</body>
+</html>
