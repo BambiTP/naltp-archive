@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NALTP replay search</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+:root{--ground:#eef1f4;--surface:#fff;--ink:#1a1f27;--muted:#5e6776;--line:#d9dee6;--sunk:#f4f6f9;--accent:#2b61c6;
+  --display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;--body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ground:#0f1318;--surface:#171c23;--ink:#e6e9ee;
+  --muted:#98a1ae;--line:#2a313b;--sunk:#1d232b;--accent:#7aa7ff}}
+:root[data-theme="dark"]{--ground:#0f1318;--surface:#171c23;--ink:#e6e9ee;--muted:#98a1ae;--line:#2a313b;--sunk:#1d232b;
+  --accent:#7aa7ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:15px/1.5 var(--body);padding-inline:16px;padding-block:20px 56px}
+.wrap{max-width:1180px;margin:0 auto}
+a{color:var(--accent)}
+.back{font-size:13.5px;color:var(--muted);text-decoration:none}
+h1{font:700 clamp(26px,4vw,38px)/1.05 var(--display);text-transform:uppercase;margin:10px 0 6px}
+.lede{color:var(--muted);max-width:75ch;margin:0 0 6px}
+.how{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:14px 0 18px}
+.how ol{margin:8px 0 0;padding-left:20px}
+.how li{margin:4px 0}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px}
+input,select{font:inherit;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:7px 10px}
+input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
+#q{flex:1;min-width:220px}
+.count{color:var(--muted);font-size:14px}
+.rows{display:grid;gap:10px}
+.row{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:6px}
+.row h2{font:700 18px/1.1 var(--display);text-transform:uppercase;margin:0}
+.row .when{font:500 13px var(--mono);color:var(--muted)}
+dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:2px 14px;margin:0;font-size:14px}
+dt{color:var(--muted)}
+dd{margin:0;overflow-wrap:anywhere}
+.players{font-size:13.5px;color:var(--muted)}
+.tag{display:inline-block;font:500 11.5px var(--mono);color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 8px}
+.empty{color:var(--muted);padding:20px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="./">← NALTP Archive</a>
+  <h1>Replay search</h1>
+  <p class="lede">Games the league played that tagpro.eu has no record of. TagPro has kept a recording of every game since 27 September 2023, and anyone signed in can look through the games they played in — so if you were in one of these, its replay may still be in your list.</p>
+  <div class="how">
+    <b>If you played in one of these:</b>
+    <ol>
+      <li>Sign in to TagPro and open your own replay list, under <b>My Games</b>.</li>
+      <li>Set the date range to the night below and find the game by its map and the other games around it.</li>
+      <li>Send the link (or the file) to the archive and it gets added here.</li>
+      <li>Games played before 27 September 2023 are listed too (untick the box), but TagPro was not recording then — only a recording someone made themselves could exist.</li>
+    </ol>
+  </div>
+  <div class="controls">
+    <input id="q" type="search" placeholder="Search a player, team, season or map — e.g. your own name" aria-label="Search">
+    <select id="season" aria-label="Season"><option value="">Every season</option></select>
+    <select id="league" aria-label="League"><option value="">Every league</option></select>
+    <label class="count"><input type="checkbox" id="era" checked> Only games TagPro would have a replay of</label>
+    <span class="count" id="count"></span>
+  </div>
+  <div class="rows" id="rows"></div>
+</div>
+<script>
+(() => {
+  const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+  const $ = id => document.getElementById(id);
+  const onTunnel = /trycloudflare\.com$|^127\.0\.0\.1$|^localhost$/.test(location.hostname);
+  const base = async () => {
+    if (onTunnel) return "";
+    const t = await fetch("tunnel.json", {cache: "no-store"}).then(r => r.json());
+    return t.url.replace(/\/?$/, "/");
+  };
+  let all = [];
+  const render = () => {
+    const q = $("q").value.trim().toLowerCase(), season = $("season").value, league = $("league").value;
+    const era = $("era").checked;
+    const hits = all.filter(r => (!era || r.replay_era) && (!season || r.season === season) && (!league || r.league === league)
+      && (!q || [r.season, r.league, r.team_a, r.team_b, r.map, r.players, r.night].join(" ").toLowerCase().includes(q)));
+    $("count").textContent = `${hits.length.toLocaleString()} of ${all.length.toLocaleString()} games`
+      + (era ? ` · played since 27 Sep 2023` : "");
+    $("rows").innerHTML = hits.slice(0, 400).map(r => `<div class="row">
+      <h2>${esc(r.team_a)} v ${esc(r.team_b)} · ${esc(r.game)}</h2>
+      <div class="when">${esc(r.night || "night not recorded")}${r.other_games_at ? " · that matchup's other games at " + esc(r.other_games_at) : ""}</div>
+      <dl>
+        <dt>Season</dt><dd>${esc(r.season)} ${esc(r.league)}, week ${esc(r.week)}</dd>
+        ${r.score ? `<dt>Score</dt><dd>${esc(r.score)} <span class="tag">from the hub</span></dd>` : ""}
+        ${r.map ? `<dt>Map</dt><dd>${esc(r.map)}</dd>` : ""}
+        <dt>Why it's here</dt><dd>${esc(r.why)}</dd>
+      </dl>
+      ${r.players ? `<div class="players"><b>Played that night:</b> ${esc(r.players)}</div>` : ""}
+    </div>`).join("") || `<p class="empty">No games match that.</p>`;
+    if (hits.length > 400) $("count").textContent += " · showing the first 400";
+  };
+  base().then(b => fetch(`${b}viewer/data/replay_search.json`)).then(r => r.json()).then(rows => {
+    all = rows;
+    for (const [id, key] of [["season", "season"], ["league", "league"]]) {
+      const seen = [...new Set(all.map(r => r[key]))];
+      $(id).innerHTML += seen.map(v => `<option value="${esc(v)}">${esc(v)}</option>`).join("");
+    }
+    ["q", "season", "league", "era"].forEach(id => $(id).addEventListener("input", render));
+    $("era").addEventListener("change", render);
+    render();
+  }).catch(() => { $("rows").innerHTML = `<p class="empty">The archive is offline right now — try again later.</p>`; });
+})();
+</script>
+</body>
+</html>

@@ -34,6 +34,7 @@ Rule used throughout: a fact is trusted when two separate documents state it; si
 - <base>/export/missing_games_found.csv: tagpro.eu matches that fit schedule matchups with missing games (found from the schedule and tagpro.eu only), with how and when they matched.
 - <base>/export/missing_games_search.csv: every matchup with missing games and what the search found.
 
+- https://bambitp.github.io/naltp-archive/replays.html and <base>/replays.html: the games with no tagpro.eu record, with the night, the times of the matchup's other games, the map, the hub's score and who played, so a player who was in one can find its TagPro replay. TagPro has kept a recording of every game since 27 Sep 2023; the page opens on those and can show the older ones too. Data: <base>/viewer/data/replay_search.json (replay_era marks the ones TagPro would have), <base>/export/replay_search.csv.
 - <base>/match.html?id=<pastebin id>: a match tagpro.eu no longer has, saved to pastebin and shown here (score, map, both line-ups with their stats). The record itself: <base>/viewer/data/eu/<pastebin id>.json.
 - <base>/export/pastebin_games.csv: every game a pastebin holds - season, league, week, teams, game, half, score, kind (tagpro.eu match | stats sheet), whether the sides could be matched to the two teams, the pastebin link and the record path.
 
