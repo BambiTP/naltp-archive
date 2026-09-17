@@ -10,12 +10,12 @@ then append the paths below. <base>/tunnel-check.txt contains "naltp-archive" wh
 All responses allow cross-origin requests.
 
 ## Extracted data (start here)
-- <base>/viewer/data/records/games.csv: one row per scheduled game. Columns: season, league, week, played, team_a, team_b, game, on_tagpro_eu (yes | no), note (B-team game; B-team game not on any schedule; found on tagpro.eu; moved here by tagpro.eu line-ups; forfeit; played but the hub has the only score; played but this half's tagpro.eu record is missing; probably not needed; probably not played (a team didn't show); probably not played; unknown), score_a, score_b, map, replay (tagpro.eu link).
+- <base>/viewer/data/records/games.csv: one row per scheduled game. Columns: season, league, week, played, team_a, team_b, game (the hub's label where the season has a hub, else tagproleague.com's: G1..G5 from S27; G1H1, G1H2... for halves before S27 and for B teams; G1OT, G1OT2... for overtime periods), on_tagpro_eu (yes | no | not checked yet), note (B-team game; B-team game not on any schedule; found on tagpro.eu; found by the hub's score; mltp.gg score; moved here by tagpro.eu line-ups; forfeit; played, the hub has the score, tagpro.eu has no record; played, this half's/game's tagpro.eu record is missing; played, tagpro.eu has only a fragment; probably not played; probably not played (a team didn't show); unknown), score_a, score_b (tagpro.eu's, else the hub's or mltp.gg's), map, replay (tagpro.eu link, or a TagPro replay the hub links). Restart records (under 5 minutes, where a matchup has more records than games) are not games and are left out.
 - <base>/viewer/data/records/rosters.csv: one row per player per team per stage. Columns: season, league, team, player, stage (after the draft | end of season), role, joined_by (draft | trade | add or drop), draft_pick (as the sheet wrote it), tagcoins, games_for_team (tagpro.eu games, 10 minutes = 1 game), confirmed.
 - <base>/viewer/data/records/misc.csv: Columns: season, league, category (transaction | team | rules committee member | map), date, week, name, team, description, confirmed.
 - Each also as .json: {"columns": [...], "rows": [[...]]}.
 - confirmed = yes when two separate sources agree.
-- <base>/conflicts.csv: every place sources disagree. Columns: season, league, what, subject, stage_or_week, one_side_says, other_side_says, tagpro_eu_shows, hub_shows, sources, cells.
+- <base>/conflicts.csv: every place sources disagree. Columns: season, league, what, subject, stage_or_week, one_side_says, other_side_says, tagpro_eu_shows, hub_shows, outcome, sources, cells. Only disagreements tagpro.eu and the hub don't settle.
 - Fuller internal tables with sources and ids are not published here; the condensed raw sources are (below).
 
 Season ids: S<n> = Majors/Minors season n (post-merge S27+ also has Novice), N<n> = NLTP season n, A<n> = ALTP season n.
