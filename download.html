@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NALTP Archive download</title>
+<style>
+:root{--bg:#f6f7f9;--ink:#16181d;--muted:#5b6270;--accent:#1f5fd1}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101216;--ink:#e8eaee;--muted:#9aa2b1;--accent:#7aa7ff}}
+:root[data-theme="dark"]{--bg:#101216;--ink:#e8eaee;--muted:#9aa2b1;--accent:#7aa7ff}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:40px 16px}
+main{max-width:520px;margin:0 auto}
+a{color:var(--accent)}
+p{color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+  <h1 id="h">Starting your download…</h1>
+  <p id="p">Finding the archive server.</p>
+  <p><a href="./">NALTP Archive home</a></p>
+</main>
+<script>
+(async () => {
+  // download.html?f=games | rosters | misc | conflicts
+  const FILES = {games: "viewer/data/records/games.csv", rosters: "viewer/data/records/rosters.csv",
+                 misc: "viewer/data/records/misc.csv", conflicts: "conflicts.csv"};
+  const f = new URLSearchParams(location.search).get("f");
+  const h = document.getElementById("h"), p = document.getElementById("p");
+  if (!FILES[f]) {
+    h.textContent = "Pick a file";
+    p.innerHTML = Object.keys(FILES).map(k => `<a href="?f=${k}">${k}.csv</a>`).join(" · ");
+    return;
+  }
+  try {
+    const base = (await fetch("tunnel.json", {cache: "no-store"}).then(r => r.json())).url.replace(/\/?$/, "/");
+    const url = base + FILES[f];
+    h.textContent = `Downloading ${f}.csv`;
+    p.innerHTML = `If it doesn't start, <a href="${url}">click here</a>.`;
+    location.href = url;
+  } catch (e) {
+    h.textContent = "The archive is offline";
+    p.textContent = "The server that holds the data isn't reachable right now. Please try again later.";
+  }
+})();
+</script>
+</body>
+</html>

@@ -15,7 +15,7 @@ All responses allow cross-origin requests.
 - <base>/viewer/data/records/misc.csv: Columns: season, league, category (transaction | team | rules committee member | map), date, week, name, team, description, confirmed.
 - Each also as .json: {"columns": [...], "rows": [[...]]}.
 - confirmed = yes when two separate sources agree.
-- <base>/conflicts.csv: cross-source disagreements awaiting manual review (priority, check, what the two-source fact says, what the other source says, cell refs).
+- <base>/conflicts.csv: every place sources disagree. Columns: season, league, what, subject, stage_or_week, one_side_says, other_side_says, tagpro_eu_shows, hub_shows, sources, cells.
 - Fuller internal tables with sources and ids are not published here; the condensed raw sources are (below).
 
 Season ids: S<n> = Majors/Minors season n (post-merge S27+ also has Novice), N<n> = NLTP season n, A<n> = ALTP season n.
