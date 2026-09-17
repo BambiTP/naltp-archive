@@ -74,7 +74,9 @@ td.name{font-weight:600}
       <div class="score">${m.teams.map((t, i) => `<span class="side ${i ? "two" : "one"}"><span>${esc(t.team || t.name)}</span><span class="n">${esc(t.score ?? "?")}</span></span>`).join('<span class="dash">–</span>')}</div>
       ${m.teams_matched ? "" : `<p class="warn">Which side is which team isn't settled: too few of the players are on either roster, so the two sides are shown as the record has them.</p>`}
       <div class="tables">${m.teams.map(table).join("")}</div>
-      <p class="note">${m.kind === "tagpro.eu match" ? "The tagpro.eu match record, saved to pastebin" : "A stats sheet saved to pastebin — one row per player"}: <a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.url)}</a>. tagpro.eu no longer has this match.</p>`;
+      <p class="note">${m.kind === "tagpro.eu match" ? "The tagpro.eu match record, saved to pastebin" : "A stats sheet saved to pastebin — one row per player"}: <a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.url)}</a>. tagpro.eu doesn’t have this match.</p>
+      <p class="note">A pastebin can be deleted by whoever posted it, so the archive keeps its own copy of every one:
+        <a href="pastebin_records.zip" download>download them all</a> (the pages as fetched, and each read as a match).</p>`;
   }).catch(() => {
     out.innerHTML = `<h1>Match not held</h1><p class="meta">No saved record for <code>${esc(id)}</code>.</p>`;
   });

@@ -35,13 +35,17 @@ Rule used throughout: a fact is trusted when two separate documents state it; si
 - <base>/export/missing_games_search.csv: every matchup with missing games and what the search found.
 
 - https://bambitp.github.io/naltp-archive/replays.html and <base>/replays.html: the games with no tagpro.eu record, with the night, the times of the matchup's other games, the map, the hub's score and who played, so a player who was in one can find its TagPro replay. TagPro has kept a recording of every game since 27 Sep 2023; the page opens on those and can show the older ones too. Data: <base>/viewer/data/replay_search.json (replay_era marks the ones TagPro would have), <base>/export/replay_search.csv.
-- <base>/match.html?id=<pastebin id>: a match tagpro.eu no longer has, saved to pastebin and shown here (score, map, both line-ups with their stats). The record itself: <base>/viewer/data/eu/<pastebin id>.json.
-- <base>/export/pastebin_games.csv: every game a pastebin holds - season, league, week, teams, game, half, score, kind (tagpro.eu match | stats sheet), whether the sides could be matched to the two teams, the pastebin link and the record path.
+- <base>/match.html?id=<pastebin id>: a match tagpro.eu doesn’t have, saved to pastebin and shown here (score, map, both line-ups with their stats). The record itself: <base>/viewer/data/eu/<pastebin id>.json.
+- <base>/export/pastebin_games.csv: every game a pastebin holds - season, league, week, teams, game, half, score, kind (tagpro.eu match | stats sheet), players_a and players_b (how many players each side has: fewer than three on a side means tagproleague.com's own placeholder page, not a record, and those are left out of games.csv), whether the sides could be matched to the two teams, the pastebin link and the record path. One page counts as one game: where tagproleague.com links the same page from several games, it fills the first and the note says so.
+- https://bambitp.github.io/naltp-archive/pastebin_records.zip: every pastebin the archive holds, in one file, kept because whoever posted a pastebin can delete it. pages/<id>.txt are the pages as fetched, records/<id>.json the same read as matches, plus pastebin_games.csv and a README. Served from GitHub Pages, so it does not need the tunnel.
 
 ## Browsing
 - https://bambitp.github.io/naltp-archive/app.html?p=<path>: any path below, shown inside the GitHub Pages site.
 - <base>/almanac/index.html: one page per season, two-source facts only.
-- <base>/viewer/: every downloaded spreadsheet, cell for cell (Sheet mode) and the three extracted tables (Data mode). Tab data: <base>/viewer/data/tabs/<n>.json, catalog at <base>/viewer/data/catalog.json.
+- <base>/viewer/: every downloaded spreadsheet. Each tab opens two ways, from one switch: Original, the sheet cell for cell with its merges, colours, links and formulas, and Data, the table on that tab with the title strips dropped and a header found. <base>/viewer/#t=<n> and <base>/viewer/#t=<n>&m=data open one tab either way.
+  - Original: <base>/viewer/data/tabs/<n>.json. Catalog of every workbook and tab: <base>/viewer/data/catalog.json.
+  - Data: <base>/viewer/data/sheet/<n>.json = {"columns": [...], "rows": [[row number, ...values]], "letters": [the sheet's own column letters], "note": ""}. Index of which tabs have one, with a CSV path each: <base>/viewer/data/sheet/index.json.
+  - The archive's own three tables (games, rosters, misc) are tabs 900001-900003 there, and are the files under ## Extracted data above.
 
 ## Raw sources, condensed
 - <base>/sources_data/README.md: format of the condensed sources.
