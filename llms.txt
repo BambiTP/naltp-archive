@@ -21,6 +21,13 @@ All responses allow cross-origin requests.
 Season ids: S<n> = Majors/Minors season n (post-merge S27+ also has Novice), N<n> = NLTP season n, A<n> = ALTP season n.
 Rule used throughout: a fact is trusted when two separate documents state it; single-source facts are kept but marked.
 
+## Full export with statuses (internal detail)
+- <base>/export/README.md: explains the files below.
+- <base>/export/schedule.csv, games.csv, draft.csv, rosters_after_draft.csv, rosters_end_of_season.csv, transactions.csv, teams.csv, committee.csv: every fact with season, league, a status (confirmed | one source + tagpro.eu | one source | contradicted), the sources behind it, what tagpro.eu shows, and the sheet cell.
+- <base>/export/contradictions.csv: every place sources disagree, with what each side says and what tagpro.eu and the season hub show.
+- <base>/export/missing_games_found.csv: tagpro.eu matches that fit schedule matchups with missing games (found from the schedule and tagpro.eu only), with how and when they matched.
+- <base>/export/missing_games_search.csv: every matchup with missing games and what the search found.
+
 ## Browsing
 - https://bambitp.github.io/naltp-archive/app.html?p=<path>: any path below, shown inside the GitHub Pages site.
 - <base>/almanac/index.html: one page per season, two-source facts only.
