@@ -1,0 +1,40 @@
+# NALTP Archive
+
+> History of the North American TagPro leagues (MLTP Majors, mLTP Minors, NLTP Novice, ALTP):
+> schedules, games, drafts, rosters, transactions and rules-committee records, extracted from the
+> leagues' Google Sheets, tagproleague.com, tagpro.eu and mltp.gg.
+
+The data is served from a home machine through a Cloudflare quick tunnel whose address changes.
+Get the current base address from https://bambitp.github.io/naltp-archive/tunnel.json (field "url"),
+then append the paths below. <base>/tunnel-check.txt contains "naltp-archive" when the server is up.
+All responses allow cross-origin requests.
+
+## Extracted data (start here)
+- <base>/viewer/data/records/games.csv: one row per game (or per matchup with no game found). Columns: season, tier, week, night, matchup_id, team_a, team_b, game, match_id, played_et, map, score_a, score_b, tag_a, tag_b, link, sources, verified. verified=yes when two or more independent sources name the game.
+- <base>/viewer/data/records/rosters.csv: every roster place and draft pick as read from each source. Columns: source, sheet, cell, kind (roster_place|draft_pick), season, tier, phase (post-draft|end of season), team, player, role, pick, round, captain, captain_type, tagcoins, squad, marks, note.
+- <base>/viewer/data/records/misc.csv: transactions, teams, committee members and votes, maps. Columns: source, sheet, cell, kind, season, tier, week, date, type, name, team, from_team, to_team, consideration, details, abbr, captain, captain_type, paired_team, vote, outcome, motion, note.
+- Each also as .json: {"columns": [...], "rows": [[...]]}.
+- <base>/conflicts.csv: cross-source disagreements awaiting manual review (priority, check, what the two-source fact says, what the other source says, cell refs).
+
+Season ids: S<n> = Majors/Minors season n (post-merge S27+ also has Novice), N<n> = NLTP season n, A<n> = ALTP season n.
+Rule used throughout: a fact is trusted when two separate documents state it; single-source facts are kept but marked.
+
+## Browsing
+- <base>/almanac/index.html: one page per season, two-source facts only.
+- <base>/viewer/: every downloaded spreadsheet, cell for cell (Sheet mode) and the three extracted tables (Data mode). Tab data: <base>/viewer/data/tabs/<n>.json, catalog at <base>/viewer/data/catalog.json.
+
+## Raw sources, condensed
+- <base>/sources_data/README.md: format of the condensed sources.
+- <base>/sources_data/catalog.json: every source workbook and tab with its CSV path.
+- <base>/sources_data/sources.sqlite: all sheet cells (tables sources, tabs, cells, merges) plus web_* tables (tagproleague links, mltp.gg rosters/draft/transactions, tagpro.eu matches and per-player minutes). ~500 MB.
+- <base>/SOURCES.md: inventory of every source and its format.
+
+## Reports
+- <base>/handover.html: overview of sources, pipeline, verification status.
+- <base>/sources.html: where each season's rosters, drafts and trades live.
+- <base>/schedule.html, <base>/calendar.html: schedule by season; league nights by month.
+- <base>/missing_games.html: games still missing and the searches done.
+- <base>/hub_report.html, <base>/hub_audit.html: wrong tagpro.eu links in the season hubs.
+- <base>/schedule_crosscheck.html: hub schedules vs tagproleague.com.
+- <base>/NALTP_rosters.xlsx, NALTP_schedule.xlsx, NALTP_match_archive.xlsx, NALTP_sources.xlsx: spreadsheet exports.
+- <base>/seasons/index.html: older season browser (before two-source checking).

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NALTP Archive</title>
+<meta name="description" content="The history of the North American TagPro leagues (MLTP, mLTP, NLTP, ALTP): schedules, games, drafts, rosters and trades from every season.">
+<link rel="alternate" type="text/plain" title="Guide for AI assistants and programs" href="llms.txt">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>">
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#16181d;--muted:#5b6270;--line:#dfe3ea;--accent:#1f5fd1;--accent-ink:#fff;
+  --good:#1d7a45;--bad:#b3261e;--soft:#eef2f8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101216;--card:#181b21;--ink:#e8eaee;--muted:#9aa2b1;
+  --line:#2a2f38;--accent:#7aa7ff;--accent-ink:#0b1020;--good:#5cc98a;--bad:#f28b82;--soft:#1f242c}}
+:root[data-theme="dark"]{--bg:#101216;--card:#181b21;--ink:#e8eaee;--muted:#9aa2b1;--line:#2a2f38;--accent:#7aa7ff;
+  --accent-ink:#0b1020;--good:#5cc98a;--bad:#f28b82;--soft:#1f242c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:880px;margin:0 auto;padding:40px 16px 64px}
+h1{font-size:clamp(28px,5vw,40px);line-height:1.1;margin:0 0 10px;letter-spacing:-.02em}
+.lede{color:var(--muted);margin:0 0 18px;max-width:62ch}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);background:var(--card);
+  border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--muted)}
+.status.up .dot{background:var(--good)} .status.down .dot{background:var(--bad)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:28px 0}
+.card{display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:18px;color:inherit;text-decoration:none}
+a.card:hover{border-color:var(--accent)}
+.card h2{font-size:18px;margin:0}
+.card p{margin:0;color:var(--muted);font-size:14.5px}
+.card .go{margin-top:auto;padding-top:8px;color:var(--accent);font-weight:600;font-size:14.5px}
+.files{display:grid;gap:8px;margin-top:6px}
+.files a{display:flex;justify-content:space-between;gap:10px;align-items:baseline;text-decoration:none;color:var(--ink);
+  background:var(--soft);border-radius:8px;padding:8px 10px;font-size:14.5px}
+.files a:hover{outline:1px solid var(--accent)}
+.files small{color:var(--muted)}
+h3{font-size:15px;margin:36px 0 8px}
+.find input{width:100%;font:inherit;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.find input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.results{display:grid;gap:8px;margin-top:10px}
+.results a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:inherit;text-decoration:none}
+.results a:hover{border-color:var(--accent)}
+.results strong{display:block;font-size:15px}
+.results span{color:var(--muted);font-size:14px}
+.note{color:var(--muted);font-size:13.5px;margin-top:40px}
+.off .needs-server{opacity:.55;pointer-events:none}
+</style>
+</head>
+<body>
+<main>
+  <h1>NALTP Archive</h1>
+  <p class="lede">The history of the North American TagPro leagues — MLTP, mLTP, NLTP and ALTP. Every season's schedule, games, drafts, rosters and trades, collected from the leagues' Google Sheets, tagproleague.com, tagpro.eu and mltp.gg.</p>
+  <span class="status" id="status" role="status"><span class="dot"></span><span id="statustext">Connecting to the archive…</span></span>
+
+  <div class="grid">
+    <a class="card needs-server" data-path="almanac/index.html">
+      <h2>Seasons</h2>
+      <p>Pick a season to see its schedule, results, draft, rosters and trades. Only facts that two separate sources agree on are shown.</p>
+      <span class="go">Browse seasons →</span>
+    </a>
+    <a class="card needs-server" data-path="viewer/">
+      <h2>Original sheets</h2>
+      <p>Open any of the league spreadsheets we saved — hubs, draft packets, stats sheets — laid out like Google Sheets.</p>
+      <span class="go">Open the sheets →</span>
+    </a>
+    <div class="card needs-server">
+      <h2>Download the data</h2>
+      <p>Everything we read out of the sources, as spreadsheets.</p>
+      <div class="files">
+        <a data-path="viewer/data/records/games.csv" download>games.csv <small>every matchup and game</small></a>
+        <a data-path="viewer/data/records/rosters.csv" download>rosters.csv <small>roster places, draft picks</small></a>
+        <a data-path="viewer/data/records/misc.csv" download>misc.csv <small>trades, teams, committee, maps</small></a>
+      </div>
+    </div>
+  </div>
+
+  <h3>Help check the data</h3>
+  <p class="lede needs-server" style="margin:0">Where our sources disagree, we list both sides instead of guessing. <a data-path="conflicts.csv" download>Download the list of disagreements</a> — each row says what each source claims and which cell to look at.</p>
+
+  <h3>Looking for something else?</h3>
+  <div class="find">
+    <input id="q" type="search" placeholder="Search reports, e.g. “missing games”, “calendar”, “hub links”" aria-label="Search the archive's reports" autocomplete="off">
+    <div class="results" id="results" aria-live="polite"></div>
+  </div>
+
+  <p class="note">The archive runs on a home computer, reached through a Cloudflare tunnel whose address changes; this page always finds the current one. If it shows offline, try again later.</p>
+</main>
+<script>
+(() => {
+  // Reports kept out of the way: they appear only when searched for. The same list is in llms.txt.
+  const REPORTS = [
+    ["handover.html", "Situation and data sources", "The whole picture: every source, the pipeline, what's verified, what isn't.", "overview sources pipeline verified status handover"],
+    ["sources.html", "Where rosters, drafts and trades live", "Each season's draft order, rosters and trade lists: where they are and their quirks.", "roster draft trade transactions sources packet"],
+    ["SOURCES.md", "Source inventory (text)", "Every source we hold and its format.", "sources formats inventory markdown list"],
+    ["schedule.html", "Full schedule", "Every week's matchups by season, with the games we have.", "schedule matchups weeks fixtures"],
+    ["calendar.html", "League calendar", "Every league night, month by month.", "calendar dates nights months"],
+    ["missing_games.html", "Missing games", "Regular-season games still missing and how they were searched for.", "missing games search gaps"],
+    ["hub_report.html", "Wrong links in the hubs", "Hub cells linking to the wrong tagpro.eu match, with the right one.", "hub links wrong fix errors tagpro.eu"],
+    ["hub_audit.html", "Hub link audit", "Every link in every hub's Scores and More tab, checked.", "hub audit links scores"],
+    ["schedule_crosscheck.html", "Schedule cross-check", "The hubs' schedules compared with tagproleague.com.", "schedule cross check compare tagproleague hubs"],
+    ["sources_data/README.md", "Condensed sources (database)", "All sheets and website data as CSV files and one SQLite database.", "sqlite database csv condensed raw cells sources data"],
+    ["NALTP_rosters.xlsx", "Rosters workbook (.xlsx)", "Rosters, final rosters, transactions.", "xlsx excel rosters workbook"],
+    ["NALTP_schedule.xlsx", "Schedule workbook (.xlsx)", "One tab per season of matchups.", "xlsx excel schedule workbook"],
+    ["NALTP_match_archive.xlsx", "Match archive workbook (.xlsx)", "Every game with its tagpro.eu details.", "xlsx excel games matches archive"],
+    ["NALTP_sources.xlsx", "Source comparison workbook (.xlsx)", "Every roster source side by side.", "xlsx excel compare sources"],
+    ["seasons/index.html", "Older season browser", "The earlier by-season pages, before two-source checking.", "old seasons browser previous"],
+  ];
+  const onTunnel = /trycloudflare\.com$|^127\.0\.0\.1$|^localhost$/.test(location.hostname);
+  let base = onTunnel ? location.origin + "/" : null;
+  const status = document.getElementById("status"), text = document.getElementById("statustext");
+
+  const wire = () => document.querySelectorAll("[data-path]").forEach(a => { a.href = base + a.dataset.path; });
+  const setState = up => {
+    status.classList.toggle("up", up); status.classList.toggle("down", !up);
+    document.body.classList.toggle("off", !up);
+    text.textContent = up ? "Archive online" : "Archive offline right now — try again later";
+  };
+
+  (async () => {
+    try {
+      if (!base) {
+        const t = await fetch("tunnel.json", {cache: "no-store"}).then(r => r.json());
+        base = t.url.replace(/\/?$/, "/");
+      }
+      wire();
+      const r = await fetch(base + "tunnel-check.txt", {cache: "no-store"});
+      setState(r.ok && (await r.text()).trim() === "naltp-archive");
+    } catch (e) { if (base) wire(); setState(false); }
+  })();
+
+  const q = document.getElementById("q"), out = document.getElementById("results");
+  q.addEventListener("input", () => {
+    const words = q.value.toLowerCase().split(/\s+/).filter(w => w.length > 1);
+    if (!words.length) { out.innerHTML = ""; return; }
+    const hits = REPORTS.filter(([, title, desc, keys]) => { const hay = (title + " " + desc + " " + keys).toLowerCase(); return words.every(w => hay.includes(w)); });
+    const esc = s => s.replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+    out.innerHTML = hits.length
+      ? hits.map(([path, title, desc]) => `<a href="${base ? esc(base + path) : "#"}"><strong>${esc(title)}</strong><span>${esc(desc)}</span></a>`).join("")
+      : `<span class="note" style="margin:0">Nothing matches. Try “schedule”, “hub”, “database” or “xlsx”.</span>`;
+  });
+})();
+</script>
+</body>
+</html>
