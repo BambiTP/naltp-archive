@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NALTP Archive</title>
+<link rel="alternate" type="text/plain" title="Guide for AI assistants and programs" href="llms.txt">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>">
+<style>
+:root{--bg:#f6f7f9;--bar:#fff;--ink:#16181d;--muted:#5b6270;--line:#dfe3ea;--accent:#1f5fd1;--good:#1d7a45;--bad:#b3261e}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101216;--bar:#181b21;--ink:#e8eaee;--muted:#9aa2b1;--line:#2a2f38;--accent:#7aa7ff;--good:#5cc98a;--bad:#f28b82}}
+:root[data-theme="dark"]{--bg:#101216;--bar:#181b21;--ink:#e8eaee;--muted:#9aa2b1;--line:#2a2f38;--accent:#7aa7ff;--good:#5cc98a;--bad:#f28b82}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{display:flex;flex-direction:column;background:var(--bg);color:var(--ink);font:15px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{display:flex;align-items:center;gap:6px 16px;flex-wrap:wrap;padding:8px 16px;background:var(--bar);border-bottom:1px solid var(--line)}
+.brand{font-weight:700;color:var(--ink);text-decoration:none;margin-right:8px}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:999px}
+nav a:hover{color:var(--ink);background:var(--bg)}
+nav a[aria-current="page"]{color:var(--accent);font-weight:600}
+.dot{margin-left:auto;width:9px;height:9px;border-radius:50%;background:var(--muted)}
+.up .dot{background:var(--good)} .down .dot{background:var(--bad)}
+iframe{flex:1;width:100%;border:0;background:#fff}
+.msg{margin:auto;max-width:46ch;padding:24px 16px;text-align:center;color:var(--muted)}
+.msg h1{color:var(--ink);font-size:22px;margin:0 0 8px}
+.hide{display:none!important}
+</style>
+</head>
+<body>
+<header id="bar">
+  <a class="brand" href="./">NALTP Archive</a>
+  <nav aria-label="Sections">
+    <a data-p="almanac/index.html">Seasons</a>
+    <a data-p="viewer/#m=data&d=games">Data</a>
+    <a data-p="viewer/">Original sheets</a>
+  </nav>
+  <span class="dot" id="dot" role="img" aria-label="Connecting"></span>
+</header>
+<iframe id="frame" class="hide" title="NALTP Archive"></iframe>
+<div class="msg" id="msg"><h1>Connecting…</h1><p>Finding the archive server.</p></div>
+<script>
+(async () => {
+  const params = new URLSearchParams(location.search);
+  const path = params.get("p") || "almanac/index.html";
+  const bar = document.getElementById("bar"), frame = document.getElementById("frame"), msg = document.getElementById("msg");
+  const offline = () => {
+    bar.classList.add("down"); document.getElementById("dot").setAttribute("aria-label", "Offline");
+    frame.classList.add("hide"); msg.classList.remove("hide");
+    msg.innerHTML = "<h1>The archive is offline</h1><p>The server that holds the data isn't reachable right now. Please try again later.</p>";
+  };
+  const markNav = p => document.querySelectorAll("nav a").forEach(a => {
+    const here = p.split("#")[0].split("/")[0] === a.dataset.p.split("#")[0].split("/")[0] && (p.includes("m=data") === a.dataset.p.includes("m=data"));
+    a.setAttribute("aria-current", here ? "page" : "false");
+  });
+  document.querySelectorAll("nav a").forEach(a => a.href = "app.html?p=" + encodeURIComponent(a.dataset.p));
+  let base;
+  try {
+    base = (await fetch("tunnel.json", {cache: "no-store"}).then(r => r.json())).url.replace(/\/?$/, "/");
+    const ok = await fetch(base + "tunnel-check.txt", {cache: "no-store"}).then(r => r.text());
+    if (ok.trim() !== "naltp-archive") throw new Error("not the archive");
+  } catch (e) { offline(); return; }
+  bar.classList.add("up"); document.getElementById("dot").setAttribute("aria-label", "Online");
+  msg.classList.add("hide"); frame.classList.remove("hide");
+  frame.src = base + path;
+  markNav(path);
+  // the archive's pages report where they are, so this address can be shared
+  const origin = new URL(base).origin;
+  addEventListener("message", e => {
+    if (e.origin !== origin || !e.data || !e.data.naltp) return;
+    history.replaceState(null, "", "app.html?p=" + encodeURIComponent(e.data.path));
+    document.title = (e.data.title ? e.data.title + " · " : "") + "NALTP Archive";
+    markNav(e.data.path);
+  });
+})();
+</script>
+</body>
+</html>

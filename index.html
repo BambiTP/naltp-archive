@@ -31,18 +31,12 @@ a.card:hover{border-color:var(--accent)}
 .card p{margin:0;color:var(--muted);font-size:14.5px}
 .card .go{margin-top:auto;padding-top:8px;color:var(--accent);font-weight:600;font-size:14.5px}
 .files{display:grid;gap:8px;margin-top:6px}
+h3+.files{margin-top:0}
 .files a{display:flex;justify-content:space-between;gap:10px;align-items:baseline;text-decoration:none;color:var(--ink);
   background:var(--soft);border-radius:8px;padding:8px 10px;font-size:14.5px}
 .files a:hover{outline:1px solid var(--accent)}
 .files small{color:var(--muted)}
 h3{font-size:15px;margin:36px 0 8px}
-.find input{width:100%;font:inherit;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
-.find input:focus{outline:2px solid var(--accent);outline-offset:1px}
-.results{display:grid;gap:8px;margin-top:10px}
-.results a{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:inherit;text-decoration:none}
-.results a:hover{border-color:var(--accent)}
-.results strong{display:block;font-size:15px}
-.results span{color:var(--muted);font-size:14px}
 .note{color:var(--muted);font-size:13.5px;margin-top:40px}
 .off .needs-server{opacity:.55;pointer-events:none}
 </style>
@@ -50,67 +44,48 @@ h3{font-size:15px;margin:36px 0 8px}
 <body>
 <main>
   <h1>NALTP Archive</h1>
-  <p class="lede">The history of the North American TagPro leagues — MLTP, mLTP, NLTP and ALTP. Every season's schedule, games, drafts, rosters and trades, collected from the leagues' Google Sheets, tagproleague.com, tagpro.eu and mltp.gg.</p>
+  <p class="lede">The history of the North American TagPro leagues — MLTP, mLTP, NLTP and ALTP: every season's schedule, games, drafts, rosters and trades.</p>
   <span class="status" id="status" role="status"><span class="dot"></span><span id="statustext">Connecting to the archive…</span></span>
 
   <div class="grid">
-    <a class="card needs-server" data-path="almanac/index.html">
+    <a class="card needs-server" data-app="almanac/index.html">
       <h2>Seasons</h2>
-      <p>Pick a season to see its schedule, results, draft, rosters and trades. Only facts that two separate sources agree on are shown.</p>
+      <p>Pick a season to see its schedule, results, draft, rosters and trades.</p>
       <span class="go">Browse seasons →</span>
     </a>
-    <a class="card needs-server" data-path="viewer/">
+    <a class="card needs-server" data-app="viewer/#m=data&d=games">
+      <h2>Data</h2>
+      <p>Every game, roster and trade in three tables you can search and download.</p>
+      <span class="go">Open the data →</span>
+    </a>
+    <a class="card needs-server" data-app="viewer/">
       <h2>Original sheets</h2>
-      <p>Open any of the league spreadsheets we saved — hubs, draft packets, stats sheets — laid out like Google Sheets.</p>
+      <p>The league's own spreadsheets — hubs, draft packets, stats sheets — exactly as they were.</p>
       <span class="go">Open the sheets →</span>
     </a>
-    <div class="card needs-server">
-      <h2>Download the data</h2>
-      <p>Everything we read out of the sources, as spreadsheets.</p>
-      <div class="files">
-        <a data-path="viewer/data/records/games.csv" download>games.csv <small>every matchup and game</small></a>
-        <a data-path="viewer/data/records/rosters.csv" download>rosters.csv <small>roster places, draft picks</small></a>
-        <a data-path="viewer/data/records/misc.csv" download>misc.csv <small>trades, teams, committee, maps</small></a>
-      </div>
-    </div>
   </div>
 
-  <h3>Help check the data</h3>
-  <p class="lede needs-server" style="margin:0">Where our sources disagree, we list both sides instead of guessing. <a data-path="conflicts.csv" download>Download the list of disagreements</a> — each row says what each source claims and which cell to look at.</p>
-
-  <h3>Looking for something else?</h3>
-  <div class="find">
-    <input id="q" type="search" placeholder="Search reports, e.g. “missing games”, “calendar”, “hub links”" aria-label="Search the archive's reports" autocomplete="off">
-    <div class="results" id="results" aria-live="polite"></div>
+  <h3>Downloads</h3>
+  <div class="files needs-server">
+    <a data-path="viewer/data/records/games.csv" download>games.csv <small>every game: teams, score, map, replay link</small></a>
+    <a data-path="viewer/data/records/rosters.csv" download>rosters.csv <small>every team's players, after the draft and at season end</small></a>
+    <a data-path="viewer/data/records/misc.csv" download>misc.csv <small>trades and signings, teams, rules committee, maps</small></a>
   </div>
 
-  <p class="note">The archive runs on a home computer, reached through a Cloudflare tunnel whose address changes; this page always finds the current one. If it shows offline, try again later.</p>
+  <p class="note">“Confirmed” means two separate sources agree.</p>
+
 </main>
 <script>
 (() => {
-  // Reports kept out of the way: they appear only when searched for. The same list is in llms.txt.
-  const REPORTS = [
-    ["handover.html", "Situation and data sources", "The whole picture: every source, the pipeline, what's verified, what isn't.", "overview sources pipeline verified status handover"],
-    ["sources.html", "Where rosters, drafts and trades live", "Each season's draft order, rosters and trade lists: where they are and their quirks.", "roster draft trade transactions sources packet"],
-    ["SOURCES.md", "Source inventory (text)", "Every source we hold and its format.", "sources formats inventory markdown list"],
-    ["schedule.html", "Full schedule", "Every week's matchups by season, with the games we have.", "schedule matchups weeks fixtures"],
-    ["calendar.html", "League calendar", "Every league night, month by month.", "calendar dates nights months"],
-    ["missing_games.html", "Missing games", "Regular-season games still missing and how they were searched for.", "missing games search gaps"],
-    ["hub_report.html", "Wrong links in the hubs", "Hub cells linking to the wrong tagpro.eu match, with the right one.", "hub links wrong fix errors tagpro.eu"],
-    ["hub_audit.html", "Hub link audit", "Every link in every hub's Scores and More tab, checked.", "hub audit links scores"],
-    ["schedule_crosscheck.html", "Schedule cross-check", "The hubs' schedules compared with tagproleague.com.", "schedule cross check compare tagproleague hubs"],
-    ["sources_data/README.md", "Condensed sources (database)", "All sheets and website data as CSV files and one SQLite database.", "sqlite database csv condensed raw cells sources data"],
-    ["NALTP_rosters.xlsx", "Rosters workbook (.xlsx)", "Rosters, final rosters, transactions.", "xlsx excel rosters workbook"],
-    ["NALTP_schedule.xlsx", "Schedule workbook (.xlsx)", "One tab per season of matchups.", "xlsx excel schedule workbook"],
-    ["NALTP_match_archive.xlsx", "Match archive workbook (.xlsx)", "Every game with its tagpro.eu details.", "xlsx excel games matches archive"],
-    ["NALTP_sources.xlsx", "Source comparison workbook (.xlsx)", "Every roster source side by side.", "xlsx excel compare sources"],
-    ["seasons/index.html", "Older season browser", "The earlier by-season pages, before two-source checking.", "old seasons browser previous"],
-  ];
   const onTunnel = /trycloudflare\.com$|^127\.0\.0\.1$|^localhost$/.test(location.hostname);
   let base = onTunnel ? location.origin + "/" : null;
   const status = document.getElementById("status"), text = document.getElementById("statustext");
 
-  const wire = () => document.querySelectorAll("[data-path]").forEach(a => { a.href = base + a.dataset.path; });
+  const wire = () => {
+    document.querySelectorAll("[data-path]").forEach(a => { a.href = base + a.dataset.path; });
+    // on GitHub Pages the archive opens inside app.html, so the address stays here
+    document.querySelectorAll("[data-app]").forEach(a => { a.href = onTunnel ? base + a.dataset.app : "app.html?p=" + encodeURIComponent(a.dataset.app); });
+  };
   const setState = up => {
     status.classList.toggle("up", up); status.classList.toggle("down", !up);
     document.body.classList.toggle("off", !up);
@@ -129,16 +104,6 @@ h3{font-size:15px;margin:36px 0 8px}
     } catch (e) { if (base) wire(); setState(false); }
   })();
 
-  const q = document.getElementById("q"), out = document.getElementById("results");
-  q.addEventListener("input", () => {
-    const words = q.value.toLowerCase().split(/\s+/).filter(w => w.length > 1);
-    if (!words.length) { out.innerHTML = ""; return; }
-    const hits = REPORTS.filter(([, title, desc, keys]) => { const hay = (title + " " + desc + " " + keys).toLowerCase(); return words.every(w => hay.includes(w)); });
-    const esc = s => s.replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
-    out.innerHTML = hits.length
-      ? hits.map(([path, title, desc]) => `<a href="${base ? esc(base + path) : "#"}"><strong>${esc(title)}</strong><span>${esc(desc)}</span></a>`).join("")
-      : `<span class="note" style="margin:0">Nothing matches. Try “schedule”, “hub”, “database” or “xlsx”.</span>`;
-  });
 })();
 </script>
 </body>

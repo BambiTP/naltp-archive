@@ -10,16 +10,19 @@ then append the paths below. <base>/tunnel-check.txt contains "naltp-archive" wh
 All responses allow cross-origin requests.
 
 ## Extracted data (start here)
-- <base>/viewer/data/records/games.csv: one row per game (or per matchup with no game found). Columns: season, tier, week, night, matchup_id, team_a, team_b, game, match_id, played_et, map, score_a, score_b, tag_a, tag_b, link, sources, verified. verified=yes when two or more independent sources name the game.
-- <base>/viewer/data/records/rosters.csv: every roster place and draft pick as read from each source. Columns: source, sheet, cell, kind (roster_place|draft_pick), season, tier, phase (post-draft|end of season), team, player, role, pick, round, captain, captain_type, tagcoins, squad, marks, note.
-- <base>/viewer/data/records/misc.csv: transactions, teams, committee members and votes, maps. Columns: source, sheet, cell, kind, season, tier, week, date, type, name, team, from_team, to_team, consideration, details, abbr, captain, captain_type, paired_team, vote, outcome, motion, note.
+- <base>/viewer/data/records/games.csv: one row per game (a scheduled matchup with no game found is one row with no score). Columns: season, league, week, played, team_a, team_b, game, score_a, score_b, map, replay (tagpro.eu link), confirmed.
+- <base>/viewer/data/records/rosters.csv: one row per player per team per stage. Columns: season, league, team, player, stage (after the draft | end of season), role, joined_by (draft | trade | add or drop), draft_pick (as the sheet wrote it), tagcoins, games_for_team (tagpro.eu games, 10 minutes = 1 game), confirmed.
+- <base>/viewer/data/records/misc.csv: Columns: season, league, category (transaction | team | rules committee member | map), date, week, name, team, description, confirmed.
 - Each also as .json: {"columns": [...], "rows": [[...]]}.
+- confirmed = yes when two separate sources agree.
 - <base>/conflicts.csv: cross-source disagreements awaiting manual review (priority, check, what the two-source fact says, what the other source says, cell refs).
+- Fuller internal tables with sources and ids are not published here; the condensed raw sources are (below).
 
 Season ids: S<n> = Majors/Minors season n (post-merge S27+ also has Novice), N<n> = NLTP season n, A<n> = ALTP season n.
 Rule used throughout: a fact is trusted when two separate documents state it; single-source facts are kept but marked.
 
 ## Browsing
+- https://bambitp.github.io/naltp-archive/app.html?p=<path>: any path below, shown inside the GitHub Pages site.
 - <base>/almanac/index.html: one page per season, two-source facts only.
 - <base>/viewer/: every downloaded spreadsheet, cell for cell (Sheet mode) and the three extracted tables (Data mode). Tab data: <base>/viewer/data/tabs/<n>.json, catalog at <base>/viewer/data/catalog.json.
 
