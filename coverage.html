@@ -33,7 +33,7 @@ h1{font:700 clamp(30px,4vw,42px)/1 var(--display);text-transform:uppercase;lette
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .sw{width:14px;height:14px;border-radius:3px;display:inline-block}
 .layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:20px;align-items:start}
-@media (max-width:980px){.layout{grid-template-columns:1fr}}
+@media (max-width:980px){.layout{grid-template-columns:minmax(0,1fr)}}
 section.era{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 14px 10px;margin-bottom:16px}
 section.era h2{font:700 20px/1 var(--display);text-transform:uppercase;letter-spacing:.04em;margin:0 0 4px}
 section.era p{margin:0 0 10px;color:var(--muted);font-size:13.5px}
@@ -85,7 +85,7 @@ background:none;border-radius:0;padding:0}
 .modes{display:flex;gap:4px;margin:0 0 14px;grid-column:1/-1}
 .modes button{border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer;
 padding:6px 14px;font:600 12px/1.2 var(--display);letter-spacing:.1em;text-transform:uppercase;border-radius:3px}
-.modes button[aria-selected=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.modes button[aria-selected=true]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
 th.roundname{font-size:10px;letter-spacing:.04em;white-space:nowrap}
 </style>
 </head>
@@ -115,40 +115,50 @@ th.roundname{font-size:10px;letter-spacing:.04em;white-space:nowrap}
 function keepState(opts) {
   opts = opts || {};
   const key = "naltp:where:" + location.pathname + location.search;
+  const FRESH = 4 * 60 * 60 * 1000;                         // older than this and a reader has moved on
   let store = null;
   try { sessionStorage.setItem("naltp:t", "1"); sessionStorage.removeItem("naltp:t"); store = sessionStorage; } catch (e) {}
-  const read = () => { try { return JSON.parse(store.getItem(key) || "null"); } catch (e) { return null; } };
+  // a link that names a place on the page says where to be, so nothing here argues with it
+  const anchored = !!location.hash;
+  const read = () => {
+    try {
+      const s = JSON.parse(store.getItem(key) || "null");
+      return s && Date.now() - (s.at || 0) < FRESH ? s : null;
+    } catch (e) { return null; }
+  };
   const save = () => {
     if (!store) return;
-    const s = {y: window.scrollY || document.documentElement.scrollTop || 0, parts: {}};
+    const s = {at: Date.now(), y: window.scrollY || document.documentElement.scrollTop || 0, parts: {}};
     document.querySelectorAll("[data-keep]").forEach(el => { s.parts[el.dataset.keep] = el.scrollTop; });
     try { Object.assign(s, opts.get ? opts.get() : {}); } catch (e) {}
     try { store.setItem(key, JSON.stringify(s)); } catch (e) {}
   };
   const put = s => {
-    window.scrollTo(0, s.y || 0);
+    if (anchored) return;
+    const most = Math.max(0, document.documentElement.scrollHeight - innerHeight);
+    window.scrollTo(0, Math.min(s.y || 0, most));           // never past the end of a page that has changed
     document.querySelectorAll("[data-keep]").forEach(el => {
       const at = s.parts && s.parts[el.dataset.keep];
       if (at != null) el.scrollTop = at;
     });
   };
-  if (store) {
-    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-    let t = 0;
-    addEventListener("scroll", () => { clearTimeout(t); t = setTimeout(save, 150); }, {passive: true});
-    addEventListener("click", e => { if (e.target.closest("a")) save(); }, true);
-    addEventListener("pagehide", save);
-    addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") save(); });
-    const s = read();
-    if (s) {
-      try { opts.set && opts.set(s); } catch (e) {}
-      // once now, once the page has drawn itself, once more when the fonts and images have settled
+  if (!store) return {save: () => {}, was: null, back: () => {}, anchored};
+  let t = 0;
+  addEventListener("scroll", () => { clearTimeout(t); t = setTimeout(save, 150); }, {passive: true});
+  addEventListener("click", e => { if (e.target.closest("a")) save(); }, true);
+  addEventListener("pagehide", save);
+  addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") save(); });
+  const s = read();
+  if (s) {
+    try { opts.set && opts.set(s, anchored); } catch (e) {}
+    if (!anchored) {
+      // the page draws itself, so the scroll goes back now, once it has drawn, and once the fonts settle
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
       put(s); requestAnimationFrame(() => put(s));
       addEventListener("load", () => setTimeout(() => put(s), 0));
     }
-    return {save, was: s, back: () => s && put(s)};
   }
-  return {save: () => {}, was: null, back: () => {}};
+  return {save, was: s, back: () => { if (s) put(s); }, anchored};
 }
 
 (() => {
