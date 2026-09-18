@@ -150,7 +150,10 @@ function keepState(opts) {
       <div class="ways">${ways.map(([href, label, sub, out_]) => `<a href="${esc(href)}"${out_ ? ' target="_blank" rel="noopener"' : ""}><b>${esc(label)}</b> <span>${esc(sub)}</span></a>`).join("")}</div>
       ${m.teams_matched === false ? `<p class="warn">Which side is which team isn\u2019t settled: too few of the players are on either roster, so the two sides are shown as the record has them.</p>` : ""}
       ${m.unnamed ? `<p class="warn">The schedule never wrote one of these teams down, so it is shown by the tag it played under.</p>` : ""}
-      <div class="tables" style="margin-top:16px">${m.teams.map(table).join("")}</div>
+      ${m.no_scoreboard
+        ? `<p class="warn">The archive has this match's place in the season but not its scoreboard: it was played
+            after the local copy of tagpro.eu ends, so the line-ups and the stats are only on tagpro.eu itself.</p>`
+        : `<div class="tables" style="margin-top:16px">${m.teams.map(table).join("")}</div>`}
       ${m.held === "tagpro.eu"
         ? `<p class="note">This is the archive\u2019s own copy of the tagpro.eu record \u2014 the scoreboard as tagpro.eu kept it, read out of a full local copy of the site. The match on tagpro.eu itself is at <a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.url)}</a>.</p>`
         : `<p class="note">${m.kind === "tagpro.eu match" ? "The tagpro.eu match record, saved to pastebin" : "A stats sheet saved to pastebin \u2014 one row per player"}: <a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.url)}</a>. tagpro.eu doesn\u2019t have this match.</p>
