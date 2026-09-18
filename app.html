@@ -32,8 +32,7 @@ iframe{flex:1;width:100%;border:0;background:#fff}
   <a class="brand" href="./">NALTP Archive</a>
   <nav aria-label="Sections">
     <a data-p="almanac/index.html">Seasons</a>
-    <a data-p="viewer/#m=data&d=games">Data</a>
-    <a data-p="viewer/">Original sheets</a>
+    <a data-p="viewer/">Spreadsheets</a>
   </nav>
   <span class="dot" id="dot" role="img" aria-label="Connecting"></span>
 </header>
@@ -50,7 +49,7 @@ iframe{flex:1;width:100%;border:0;background:#fff}
     msg.innerHTML = "<h1>The archive is offline</h1><p>The server that holds the data isn't reachable right now. Please try again later.</p>";
   };
   const markNav = p => document.querySelectorAll("nav a").forEach(a => {
-    const here = p.split("#")[0].split("/")[0] === a.dataset.p.split("#")[0].split("/")[0] && (p.includes("m=data") === a.dataset.p.includes("m=data"));
+    const here = p.split("#")[0].split("/")[0] === a.dataset.p.split("#")[0].split("/")[0];
     a.setAttribute("aria-current", here ? "page" : "false");
   });
   document.querySelectorAll("nav a").forEach(a => a.href = "app.html?p=" + encodeURIComponent(a.dataset.p));

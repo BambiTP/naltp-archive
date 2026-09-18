@@ -18,12 +18,16 @@ age}. All responses allow cross-origin requests.
 - <base>/viewer/data/records/rosters.csv: one row per player per team per stage. Columns: season, league, team, player, stage (after the draft | end of season), role, joined_by (draft | trade | add or drop), draft_pick (as the sheet wrote it), tagcoins, games_for_team (tagpro.eu games, 10 minutes = 1 game), confirmed.
 - <base>/viewer/data/records/misc.csv: Columns: season, league, category (transaction | team | rules committee member | map), date, week, name, team, description, confirmed.
 - Each also as .json: {"columns": [...], "rows": [[...]]}.
+- source, on every row of those three: a link into the archive's copy of the spreadsheet the fact was read from, opened at that cell (or the mltp.gg page, where that is the source). Blank where the fact came from tagpro.eu rather than a sheet - for a game, the replay column is the record. Rosters: every row. Games: the 7,840 whose result was read from a season hub. Misc: transactions and rules-committee rows.
 - confirmed = yes when two separate sources agree.
 - <base>/conflicts.csv: every place sources disagree. Columns: season, league, what, subject, stage_or_week, one_side_says, other_side_says, tagpro_eu_shows, hub_shows, outcome, sources, cells. Only disagreements tagpro.eu and the hub don't settle.
 - Fuller internal tables with sources and ids are not published here; the condensed raw sources are (below).
 
 Season ids: S<n> = Majors/Minors season n (post-merge S27+ also has Novice), N<n> = NLTP season n, A<n> = ALTP season n.
 Rule used throughout: a fact is trusted when two separate documents state it; single-source facts are kept but marked.
+
+## Every match in one file
+- https://bambitp.github.io/naltp-archive/matches.json and <base>/matches.json: every match the archive holds, as season -> league -> week -> that week's games (19,230 games, 49 seasons, 7.6 MB). Each game: team_a, team_b, game (the label, G1..G5 or G1H1 for halves), score in that team order, played (ET) and played_utc, map, minutes, record ("tagpro.eu", "pastebin", or null where none was found), url, match (the tagpro.eu id), players and tags with the first-named team's side first. Where record is null, why says what is known and hub_score gives the season hub's score. Served from GitHub Pages, so it does not need the tunnel.
 
 ## Full export with statuses (internal detail)
 - <base>/export/README.md: explains the files below.
@@ -42,10 +46,7 @@ Rule used throughout: a fact is trusted when two separate documents state it; si
 ## Browsing
 - https://bambitp.github.io/naltp-archive/app.html?p=<path>: any path below, shown inside the GitHub Pages site.
 - <base>/almanac/index.html: one page per season, two-source facts only.
-- <base>/viewer/: every downloaded spreadsheet. Each tab opens two ways, from one switch: Original, the sheet cell for cell with its merges, colours, links and formulas, and Data, the table on that tab with the title strips dropped and a header found. <base>/viewer/#t=<n> and <base>/viewer/#t=<n>&m=data open one tab either way.
-  - Original: <base>/viewer/data/tabs/<n>.json. Catalog of every workbook and tab: <base>/viewer/data/catalog.json.
-  - Data: <base>/viewer/data/sheet/<n>.json = {"columns": [...], "rows": [[row number, ...values]], "letters": [the sheet's own column letters], "note": ""}. Index of which tabs have one, with a CSV path each: <base>/viewer/data/sheet/index.json.
-  - The archive's own three tables (games, rosters, misc) are tabs 900001-900003 there, and are the files under ## Extracted data above.
+- <base>/viewer/: every downloaded spreadsheet, cell for cell, with its merges, colours, links and formulas. <base>/viewer/#t=<n> opens one tab; <base>/viewer/#t=<n>&c=<row>,<column> opens it with that cell picked out, which is what the source column of the tables above links to. Tab data: <base>/viewer/data/tabs/<n>.json, catalog of every workbook and tab: <base>/viewer/data/catalog.json.
 
 ## Raw sources, condensed
 - <base>/sources_data/README.md: format of the condensed sources.
