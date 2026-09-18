@@ -199,7 +199,7 @@ function keepState(opts) {
       const pct = r.total ? Math.round(100 * r.on / r.total) : 0;
       return `${gap}<tr><td class="rowlabel">${esc(r.label)}${r.tag ? `<small>${esc(r.tag)}</small>` : ""}${hubLink(r)}</td>${cells}<td class="pct">${pct}%</td></tr>`;
     }).join("");
-    return `<section class="era"><h2>${esc(era.title)}</h2><p>${esc(era.note)}</p><div class="scroll"><table class="grid"><thead>${head}</thead><tbody>${body}</tbody></table></div></section>`;
+    return `<section class="era"><h2>${esc(era.title)}</h2><p>${esc(era.note)}</p><div class="scroll" data-keep="grid${ei}"><table class="grid"><thead>${head}</thead><tbody>${body}</tbody></table></div></section>`;
   }).join("");
   draw();
   for (const [id, which] of [["mSeason", "eras"], ["mPlayoffs", "playoffs"]]) {
