@@ -18,7 +18,9 @@
 body{margin:0;background:var(--ground);color:var(--ink);font:15px/1.5 var(--body);padding-inline:16px;padding-block:20px 48px}
 .wrap{max-width:1000px;margin:0 auto}
 a{color:inherit}
-.back{font-size:13.5px;color:var(--muted);text-decoration:none}
+.back{font-size:13.5px;color:var(--muted);text-decoration:none;background:none;border:0;padding:0;font-family:inherit;cursor:pointer}
+.back:hover{color:var(--ink)}
+.backs{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
 h1{font:700 clamp(24px,4vw,34px)/1.05 var(--display);text-transform:uppercase;margin:10px 0 4px}
 .meta{color:var(--muted);font-size:14px;margin:0 0 18px}
 .score{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;background:var(--surface);border:1px solid var(--line);
@@ -27,6 +29,7 @@ h1{font:700 clamp(24px,4vw,34px)/1.05 var(--display);text-transform:uppercase;ma
 .score .n{font:500 30px/1 var(--mono)}
 .score .dash{color:var(--muted)}
 .side.one .n{color:var(--red)} .side.two .n{color:var(--blue)}
+.ended{margin-left:auto;font-size:13px;color:var(--muted);text-transform:none;font-family:var(--body)}
 table{border-collapse:collapse;width:100%;font-size:14px;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
 caption{text-align:left;font:700 16px var(--display);text-transform:uppercase;letter-spacing:.05em;padding:10px 12px;color:var(--muted)}
 th,td{padding:6px 10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
@@ -36,48 +39,123 @@ tbody tr:last-child td{border-bottom:0}
 td.name{font-weight:600}
 .tables{display:grid;gap:16px;grid-template-columns:1fr}
 @media (min-width:860px){.tables{grid-template-columns:1fr 1fr}}
+.tw{min-width:0;overflow-x:auto;border-radius:12px}
+.tw table{border-radius:12px}
 .note{color:var(--muted);font-size:13.5px;margin-top:16px}
 .warn{background:var(--sunk);border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:var(--muted);font-size:13.5px}
+.ways{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+.ways a{display:inline-flex;align-items:baseline;gap:6px;background:var(--surface);border:1px solid var(--line);
+  border-radius:999px;padding:6px 13px;font-size:13.5px;text-decoration:none;color:var(--ink)}
+.ways a:hover{border-color:var(--muted)}
+.ways a b{font-weight:600}
+.ways a span{color:var(--muted)}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <a class="back" href="./">← NALTP Archive</a>
+  <p class="backs"><button type="button" class="back" id="back" hidden>← Back</button><a class="back" href="./">NALTP Archive</a></p>
   <div id="out"><h1>Loading…</h1></div>
 </div>
 <script>
+function keepState(opts) {
+  opts = opts || {};
+  const key = "naltp:where:" + location.pathname + location.search;
+  let store = null;
+  try { sessionStorage.setItem("naltp:t", "1"); sessionStorage.removeItem("naltp:t"); store = sessionStorage; } catch (e) {}
+  const read = () => { try { return JSON.parse(store.getItem(key) || "null"); } catch (e) { return null; } };
+  const save = () => {
+    if (!store) return;
+    const s = {y: window.scrollY || document.documentElement.scrollTop || 0, parts: {}};
+    document.querySelectorAll("[data-keep]").forEach(el => { s.parts[el.dataset.keep] = el.scrollTop; });
+    try { Object.assign(s, opts.get ? opts.get() : {}); } catch (e) {}
+    try { store.setItem(key, JSON.stringify(s)); } catch (e) {}
+  };
+  const put = s => {
+    window.scrollTo(0, s.y || 0);
+    document.querySelectorAll("[data-keep]").forEach(el => {
+      const at = s.parts && s.parts[el.dataset.keep];
+      if (at != null) el.scrollTop = at;
+    });
+  };
+  if (store) {
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    let t = 0;
+    addEventListener("scroll", () => { clearTimeout(t); t = setTimeout(save, 150); }, {passive: true});
+    addEventListener("click", e => { if (e.target.closest("a")) save(); }, true);
+    addEventListener("pagehide", save);
+    addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") save(); });
+    const s = read();
+    if (s) {
+      try { opts.set && opts.set(s); } catch (e) {}
+      // once now, once the page has drawn itself, once more when the fonts and images have settled
+      put(s); requestAnimationFrame(() => put(s));
+      addEventListener("load", () => setTimeout(() => put(s), 0));
+    }
+  }
+  return save;
+}
 (() => {
+  keepState({});
   const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
   const id = new URLSearchParams(location.search).get("id") || "";
   const out = document.getElementById("out");
+  const back = document.getElementById("back");
+  if (history.length > 1) { back.hidden = false; back.addEventListener("click", () => history.back()); }
   if (!/^[A-Za-z0-9]+$/.test(id)) {
     out.innerHTML = `<h1>No match chosen</h1><p class="meta">Open a match from the games table or the coverage page.</p>`;
     return;
   }
-  const COLS = [["score", "Score"], ["tags", "Tags"], ["pops", "Pops"], ["grabs", "Grabs"], ["drops", "Drops"],
-                ["hold", "Hold"], ["captures", "Caps"], ["prevent", "Prevent"], ["returns", "Returns"], ["pups", "Pups"]];
+  // the box score, in the order the league reads it. A record from tagpro.eu carries the minutes
+  // each player was on the field; a stats sheet saved to pastebin carries the in-game score instead
+  const COLS = [["minutes", "Min"], ["score", "Score"], ["tags", "Tags"], ["pops", "Pops"], ["grabs", "Grabs"],
+                ["drops", "Drops"], ["hold", "Hold"], ["captures", "Caps"], ["prevent", "Prevent"],
+                ["returns", "Returns"], ["pups", "Pups"]];
   const onTunnel = /trycloudflare\.com$|^127\.0\.0\.1$|^localhost$/.test(location.hostname);
   const base = async () => {
     if (onTunnel) return "";
     const t = await fetch("tunnel.json", {cache: "no-store"}).then(r => r.json());
     return t.url.replace(/\/?$/, "/");
   };
-  base().then(b => fetch(`${b}viewer/data/eu/${id}.json`)).then(r => r.ok ? r.json() : Promise.reject()).then(m => {
-    const when = m.date ? new Date(m.date * 1000).toLocaleString(undefined, {dateStyle: "medium", timeStyle: "short"}) : "";
+  // a page the archive serves: straight there down the tunnel, or through the frame on GitHub Pages
+  const ours = (b, path) => onTunnel ? b + path : "app.html?p=" + encodeURIComponent(path);
+  const LEAGUE = {MLTP: "Majors", mLTP: "Minors", NLTP: "Novice"};
+
+  base().then(b => fetch(`${b}viewer/data/eu/${id}.json`).then(r => r.ok ? r.json() : Promise.reject()).then(m => {
+    const when = m.when ? m.when : m.date
+      ? new Date(m.date * 1000).toLocaleString(undefined, {dateStyle: "medium", timeStyle: "short"}) : "";
     const cols = COLS.filter(([k]) => m.teams.some(t => t.players.some(p => p[k] !== undefined && p[k] !== null)));
-    const table = (t, i) => `<table><caption>${esc(t.team || t.name)}${t.team ? ` <span style="color:var(--muted)">(${esc(t.name)})</span>` : ""}</caption>
+    const table = t => `<div class="tw"><table><caption>${esc(t.team || t.name)}${t.team && t.name && t.team !== t.name ? ` <span style="color:var(--muted)">(${esc(t.name)})</span>` : ""}</caption>
       <thead><tr><th>Player</th>${cols.map(([, label]) => `<th>${esc(label)}</th>`).join("")}</tr></thead>
-      <tbody>${t.players.map(p => `<tr><td class="name">${esc(p.name)}</td>${cols.map(([k]) => `<td>${esc(p[k] ?? "")}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
-    document.title = `${m.team_1} v ${m.team_2} · ${m.season} week ${m.week}`;
+      <tbody>${t.players.map(p => `<tr><td class="name">${esc(p.name)}</td>${cols.map(([k]) => `<td>${esc(p[k] ?? "")}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+    const stage = m.stage ? esc(m.stage) : (m.week ? "week " + esc(m.week) : "");
+    document.title = `${m.team_1} v ${m.team_2} \u00b7 ${m.season}${m.stage ? " " + m.stage : m.week ? " week " + m.week : ""}`;
+    const ended = m.ending ? (m.ending.kind === "overtime"
+      ? `level ${esc(m.ending.at_whistle)} at the whistle, and played on`
+      : `a flag still in hand at the whistle, ${esc(m.ending.at_whistle)}`) : "";
+    // every way out of this page: the record itself on tagpro.eu, the cell of the hub that wrote
+    // the score down, that hub, and the season it belongs to - each of them the archive's own copy
+    // where the archive has one
+    const ways = [
+      m.held === "tagpro.eu" && m.url ? [m.url, "tagpro.eu", "the match itself \u2197", true] : null,
+      m.cell ? [m.cell, "The cell", "in the season hub the score was written in", false] : null,
+      m.hub && !m.cell ? [m.hub, "The season hub", "the sheet the league kept", false] : null,
+      m.season_page ? [ours(b, m.season_page), "The season", "schedule, rosters, standings", false] : null,
+      m.held !== "tagpro.eu" && m.url ? [m.url, "The pastebin", "where this record was posted \u2197", true] : null,
+    ].filter(Boolean);
     out.innerHTML = `<h1>${esc(m.team_1)} v ${esc(m.team_2)}</h1>
-      <p class="meta">${esc(m.season)} ${esc({MLTP: "Majors", mLTP: "Minors", NLTP: "Novice"}[m.league] || m.league)} · week ${esc(m.week)} · ${esc(m.game)}${m.half ? " " + esc(m.half) : ""}${when ? " · " + esc(when) : ""}${m.minutes ? " · " + esc(m.minutes) + " minutes" : ""}${m.map ? " · " + esc(m.map) : ""}${m.map_author ? " by " + esc(m.map_author) : ""}</p>
-      <div class="score">${m.teams.map((t, i) => `<span class="side ${i ? "two" : "one"}"><span>${esc(t.team || t.name)}</span><span class="n">${esc(t.score ?? "?")}</span></span>`).join('<span class="dash">–</span>')}</div>
-      ${m.teams_matched ? "" : `<p class="warn">Which side is which team isn't settled: too few of the players are on either roster, so the two sides are shown as the record has them.</p>`}
-      <div class="tables">${m.teams.map(table).join("")}</div>
-      <p class="note">${m.kind === "tagpro.eu match" ? "The tagpro.eu match record, saved to pastebin" : "A stats sheet saved to pastebin — one row per player"}: <a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.url)}</a>. tagpro.eu doesn’t have this match.</p>
+      <p class="meta">${esc(m.season_label || m.season)} ${esc(LEAGUE[m.league] || m.tier || m.league)}${stage ? " \u00b7 " + stage : ""} \u00b7 ${esc(m.game || "")}${m.half ? " " + esc(m.half) : ""}${when ? " \u00b7 " + esc(when) : ""}${m.minutes ? " \u00b7 " + esc(m.minutes) + " minutes" : ""}${m.map ? " \u00b7 " + esc(m.map) : ""}${m.map_author ? " by " + esc(m.map_author) : ""}</p>
+      <div class="score">${m.teams.map((t, i) => `<span class="side ${i ? "two" : "one"}"><span>${esc(t.team || t.name)}</span><span class="n">${esc(t.score ?? "?")}</span></span>`).join('<span class="dash">\u2013</span>')}
+        ${ended ? `<span class="ended">${ended}</span>` : ""}</div>
+      <div class="ways">${ways.map(([href, label, sub, out_]) => `<a href="${esc(href)}"${out_ ? ' target="_blank" rel="noopener"' : ""}><b>${esc(label)}</b> <span>${esc(sub)}</span></a>`).join("")}</div>
+      ${m.teams_matched === false ? `<p class="warn">Which side is which team isn\u2019t settled: too few of the players are on either roster, so the two sides are shown as the record has them.</p>` : ""}
+      ${m.unnamed ? `<p class="warn">The schedule never wrote one of these teams down, so it is shown by the tag it played under.</p>` : ""}
+      <div class="tables" style="margin-top:16px">${m.teams.map(table).join("")}</div>
+      ${m.held === "tagpro.eu"
+        ? `<p class="note">This is the archive\u2019s own copy of the tagpro.eu record \u2014 the scoreboard as tagpro.eu kept it, read out of a full local copy of the site. The match on tagpro.eu itself is at <a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.url)}</a>.</p>`
+        : `<p class="note">${m.kind === "tagpro.eu match" ? "The tagpro.eu match record, saved to pastebin" : "A stats sheet saved to pastebin \u2014 one row per player"}: <a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.url)}</a>. tagpro.eu doesn\u2019t have this match.</p>
       <p class="note">A pastebin can be deleted by whoever posted it, so the archive keeps its own copy of every one:
-        <a href="pastebin_records.zip" download>download them all</a> (the pages as fetched, and each read as a match).</p>`;
-  }).catch(() => {
+        <a href="pastebin_records.zip" download>download them all</a> (the pages as fetched, and each read as a match).</p>`}`;
+  })).catch(() => {
     out.innerHTML = `<h1>Match not held</h1><p class="meta">No saved record for <code>${esc(id)}</code>.</p>`;
   });
 })();
