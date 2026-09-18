@@ -139,6 +139,7 @@ function keepState(opts) {
       m.held === "tagpro.eu" && m.url ? [m.url, "tagpro.eu", "the match itself \u2197", true] : null,
       m.cell ? [m.cell, "The cell", "in the season hub the score was written in", false] : null,
       m.hub && !m.cell ? [m.hub, "The season hub", "the sheet the league kept", false] : null,
+      m.sheet ? [m.sheet, "Google Sheets", "the hub itself \u2197", true] : null,
       m.season_page ? [ours(b, m.season_page), "The season", "schedule, rosters, standings", false] : null,
       m.held !== "tagpro.eu" && m.url ? [m.url, "The pastebin", "where this record was posted \u2197", true] : null,
     ].filter(Boolean);
