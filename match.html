@@ -38,6 +38,22 @@ thead th{font-weight:600;color:var(--muted);background:var(--sunk);font-size:12.
 tbody tr:last-child td{border-bottom:0}
 td.name{font-weight:600}
 .tables{display:grid;gap:16px;grid-template-columns:1fr}
+.played{display:flex;flex-wrap:wrap;gap:6px 22px;margin:0 0 16px;padding:12px 16px;background:var(--surface);
+  border:1px solid var(--line);border-radius:12px;font-size:13.5px}
+.played dt{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-family:var(--display);
+  font-weight:600;margin:0}
+.played dd{margin:0 0 0 0;font-family:var(--mono);font-size:13px}
+.played dt+dd{margin-inline-start:-14px}
+.caps{margin-top:20px}
+.caps h2{font:700 16px var(--display);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 8px}
+.caps ol{list-style:none;margin:0;padding:0;display:grid;gap:2px;
+  grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.caps li{display:flex;gap:10px;align-items:baseline;background:var(--surface);border:1px solid var(--line);
+  border-left-width:3px;border-radius:6px;padding:4px 10px;font-size:13.5px}
+.caps li.one{border-left-color:var(--red)} .caps li.two{border-left-color:var(--blue)}
+.caps .clock{font-family:var(--mono);font-size:12.5px;color:var(--muted);min-width:44px}
+.caps .who{font-weight:600}
+.caps .for{margin-left:auto;color:var(--muted);font-size:12px;text-transform:uppercase;font-family:var(--display)}
 @media (min-width:860px){.tables{grid-template-columns:1fr 1fr}}
 .tw{min-width:0;overflow-x:auto;border-radius:12px}
 .tw table{border-radius:12px}
@@ -107,9 +123,11 @@ function keepState(opts) {
   }
   // the box score, in the order the league reads it. A record from tagpro.eu carries the minutes
   // each player was on the field; a stats sheet saved to pastebin carries the in-game score instead
-  const COLS = [["minutes", "Min"], ["score", "Score"], ["tags", "Tags"], ["pops", "Pops"], ["grabs", "Grabs"],
-                ["drops", "Drops"], ["hold", "Hold"], ["captures", "Caps"], ["prevent", "Prevent"],
-                ["returns", "Returns"], ["pups", "Pups"]];
+  const COLS = [["minutes", "Min"], ["score", "Score"], ["points", "Pts"], ["tags", "Tags"], ["pops", "Pops"],
+                ["grabs", "Grabs"], ["drops", "Drops"], ["hold", "Hold"], ["captures", "Caps"],
+                ["caps_for", "Caps for"], ["caps_against", "Caps against"], ["cap_diff", "+/\u2212"],
+                ["prevent", "Prevent"], ["returns", "Returns"], ["button", "Button"], ["block", "Block"],
+                ["pups", "Pups"], ["pups_total", "Pups total"], ["pup_time", "Pup time"]];
   const onTunnel = /trycloudflare\.com$|^127\.0\.0\.1$|^localhost$/.test(location.hostname);
   const base = async () => {
     if (onTunnel) return "";
@@ -143,6 +161,21 @@ function keepState(opts) {
       m.season_page ? [ours(b, m.season_page), "The season", "schedule, rosters, standings", false] : null,
       m.held !== "tagpro.eu" && m.url ? [m.url, "The pastebin", "where this record was posted \u2197", true] : null,
     ].filter(Boolean);
+    // what tagpro.eu itself records about the match, beyond the scoreboard
+    const p = m.played_on;
+    const played = p ? [
+      ["Server", (p.server || "").replace(/\.koalabeast\.com$/, "") + (p.port ? ":" + p.port : "")],
+      ["Kind", p.kind + (p.official === "yes" ? ", official" : "")],
+      ["Length", p.duration + (p.time_limit ? " of " + p.time_limit + ":00" : "")],
+      ["Finished", p.finished === "yes" ? "played to the whistle" : "ended early"],
+      ["Map", (m.map || "") + (m.map_author ? " by " + m.map_author : "")],
+    ].filter(([, v]) => String(v || "").trim() && String(v).trim() !== ":") : null;
+    // the caps in the order they were scored, with the clock each one went in at
+    const names = m.teams.map(t => t.team || t.name);
+    const caps = (m.captures || []).length ? m.captures.map(c =>
+      `<li class="${c.side === 2 ? "two" : "one"}"><span class="clock">${esc(c.clock)}</span>
+        <span class="who">${esc(c.player)}</span>
+        <span class="for">${esc(names[(c.side || 1) - 1] || "")}</span></li>`).join("") : "";
     out.innerHTML = `<h1>${esc(m.team_1)} v ${esc(m.team_2)}</h1>
       <p class="meta">${esc(m.season_label || m.season)} ${esc(LEAGUE[m.league] || m.tier || m.league)}${stage ? " \u00b7 " + stage : ""} \u00b7 ${esc(m.game || "")}${m.half ? " " + esc(m.half) : ""}${when ? " \u00b7 " + esc(when) : ""}${m.minutes ? " \u00b7 " + esc(m.minutes) + " minutes" : ""}${m.map ? " \u00b7 " + esc(m.map) : ""}${m.map_author ? " by " + esc(m.map_author) : ""}</p>
       <div class="score">${m.teams.map((t, i) => `<span class="side ${i ? "two" : "one"}"><span>${esc(t.team || t.name)}</span><span class="n">${esc(t.score ?? "?")}</span></span>`).join('<span class="dash">\u2013</span>')}
@@ -150,10 +183,12 @@ function keepState(opts) {
       <div class="ways">${ways.map(([href, label, sub, out_]) => `<a href="${esc(href)}"${out_ ? ' target="_blank" rel="noopener"' : ""}><b>${esc(label)}</b> <span>${esc(sub)}</span></a>`).join("")}</div>
       ${m.teams_matched === false ? `<p class="warn">Which side is which team isn\u2019t settled: too few of the players are on either roster, so the two sides are shown as the record has them.</p>` : ""}
       ${m.unnamed ? `<p class="warn">The schedule never wrote one of these teams down, so it is shown by the tag it played under.</p>` : ""}
+      ${played ? `<dl class="played">${played.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>` : ""}
       ${m.no_scoreboard
         ? `<p class="warn">The archive has this match's place in the season but not its scoreboard: it was played
             after the local copy of tagpro.eu ends, so the line-ups and the stats are only on tagpro.eu itself.</p>`
         : `<div class="tables" style="margin-top:16px">${m.teams.map(table).join("")}</div>`}
+      ${caps ? `<div class="caps"><h2>Captures</h2><ol>${caps}</ol></div>` : ""}
       ${m.held === "tagpro.eu"
         ? `<p class="note">This is the archive\u2019s own copy of the tagpro.eu record \u2014 the scoreboard as tagpro.eu kept it, read out of a full local copy of the site. The match on tagpro.eu itself is at <a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.url)}</a>.</p>`
         : `<p class="note">${m.kind === "tagpro.eu match" ? "The tagpro.eu match record, saved to pastebin" : "A stats sheet saved to pastebin \u2014 one row per player"}: <a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.url)}</a>. tagpro.eu doesn\u2019t have this match.</p>
