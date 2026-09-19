@@ -19,7 +19,10 @@ nav{display:flex;gap:4px;flex-wrap:wrap}
 nav a{color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:999px}
 nav a:hover{color:var(--ink);background:var(--bg)}
 nav a[aria-current="page"]{color:var(--accent);font-weight:600}
-.dot{margin-left:auto;width:9px;height:9px;border-radius:50%;background:var(--muted)}
+.out{margin-left:auto;display:flex;gap:14px;align-items:baseline;font-size:13px}
+.out a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
+.out a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--muted);margin-left:14px}
 .up .dot{background:var(--good)} .down .dot{background:var(--bad)}
 iframe{flex:1;width:100%;border:0;background:#fff}
 .msg{margin:auto;max-width:46ch;padding:24px 16px;text-align:center;color:var(--muted)}
@@ -33,7 +36,10 @@ iframe{flex:1;width:100%;border:0;background:#fff}
   <nav aria-label="Sections">
     <a data-p="almanac/index.html">Seasons</a>
     <a data-p="viewer/">Spreadsheets</a>
+    <a href="coverage.html">Coverage</a>
+    <a href="playoffs.html">Playoffs</a>
   </nav>
+  <span class="out" id="out"></span>
   <span class="dot" id="dot" role="img" aria-label="Connecting"></span>
 </header>
 <iframe id="frame" class="hide" title="NALTP Archive"></iframe>
@@ -41,6 +47,22 @@ iframe{flex:1;width:100%;border:0;background:#fff}
 <script>
 (async () => {
   const params = new URLSearchParams(location.search);
+  // a match on tagpro.eu shown here as it is: their page, inside the archive, with the way to the
+  // page itself and to the archive's own record of the same match in the bar above it
+  const eu = (params.get("eu") || "").replace(/[^0-9]/g, "");
+  if (eu) {
+    const frame = document.getElementById("frame"), msg = document.getElementById("msg");
+    document.getElementById("bar").classList.add("up");
+    document.getElementById("dot").setAttribute("aria-label", "tagpro.eu");
+    document.getElementById("out").innerHTML =
+      `<a href="https://tagpro.eu/?match=${eu}" target="_blank" rel="noopener">the page on tagpro.eu \u2197</a>`
+      + `<a href="match.html?id=${eu}">the archive\u2019s own record</a>`;
+    document.title = `Match ${eu} on tagpro.eu \u00b7 NALTP Archive`;
+    msg.classList.add("hide");
+    frame.classList.remove("hide");
+    frame.src = `https://tagpro.eu/?match=${eu}`;
+    return;
+  }
   const path = params.get("p") || "almanac/index.html";
   const bar = document.getElementById("bar"), frame = document.getElementById("frame"), msg = document.getElementById("msg");
   const offline = () => {
