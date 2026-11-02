@@ -642,7 +642,7 @@ S33,Novice,week 3,Wed 19 Jun 2024,Arctag iceCaps (N),OD Gambit: Nubstep Variatio
 S33,Novice,week 4,Wed 26 Jun 2024,Arctag iceCaps (N),Boosting Ballacudas (N),5,5,0,0,0,0,
 S33,Novice,week 4,Wed 26 Jun 2024,Jukakke,The Swipe Rights,5,5,0,0,0,0,
 S33,Novice,week 4,Wed 26 Jun 2024,Microphone Hawks (N),OD Gambit: Nubstep Variation,5,5,0,0,0,0,
-S33,Novice,week 4,,Holdman Sachs (N),The Land Before Timers,5,5,0,0,0,0,
+S33,Novice,week 4,,Holdman Sachs (N),The Land Before Timers,5,0,0,0,5,0,No source links or lists a game for this matchup
 S33,Novice,week 5,Wed 03 Jul 2024,Arctag iceCaps (N),The Land Before Timers,5,5,0,0,0,0,
 S33,Novice,week 5,Wed 03 Jul 2024,Boosting Ballacudas (N),Microphone Hawks (N),5,5,0,0,0,0,
 S33,Novice,week 5,Wed 03 Jul 2024,Holdman Sachs (N),The Swipe Rights,5,5,0,0,0,0,
@@ -1452,9 +1452,9 @@ S27,Novice,week 2,Thu 12 May 2022,Novice World Order,The Ping Kongs,5,5,0,0,0,0,
 S27,Novice,week 3,Thu 19 May 2022,American Corner Story,Ree Gees,5,5,0,0,0,0,
 S27,Novice,week 3,Wed 18 May 2022,gODzilla Vs. King Kahn,Holdin' Gate Warriors (N),5,5,0,0,0,0,
 S27,Novice,week 3,Wed 18 May 2022,Miami Ballphins (N),The Ping Kongs,5,5,0,0,0,0,"Robiny, on Miami, was loaned to The Ping Kongs for 50 minutes and then played the last 20 for Miami; the early 7-minute Red v Blue matches are from that (#novice-discussion, 18 May 2022)"
-S27,Novice,week 3,Wed 18 May 2022,Jack in the Blocks (N),Novice World Order,5,5,0,0,0,0,"One game wasn't recorded on tagpro.eu: ""Whys there only 4 eus for jib nwo""; the archive's Red v Blue match stands in for it (#novice-discussion, 19 May 2022)"
+S27,Novice,week 3,Wed 18 May 2022,Jack in the Blocks (N),Novice World Order,5,4,0,0,1,0,"One game wasn't recorded on tagpro.eu: ""Whys there only 4 eus for jib nwo""; the archive's Red v Blue match stands in for it (#novice-discussion, 19 May 2022)"
 S27,Novice,week 4,Wed 25 May 2022,gODzilla Vs. King Kahn,Jack in the Blocks (N),5,5,0,0,0,0,
-S27,Novice,week 4,Thu 26 May 2022,American Corner Story,Novice World Order,5,5,0,0,0,1,"""tagpro league is missing game one on some ring ... because the eu is missing"" (garet): the Red v Blue match on Some Ring before the others is likely game 1 (#novice-discussion, 27 May 2022)"
+S27,Novice,week 4,Thu 26 May 2022,American Corner Story,Novice World Order,5,5,0,0,0,0,"""tagpro league is missing game one on some ring ... because the eu is missing"" (garet): the Red v Blue match on Some Ring before the others is likely game 1 (#novice-discussion, 27 May 2022)"
 S27,Novice,week 4,Wed 25 May 2022,Miami Ballphins (N),Ree Gees,5,5,0,0,0,0,
 S27,Novice,week 4,Wed 25 May 2022,Holdin' Gate Warriors (N),The Ping Kongs,5,5,0,0,0,0,
 S27,Novice,week 5,Wed 01 Jun 2022,American Corner Story,gODzilla Vs. King Kahn,5,5,0,0,0,0,
@@ -4049,7 +4049,7 @@ NLTP S15,Novice,week 1,Wed 15 May 2019,Blockhole Surfers (B),Flairbnb (B),6,6,0,
 NLTP S15,Novice,week 1,Tue 14 May 2019,Cap 22s (N),Red Hot Chili Poppers (N),4,4,0,0,0,0,
 NLTP S15,Novice,week 1,Wed 15 May 2019,Cap 22s (B),Red Hot Chili Poppers (B),6,6,0,0,0,0,
 NLTP S15,Novice,week 1,Tue 14 May 2019,Leonardo NiceCaprio,Over the Pants Handoffs (N),4,4,0,0,0,0,
-NLTP S15,Novice,week 1,Wed 15 May 2019,Leonardo NiceCaprio (B),Over the Pants Handoffs (B),6,6,0,0,0,3,"Extra matches: a second match under one game number, between the others (3)"
+NLTP S15,Novice,week 1,Wed 15 May 2019,Leonardo NiceCaprio (B),Over the Pants Handoffs (B),6,6,0,0,0,0,
 NLTP S15,Novice,week 1,Tue 14 May 2019,Hogwarts School,reCAPTCHA,4,4,0,0,0,0,
 NLTP S15,Novice,week 1,Wed 15 May 2019,Hogwarts School (B),reCAPTCHA (B),6,6,0,0,0,0,
 NLTP S15,Novice,week 1,Tue 14 May 2019,The Blokes,The Flying Burrito Balls,4,4,0,0,0,0,
@@ -4065,7 +4065,7 @@ NLTP S15,Novice,week 2,Wed 22 May 2019,Blockhole Surfers (B),Manipulation Statio
 NLTP S15,Novice,week 2,Tue 21 May 2019,Cap 22s (N),The Blokes,4,4,0,0,0,0,
 NLTP S15,Novice,week 2,Wed 22 May 2019,Cap 22s (B),The Blokes (B),6,6,0,0,0,0,
 NLTP S15,Novice,week 2,Tue 21 May 2019,Leonardo NiceCaprio,Under the Pants Rubgrabs,4,4,0,0,0,0,
-NLTP S15,Novice,week 2,Wed 22 May 2019,Leonardo NiceCaprio (B),Under the Pants Rubgrabs (B),6,6,0,0,0,2,"Extra matches: a second match under one game number, between the others (2)"
+NLTP S15,Novice,week 2,Wed 22 May 2019,Leonardo NiceCaprio (B),Under the Pants Rubgrabs (B),6,6,0,0,0,0,
 NLTP S15,Novice,week 2,Tue 21 May 2019,Over the Pants Handoffs (N),WCYDinos,4,4,0,0,0,0,
 NLTP S15,Novice,week 2,Wed 22 May 2019,Over the Pants Handoffs (B),WCYDinos (B),6,6,0,0,0,0,
 NLTP S15,Novice,week 2,Tue 21 May 2019,Flairbnb,Red Hot Chili Poppers (N),4,4,0,0,0,0,
@@ -4085,9 +4085,9 @@ NLTP S15,Novice,week 3,Wed 29 May 2019,Hogwarts School (B),Whitecaps (B),6,6,0,0
 NLTP S15,Novice,week 3,Tue 28 May 2019,reCAPTCHA,The Blokes,4,4,0,0,0,0,
 NLTP S15,Novice,week 3,Wed 29 May 2019,reCAPTCHA (B),The Blokes (B),6,6,0,0,0,0,
 NLTP S15,Novice,week 3,Tue 28 May 2019,Blockhole Surfers,Red Hot Chili Poppers (N),4,4,0,0,0,0,
-NLTP S15,Novice,week 3,Wed 29 May 2019,Blockhole Surfers (B),Red Hot Chili Poppers (B),6,6,0,0,0,0,"Extra matches: after the league games, with the abbreviations still on (3)"
+NLTP S15,Novice,week 3,Wed 29 May 2019,Blockhole Surfers (B),Red Hot Chili Poppers (B),6,6,0,0,0,0,
 NLTP S15,Novice,week 3,Tue 28 May 2019,Manipulation Station,The Flying Burrito Balls,4,4,0,0,0,0,
-NLTP S15,Novice,week 3,Wed 29 May 2019,Manipulation Station (B),The Flying Burrito Balls (B),6,6,0,0,0,2,"Extra matches: a second match under one game number, between the others (2)"
+NLTP S15,Novice,week 3,Wed 29 May 2019,Manipulation Station (B),The Flying Burrito Balls (B),6,6,0,0,0,0,
 NLTP S15,Novice,week 3,Tue 28 May 2019,Leonardo NiceCaprio,The Land Before Timers,4,4,0,0,0,0,
 NLTP S15,Novice,week 3,Wed 29 May 2019,Leonardo NiceCaprio (B),The Land Before Timers (B),6,6,0,0,0,0,
 NLTP S15,Novice,week 4,Tue 04 Jun 2019,Ball My Life,The Flying Burrito Balls,4,4,0,0,0,0,
@@ -4100,9 +4100,9 @@ NLTP S15,Novice,week 4,Tue 04 Jun 2019,Leonardo NiceCaprio,WCYDinos,4,4,0,0,0,0,
 NLTP S15,Novice,week 4,Wed 05 Jun 2019,Leonardo NiceCaprio (B),WCYDinos (B),6,6,0,0,0,0,
 NLTP S15,Novice,week 4,Tue 04 Jun 2019,Over the Pants Handoffs (N),Red Hot Chili Poppers (N),4,4,0,0,0,0,
 NLTP S15,Novice,week 4,Wed 05 Jun 2019,Over the Pants Handoffs (B),Red Hot Chili Poppers (B),6,6,0,0,0,0,
-NLTP S15,Novice,week 4,,Flairbnb,reCAPTCHA,4,4,0,0,0,0,
+NLTP S15,Novice,week 4,,Flairbnb,reCAPTCHA,4,1,0,0,3,0,"3 not on tagpro.eu. The archive says: tagpro.eu doesn't have this match, saved to pastebin (stats sheet)"
 NLTP S15,Novice,week 4,Wed 05 Jun 2019,Flairbnb (B),reCAPTCHA (B),6,6,0,0,0,0,
-NLTP S15,Novice,week 4,,Hogwarts School,The Blokes,4,4,0,0,0,0,
+NLTP S15,Novice,week 4,,Hogwarts School,The Blokes,4,0,0,0,4,0,No source links or lists a game for this matchup
 NLTP S15,Novice,week 4,Wed 05 Jun 2019,Hogwarts School (B),The Blokes (B),6,6,0,0,0,0,
 NLTP S15,Novice,week 4,Tue 04 Jun 2019,Manipulation Station,The Land Before Timers,4,4,0,0,0,0,
 NLTP S15,Novice,week 4,Wed 05 Jun 2019,Manipulation Station (B),The Land Before Timers (B),6,6,0,0,0,0,
@@ -4202,7 +4202,7 @@ NLTP S14,Novice,week 3,Wed 06 Feb 2019,Over the Pants Handoffs (B),The Land Befo
 NLTP S14,Novice,week 3,Tue 05 Feb 2019,Ballsagna,WCYDinos,4,4,0,0,0,0,
 NLTP S14,Novice,week 3,Wed 06 Feb 2019,Ballsagna (B),WCYDinos (B),6,6,0,0,0,0,
 NLTP S14,Novice,week 4,Tue 12 Feb 2019,Doggy's Tile,Over the Pants Handoffs,4,4,0,0,0,0,
-NLTP S14,Novice,week 4,Wed 13 Feb 2019,Doggy's Tile (B),Over the Pants Handoffs (B),6,6,0,0,0,6,Extra matches: played on another night (6)
+NLTP S14,Novice,week 4,Wed 13 Feb 2019,Doggy's Tile (B),Over the Pants Handoffs (B),6,6,0,0,0,5,Extra matches: played on another night (5)
 NLTP S14,Novice,week 4,Tue 12 Feb 2019,Flairbnb,Return of the Jedi,4,4,0,0,0,0,
 NLTP S14,Novice,week 4,Wed 13 Feb 2019,Flairbnb (B),Return of the Jedi (B),6,6,0,0,0,0,
 NLTP S14,Novice,week 4,Tue 12 Feb 2019,Pandas,So Long and Thanks for All the Caps,4,4,0,0,0,0,

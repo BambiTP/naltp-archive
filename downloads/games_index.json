@@ -1,7 +1,7 @@
 {
  "about": "Every NALTP league game the archive holds, season -> week -> matchup -> game, with each tagpro.eu match's folder (holding <match id>.json, the full tagpro.eu match, and, from S31 on where one was downloaded, the TagPro replay recording) and the week's missing or extra games.",
  "built": "2026-11-02",
- "games": 16045,
+ "games": 16019,
  "seasons": {
   "S8": {
    "Playoffs: Round of 12": {
@@ -283350,327 +283350,6 @@
        ]
       }
      ],
-     "Novice - Miami Ballphins (N) v The Ping Kongs": [
-      {
-       "game": "extra 6",
-       "score": [
-        3,
-        2
-       ],
-       "winner": "Miami Ballphins (N)",
-       "played": "Wed 18 May 2022, 08:57 PM ET",
-       "record": "tagpro.eu",
-       "check": "problem",
-       "problems": [
-        "a match beyond the games this matchup was scheduled for (7 minutes): a restart, or a game filed under the wrong matchup"
-       ],
-       "matches": [
-        {
-         "part": null,
-         "match": 3197264,
-         "score": [
-          3,
-          2
-         ],
-         "minutes": 7.0,
-         "map": "Thicket 2",
-         "url": "https://tagpro.eu/?match=3197264",
-         "tags": {
-          "a": "Red",
-          "b": "Blue"
-         },
-         "players": {
-          "a": [
-           "GospelofJuke",
-           "cnr sport",
-           "perpndicular",
-           "sweatypete"
-          ],
-          "b": [
-           "Ducky",
-           "Dirty",
-           "JARVISLANDRY",
-           "Robiny"
-          ]
-         },
-         "folder": "S27/Week 03/Novice - Miami Ballphins (N) v The Ping Kongs/extra 6 - 3197264",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "extra 7",
-       "score": [
-        0,
-        5
-       ],
-       "winner": "The Ping Kongs",
-       "played": "Wed 18 May 2022, 09:08 PM ET",
-       "record": "tagpro.eu",
-       "check": "problem",
-       "problems": [
-        "a match beyond the games this matchup was scheduled for (7 minutes): a restart, or a game filed under the wrong matchup"
-       ],
-       "matches": [
-        {
-         "part": null,
-         "match": 3197270,
-         "score": [
-          0,
-          5
-         ],
-         "minutes": 7.0,
-         "map": "Thicket 2",
-         "url": "https://tagpro.eu/?match=3197270",
-         "tags": {
-          "a": "Blue",
-          "b": "Red"
-         },
-         "players": {
-          "a": [
-           "GospelofJuke",
-           "perpndicular",
-           "cnr sport",
-           "sweatypete"
-          ],
-          "b": [
-           "Dirty",
-           "Ducky",
-           "Robiny",
-           "JARVISLANDRY"
-          ]
-         },
-         "folder": "S27/Week 03/Novice - Miami Ballphins (N) v The Ping Kongs/extra 7 - 3197270",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G1",
-       "score": [
-        9,
-        3
-       ],
-       "winner": "Miami Ballphins (N)",
-       "played": "Wed 18 May 2022, 09:57 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": null,
-         "match": 3197332,
-         "score": [
-          9,
-          3
-         ],
-         "minutes": 10.0,
-         "map": "Jardim",
-         "url": "https://tagpro.eu/?match=3197332",
-         "tags": {
-          "a": "AMIA",
-          "b": "ATPK"
-         },
-         "players": {
-          "a": [
-           "perpndicular",
-           "GospelofJuke",
-           "Ducky",
-           "sweatypete"
-          ],
-          "b": [
-           "jkxs",
-           "WheelinTimmy",
-           "FragrantFowl",
-           "Lagadellic"
-          ]
-         },
-         "folder": "S27/Week 03/Novice - Miami Ballphins (N) v The Ping Kongs/G1 - 3197332",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G2",
-       "score": [
-        11,
-        5
-       ],
-       "winner": "Miami Ballphins (N)",
-       "played": "Wed 18 May 2022, 10:10 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": null,
-         "match": 3197347,
-         "score": [
-          11,
-          5
-         ],
-         "minutes": 10.0,
-         "map": "Jardim",
-         "url": "https://tagpro.eu/?match=3197347",
-         "tags": {
-          "a": "AMIA",
-          "b": "ATPK"
-         },
-         "players": {
-          "a": [
-           "perpndicular",
-           "cnr sport",
-           "Ducky",
-           "sweatypete"
-          ],
-          "b": [
-           "jkxs",
-           "WheelinTimmy",
-           "FragrantFowl",
-           "Corinth"
-          ]
-         },
-         "folder": "S27/Week 03/Novice - Miami Ballphins (N) v The Ping Kongs/G2 - 3197347",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G3",
-       "score": [
-        12,
-        3
-       ],
-       "winner": "Miami Ballphins (N)",
-       "played": "Wed 18 May 2022, 10:25 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": null,
-         "match": 3197362,
-         "score": [
-          12,
-          3
-         ],
-         "minutes": 9.97,
-         "map": "Thicket 2",
-         "url": "https://tagpro.eu/?match=3197362",
-         "tags": {
-          "a": "AMIA",
-          "b": "ATPK"
-         },
-         "players": {
-          "a": [
-           "GospelofJuke",
-           "cnr sport",
-           "perpndicular",
-           "sweatypete"
-          ],
-          "b": [
-           "WheelinTimmy",
-           "FragrantFowl",
-           "Lagadellic",
-           "Corinth"
-          ]
-         },
-         "folder": "S27/Week 03/Novice - Miami Ballphins (N) v The Ping Kongs/G3 - 3197362",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G4",
-       "score": [
-        4,
-        3
-       ],
-       "winner": "Miami Ballphins (N)",
-       "played": "Wed 18 May 2022, 10:40 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": null,
-         "match": 3197379,
-         "score": [
-          4,
-          3
-         ],
-         "minutes": 10.0,
-         "map": "Thicket 2",
-         "url": "https://tagpro.eu/?match=3197379",
-         "tags": {
-          "a": "AMIA",
-          "b": "ATPK"
-         },
-         "players": {
-          "a": [
-           "perpndicular",
-           "GospelofJuke",
-           "Ducky",
-           "Robiny"
-          ],
-          "b": [
-           "WheelinTimmy",
-           "jkxs",
-           "FragrantFowl",
-           "Lagadellic"
-          ]
-         },
-         "folder": "S27/Week 03/Novice - Miami Ballphins (N) v The Ping Kongs/G4 - 3197379",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G5",
-       "score": [
-        6,
-        4
-       ],
-       "winner": "Miami Ballphins (N)",
-       "played": "Wed 18 May 2022, 10:55 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": null,
-         "match": 3197395,
-         "score": [
-          6,
-          4
-         ],
-         "minutes": 10.0,
-         "map": "Thicket 2",
-         "url": "https://tagpro.eu/?match=3197395",
-         "tags": {
-          "a": "AMIA",
-          "b": "ATPK"
-         },
-         "players": {
-          "a": [
-           "GospelofJuke",
-           "cnr sport",
-           "sweatypete",
-           "Robiny"
-          ],
-          "b": [
-           "jkxs",
-           "Lagadellic",
-           "Corinth",
-           "smallybigs"
-          ]
-         },
-         "folder": "S27/Week 03/Novice - Miami Ballphins (N) v The Ping Kongs/G5 - 3197395",
-         "replay": null
-        }
-       ]
-      }
-     ],
      "Novice - gODzilla Vs. King Kahn v Holdin' Gate Warriors (N)": [
       {
        "game": "G1",
@@ -283897,101 +283576,234 @@
        ]
       }
      ],
-     "Novice - Jack in the Blocks (N) v Novice World Order": [
+     "Novice - Miami Ballphins (N) v The Ping Kongs": [
+      {
+       "game": "G1",
+       "score": [
+        9,
+        3
+       ],
+       "winner": "Miami Ballphins (N)",
+       "played": "Wed 18 May 2022, 09:57 PM ET",
+       "record": "tagpro.eu",
+       "check": "checked against tagpro.eu",
+       "problems": [],
+       "matches": [
+        {
+         "part": null,
+         "match": 3197332,
+         "score": [
+          9,
+          3
+         ],
+         "minutes": 10.0,
+         "map": "Jardim",
+         "url": "https://tagpro.eu/?match=3197332",
+         "tags": {
+          "a": "AMIA",
+          "b": "ATPK"
+         },
+         "players": {
+          "a": [
+           "perpndicular",
+           "GospelofJuke",
+           "Ducky",
+           "sweatypete"
+          ],
+          "b": [
+           "jkxs",
+           "WheelinTimmy",
+           "FragrantFowl",
+           "Lagadellic"
+          ]
+         },
+         "folder": "S27/Week 03/Novice - Miami Ballphins (N) v The Ping Kongs/G1 - 3197332",
+         "replay": null
+        }
+       ]
+      },
+      {
+       "game": "G2",
+       "score": [
+        11,
+        5
+       ],
+       "winner": "Miami Ballphins (N)",
+       "played": "Wed 18 May 2022, 10:10 PM ET",
+       "record": "tagpro.eu",
+       "check": "checked against tagpro.eu",
+       "problems": [],
+       "matches": [
+        {
+         "part": null,
+         "match": 3197347,
+         "score": [
+          11,
+          5
+         ],
+         "minutes": 10.0,
+         "map": "Jardim",
+         "url": "https://tagpro.eu/?match=3197347",
+         "tags": {
+          "a": "AMIA",
+          "b": "ATPK"
+         },
+         "players": {
+          "a": [
+           "perpndicular",
+           "cnr sport",
+           "Ducky",
+           "sweatypete"
+          ],
+          "b": [
+           "jkxs",
+           "WheelinTimmy",
+           "FragrantFowl",
+           "Corinth"
+          ]
+         },
+         "folder": "S27/Week 03/Novice - Miami Ballphins (N) v The Ping Kongs/G2 - 3197347",
+         "replay": null
+        }
+       ]
+      },
+      {
+       "game": "G3",
+       "score": [
+        12,
+        3
+       ],
+       "winner": "Miami Ballphins (N)",
+       "played": "Wed 18 May 2022, 10:25 PM ET",
+       "record": "tagpro.eu",
+       "check": "checked against tagpro.eu",
+       "problems": [],
+       "matches": [
+        {
+         "part": null,
+         "match": 3197362,
+         "score": [
+          12,
+          3
+         ],
+         "minutes": 9.97,
+         "map": "Thicket 2",
+         "url": "https://tagpro.eu/?match=3197362",
+         "tags": {
+          "a": "AMIA",
+          "b": "ATPK"
+         },
+         "players": {
+          "a": [
+           "GospelofJuke",
+           "cnr sport",
+           "perpndicular",
+           "sweatypete"
+          ],
+          "b": [
+           "WheelinTimmy",
+           "FragrantFowl",
+           "Lagadellic",
+           "Corinth"
+          ]
+         },
+         "folder": "S27/Week 03/Novice - Miami Ballphins (N) v The Ping Kongs/G3 - 3197362",
+         "replay": null
+        }
+       ]
+      },
+      {
+       "game": "G4",
+       "score": [
+        4,
+        3
+       ],
+       "winner": "Miami Ballphins (N)",
+       "played": "Wed 18 May 2022, 10:40 PM ET",
+       "record": "tagpro.eu",
+       "check": "checked against tagpro.eu",
+       "problems": [],
+       "matches": [
+        {
+         "part": null,
+         "match": 3197379,
+         "score": [
+          4,
+          3
+         ],
+         "minutes": 10.0,
+         "map": "Thicket 2",
+         "url": "https://tagpro.eu/?match=3197379",
+         "tags": {
+          "a": "AMIA",
+          "b": "ATPK"
+         },
+         "players": {
+          "a": [
+           "perpndicular",
+           "GospelofJuke",
+           "Ducky",
+           "Robiny"
+          ],
+          "b": [
+           "WheelinTimmy",
+           "jkxs",
+           "FragrantFowl",
+           "Lagadellic"
+          ]
+         },
+         "folder": "S27/Week 03/Novice - Miami Ballphins (N) v The Ping Kongs/G4 - 3197379",
+         "replay": null
+        }
+       ]
+      },
       {
        "game": "G5",
        "score": [
-        3,
-        0
+        6,
+        4
        ],
-       "winner": "Jack in the Blocks (N)",
-       "played": "Wed 18 May 2022, 09:47 PM ET",
+       "winner": "Miami Ballphins (N)",
+       "played": "Wed 18 May 2022, 10:55 PM ET",
        "record": "tagpro.eu",
-       "check": "problem",
-       "problems": [
-        "G5: the season hub has 1–5, tagpro.eu has 3-0"
-       ],
+       "check": "checked against tagpro.eu",
+       "problems": [],
        "matches": [
         {
          "part": null,
-         "match": 3197312,
+         "match": 3197395,
          "score": [
-          3,
-          0
+          6,
+          4
          ],
-         "minutes": 6.0,
+         "minutes": 10.0,
          "map": "Thicket 2",
-         "url": "https://tagpro.eu/?match=3197312",
+         "url": "https://tagpro.eu/?match=3197395",
          "tags": {
-          "a": "Blue",
-          "b": "Red"
+          "a": "AMIA",
+          "b": "ATPK"
          },
          "players": {
           "a": [
-           "black magic",
-           "Trituin",
-           "chucky",
-           "JJIIZGOD"
+           "GospelofJuke",
+           "cnr sport",
+           "sweatypete",
+           "Robiny"
           ],
           "b": [
-           "Feels Like",
-           "STEEZE",
-           "Sorry l suck",
-           "Bambi"
+           "jkxs",
+           "Lagadellic",
+           "Corinth",
+           "smallybigs"
           ]
          },
-         "folder": "S27/Week 03/Novice - Jack in the Blocks (N) v Novice World Order/G5 - 3197312",
+         "folder": "S27/Week 03/Novice - Miami Ballphins (N) v The Ping Kongs/G5 - 3197395",
          "replay": null
         }
        ]
-      },
-      {
-       "game": "extra 6",
-       "score": [
-        1,
-        1
-       ],
-       "winner": "tie",
-       "played": "Wed 18 May 2022, 09:54 PM ET",
-       "record": "tagpro.eu",
-       "check": "problem",
-       "problems": [
-        "a match beyond the games this matchup was scheduled for (6 minutes): a restart, or a game filed under the wrong matchup"
-       ],
-       "matches": [
-        {
-         "part": null,
-         "match": 3197321,
-         "score": [
-          1,
-          1
-         ],
-         "minutes": 6.0,
-         "map": "Jardim",
-         "url": "https://tagpro.eu/?match=3197321",
-         "tags": {
-          "a": "Red",
-          "b": "Blue"
-         },
-         "players": {
-          "a": [
-           "chucky",
-           "JJIIZGOD",
-           "Trituin",
-           "black magic"
-          ],
-          "b": [
-           "STEEZE",
-           "Feels Like",
-           "Sorry l suck",
-           "Bambi"
-          ]
-         },
-         "folder": "S27/Week 03/Novice - Jack in the Blocks (N) v Novice World Order/extra 6 - 3197321",
-         "replay": null
-        }
-       ]
-      },
+      }
+     ],
+     "Novice - Jack in the Blocks (N) v Novice World Order": [
       {
        "game": "G1",
        "score": [
@@ -284403,10 +284215,7 @@
     },
     "missing_or_extra": [
      "GRE v PRO G1: OT eu not in archive",
-     "JIB v NWO G5: warm-up filed as G5",
-     "JIB v NWO extra 6: extra match, unknown why",
-     "MIA v TPK extra 6: extra match, unknown why",
-     "MIA v TPK extra 7: extra match, unknown why"
+     "JIB v NWO G5: missing, unknown"
     ]
    },
    "Week 4": {
@@ -288273,145 +288082,6 @@
      ],
      "Novice - American Corner Story v Novice World Order": [
       {
-       "game": "extra 6",
-       "score": [
-        6,
-        1
-       ],
-       "winner": "American Corner Story",
-       "played": "Thu 26 May 2022, 09:37 PM ET",
-       "record": "tagpro.eu",
-       "check": "problem",
-       "problems": [
-        "a match beyond the games this matchup was scheduled for (7 minutes): a restart, or a game filed under the wrong matchup"
-       ],
-       "matches": [
-        {
-         "part": null,
-         "match": 3203546,
-         "score": [
-          6,
-          1
-         ],
-         "minutes": 7.0,
-         "map": "Some Ring",
-         "url": "https://tagpro.eu/?match=3203546",
-         "tags": {
-          "a": "Red",
-          "b": "Blue"
-         },
-         "players": {
-          "a": [
-           "handro",
-           "kelvin",
-           "Stedman",
-           "PrincessLeia"
-          ],
-          "b": [
-           "perpndicular",
-           "MC Ride",
-           "first slime",
-           "Robiny"
-          ]
-         },
-         "folder": "S27/Week 04/Novice - American Corner Story v Novice World Order/extra 6 - 3203546",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G1",
-       "score": [
-        5,
-        2
-       ],
-       "winner": "American Corner Story",
-       "played": "Thu 26 May 2022, 09:47 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": null,
-         "match": 3203558,
-         "score": [
-          5,
-          2
-         ],
-         "minutes": 7.0,
-         "map": "OTI MERALD",
-         "url": "https://tagpro.eu/?match=3203558",
-         "tags": {
-          "a": "Red",
-          "b": "Blue"
-         },
-         "players": {
-          "a": [
-           "kelvin",
-           "MC Ride",
-           "PrincessLeia",
-           "first slime"
-          ],
-          "b": [
-           "perpndicular",
-           "Stedman",
-           "handro",
-           "JARVISLANDRY"
-          ]
-         },
-         "folder": "S27/Week 04/Novice - American Corner Story v Novice World Order/G1 - 3203558",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "extra 7",
-       "score": [
-        7,
-        0
-       ],
-       "winner": "American Corner Story",
-       "played": "Thu 26 May 2022, 09:56 PM ET",
-       "record": "tagpro.eu",
-       "check": "problem",
-       "problems": [
-        "a match beyond the games this matchup was scheduled for (7 minutes): a restart, or a game filed under the wrong matchup"
-       ],
-       "matches": [
-        {
-         "part": null,
-         "match": 3203570,
-         "score": [
-          7,
-          0
-         ],
-         "minutes": 7.0,
-         "map": "OTI MERALD",
-         "url": "https://tagpro.eu/?match=3203570",
-         "tags": {
-          "a": "Red",
-          "b": "Blue"
-         },
-         "players": {
-          "a": [
-           "PrincessLeia",
-           "first slime",
-           "kelvin",
-           "MC Ride"
-          ],
-          "b": [
-           "flaccid trip",
-           "handro",
-           "Stedman",
-           "perpndicular"
-          ]
-         },
-         "folder": "S27/Week 04/Novice - American Corner Story v Novice World Order/extra 7 - 3203570",
-         "replay": null
-        }
-       ]
-      },
-      {
        "game": "G2",
        "score": [
         7,
@@ -288640,10 +288310,8 @@
      ]
     },
     "missing_or_extra": [
-     "ACS v NWO G1: 7-minute match, unknown why",
-     "ACS v NWO G4: OT eu not in archive",
-     "ACS v NWO extra 6: extra match, unknown why",
-     "ACS v NWO extra 7: extra match, unknown why"
+     "ACS v NWO G1: missing, unknown",
+     "ACS v NWO G4: OT eu not in archive"
     ]
    },
    "Week 5": {
@@ -467813,48 +467481,6 @@
          "replay": "S33/Week 03/Minors - Bottle Otters v HoldinEye 007/G5 - 3667043/replay 9583a20e-3eb1-4ba7-8804-f9074bde2fed.ndjson.gz"
         }
        ]
-      },
-      {
-       "game": "extra 6",
-       "score": [
-        2,
-        0
-       ],
-       "winner": "Bottle Otters",
-       "played": "Mon 17 Jun 2024, 11:52 PM ET",
-       "record": "tagpro.eu",
-       "check": "problem",
-       "problems": [
-        "extra 6 (tagpro.eu 3667059): tagpro.eu's players are on neither team's roster",
-        "a match beyond the games this matchup was scheduled for (10 minutes): a restart, or a game filed under the wrong matchup"
-       ],
-       "matches": [
-        {
-         "part": null,
-         "match": 3667059,
-         "score": [
-          2,
-          0
-         ],
-         "minutes": 10.0,
-         "map": "Moon Base",
-         "url": "https://tagpro.eu/?match=3667059",
-         "tags": {
-          "a": "NEYE",
-          "b": "NBOT"
-         },
-         "players": {
-          "a": [
-           "ASAP"
-          ],
-          "b": [
-           "ballsack123"
-          ]
-         },
-         "folder": "S33/Week 03/Minors - Bottle Otters v HoldinEye 007/extra 6 - 3667059",
-         "replay": "S33/Week 03/Minors - Bottle Otters v HoldinEye 007/extra 6 - 3667059/replay 85949155-7e19-4191-9125-7a6ec87bd627.ndjson.gz"
-        }
-       ]
       }
      ],
      "Novice - Arctag iceCaps (N) v OD Gambit: Nubstep Variation": [
@@ -468767,7 +468393,6 @@
      ]
     },
     "missing_or_extra": [
-     "BOT v EYE extra 6: after series, not league",
      "CCM v WTP G2: no eu, pastebin score only",
      "CCM v WTP G3: no eu, pastebin score only",
      "SLP v JUK G4: replay missing (needs login)",
@@ -471499,242 +471124,14 @@
         }
        ]
       }
-     ],
-     "Novice - Holdman Sachs (N) v The Land Before Timers": [
-      {
-       "game": "G1",
-       "score": [
-        1,
-        2
-       ],
-       "winner": "The Land Before Timers",
-       "played": "Tue 02 Jul 2024, 09:35 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": null,
-         "match": 3673602,
-         "score": [
-          1,
-          2
-         ],
-         "minutes": 6.0,
-         "map": "OTI MERALD",
-         "url": "https://tagpro.eu/?match=3673602",
-         "tags": {
-          "a": "Blue",
-          "b": "Red"
-         },
-         "players": {
-          "a": [
-           "Glizzy",
-           "AJ.",
-           "MarcusYallow",
-           "Glimmer"
-          ],
-          "b": [
-           "Gnas",
-           "Burt",
-           "SOLF",
-           "thisf_nguy"
-          ]
-         },
-         "folder": "S33/Week 04/Novice - Holdman Sachs (N) v The Land Before Timers/G1 - 3673602",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G2",
-       "score": [
-        5,
-        2
-       ],
-       "winner": "Holdman Sachs (N)",
-       "played": "Tue 02 Jul 2024, 09:42 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": null,
-         "match": 3673608,
-         "score": [
-          5,
-          2
-         ],
-         "minutes": 6.0,
-         "map": "Asida",
-         "url": "https://tagpro.eu/?match=3673608",
-         "tags": {
-          "a": "Red",
-          "b": "Blue"
-         },
-         "players": {
-          "a": [
-           "MarcusYallow",
-           "Glizzy",
-           "AJ.",
-           "Glimmer"
-          ],
-          "b": [
-           "Burt",
-           "Gnas",
-           "SOLF",
-           "thisf_nguy"
-          ]
-         },
-         "folder": "S33/Week 04/Novice - Holdman Sachs (N) v The Land Before Timers/G2 - 3673608",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G3",
-       "score": [
-        0,
-        6
-       ],
-       "winner": "The Land Before Timers",
-       "played": "Tue 02 Jul 2024, 09:51 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": null,
-         "match": 3673613,
-         "score": [
-          0,
-          6
-         ],
-         "minutes": 6.0,
-         "map": "Audacity 2",
-         "url": "https://tagpro.eu/?match=3673613",
-         "tags": {
-          "a": "Blue",
-          "b": "Red"
-         },
-         "players": {
-          "a": [
-           "Glizzy",
-           "Glimmer",
-           "MarcusYallow",
-           "AJ."
-          ],
-          "b": [
-           "Gnas",
-           "Burt",
-           "thisf_nguy",
-           "SOLF"
-          ]
-         },
-         "folder": "S33/Week 04/Novice - Holdman Sachs (N) v The Land Before Timers/G3 - 3673613",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G4",
-       "score": [
-        0,
-        7
-       ],
-       "winner": "The Land Before Timers",
-       "played": "Tue 02 Jul 2024, 10:00 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": null,
-         "match": 3673619,
-         "score": [
-          0,
-          7
-         ],
-         "minutes": 6.0,
-         "map": "OTI Jardim",
-         "url": "https://tagpro.eu/?match=3673619",
-         "tags": {
-          "a": "Red",
-          "b": "Blue"
-         },
-         "players": {
-          "a": [
-           "Glizzy",
-           "MarcusYallow",
-           "AJ.",
-           "Glimmer"
-          ],
-          "b": [
-           "Burt",
-           "Gnas",
-           "SOLF",
-           "thisf_nguy"
-          ]
-         },
-         "folder": "S33/Week 04/Novice - Holdman Sachs (N) v The Land Before Timers/G4 - 3673619",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G5",
-       "score": [
-        2,
-        5
-       ],
-       "winner": "The Land Before Timers",
-       "played": "Tue 02 Jul 2024, 10:07 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": null,
-         "match": 3673626,
-         "score": [
-          2,
-          5
-         ],
-         "minutes": 6.0,
-         "map": "Audacity 2",
-         "url": "https://tagpro.eu/?match=3673626",
-         "tags": {
-          "a": "Red",
-          "b": "Blue"
-         },
-         "players": {
-          "a": [
-           "MarcusYallow",
-           "Glizzy",
-           "AJ.",
-           "Poeticalto"
-          ],
-          "b": [
-           "Gnas",
-           "thisf_nguy",
-           "Burt",
-           "SOLF"
-          ]
-         },
-         "folder": "S33/Week 04/Novice - Holdman Sachs (N) v The Land Before Timers/G5 - 3673626",
-         "replay": null
-        }
-       ]
-      }
      ]
     },
     "missing_or_extra": [
-     "HSG v LBT G1-G5: scrims; real games not on eu",
-     "HSG v LBT G1: replay missing (needs login)",
-     "HSG v LBT G2: replay missing (needs login)",
-     "HSG v LBT G3: replay missing (needs login)",
-     "HSG v LBT G4: replay missing (needs login)",
-     "HSG v LBT G5: replay missing (needs login)",
+     "HSG v LBT G1: whole series missing",
+     "HSG v LBT G2: whole series missing",
+     "HSG v LBT G3: whole series missing",
+     "HSG v LBT G4: whole series missing",
+     "HSG v LBT G5: whole series missing",
      "JUK v ILF G1: short match (3 min), unknown"
     ]
    },
@@ -749814,53 +749211,6 @@
          "replay": null
         }
        ]
-      },
-      {
-       "game": "extra 13",
-       "score": [
-        3,
-        0
-       ],
-       "winner": "Doggy's Tile (B)",
-       "played": "Sat 16 Feb 2019, 11:32 PM ET",
-       "record": "tagpro.eu",
-       "check": "problem",
-       "problems": [
-        "a match beyond the games this matchup was scheduled for (8 minutes): a restart, or a game filed under the wrong matchup"
-       ],
-       "matches": [
-        {
-         "part": null,
-         "match": 2113745,
-         "score": [
-          3,
-          0
-         ],
-         "minutes": 8.0,
-         "map": "Apparition",
-         "url": "https://tagpro.eu/?match=2113745",
-         "tags": {
-          "a": "Red",
-          "b": "Blue"
-         },
-         "players": {
-          "a": [
-           "HeinousAnus",
-           "TurdFerguson",
-           "Boo Caw Key",
-           "Jelly Rat"
-          ],
-          "b": [
-           "karlwithak",
-           "kwib",
-           "NameLEss",
-           "11th Cmndmnt"
-          ]
-         },
-         "folder": "NLTP S14/Week 04/Novice - Doggy's Tile (B) v Over the Pants Handoffs (B)/extra 13 - 2113745",
-         "replay": null
-        }
-       ]
       }
      ],
      "Novice - The Land Before Timers (B) v WCYDinos (B)": [
@@ -750448,9 +749798,7 @@
      ]
     },
     "missing_or_extra": [
-     "DST v OPH (B team) extra 13: Red v Blue, not league",
      "DST v OPH (B team) extra 7: G3 OT filed as extra 7",
-     "DST v OPH extra 13: Red v Blue, not league",
      "PQP v SLA G4: missing, eu lost"
     ]
    },
@@ -760929,387 +760277,6 @@
        ]
       }
      ],
-     "Novice - Leonardo NiceCaprio (B) v Over the Pants Handoffs (B)": [
-      {
-       "game": "G1",
-       "score": [
-        4,
-        5
-       ],
-       "winner": "Over the Pants Handoffs (B)",
-       "played": "Wed 15 May 2019, 08:30 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": "H1",
-         "match": 2188941,
-         "score": [
-          3,
-          1
-         ],
-         "minutes": 7.0,
-         "map": "Sugar Hill",
-         "url": "https://tagpro.eu/?match=2188941",
-         "tags": {
-          "a": "BLEO",
-          "b": "BOPH"
-         },
-         "players": {
-          "a": [
-           "Rick G. #853",
-           "42",
-           "[leo] 4skin",
-           "sass"
-          ],
-          "b": [
-           "Pop-a-Smurf",
-           "nanner",
-           "Crowman",
-           "serendipitou"
-          ]
-         },
-         "folder": "NLTP S15/Week 01/Novice - Leonardo NiceCaprio (B) v Over the Pants Handoffs (B)/G1 H1 - 2188941",
-         "replay": null
-        },
-        {
-         "part": "H2",
-         "match": 2188956,
-         "score": [
-          1,
-          4
-         ],
-         "minutes": 7.0,
-         "map": "Sugar Hill",
-         "url": "https://tagpro.eu/?match=2188956",
-         "tags": {
-          "a": "BLEO",
-          "b": "BOPH"
-         },
-         "players": {
-          "a": [
-           "Rick G. #853",
-           "42",
-           "sass",
-           "[leo] 4skin"
-          ],
-          "b": [
-           "fanseman",
-           "Pop-a-Smurf",
-           "nanner",
-           "serendipitou"
-          ]
-         },
-         "folder": "NLTP S15/Week 01/Novice - Leonardo NiceCaprio (B) v Over the Pants Handoffs (B)/G1 H2 - 2188956",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G2",
-       "score": [
-        7,
-        3
-       ],
-       "winner": "Leonardo NiceCaprio (B)",
-       "played": "Wed 15 May 2019, 08:52 PM ET",
-       "record": "tagpro.eu",
-       "check": "problem",
-       "problems": [
-        "H1 (tagpro.eu 2188966): no score, and tagpro.eu's can't be put in team order"
-       ],
-       "matches": [
-        {
-         "part": "H1",
-         "match": 2188966,
-         "score": null,
-         "minutes": 3.6,
-         "map": "EMERALD",
-         "url": "https://tagpro.eu/?match=2188966",
-         "tags": {
-          "a": "BLEO",
-          "b": "BOPH"
-         },
-         "players": {
-          "a": [
-           "fanseman",
-           "serendipitou",
-           "42",
-           "Rick G. #853"
-          ],
-          "b": [
-           "Pop-a-Smurf",
-           "[leo] 4skin",
-           "nanner",
-           "sass"
-          ]
-         },
-         "folder": "NLTP S15/Week 01/Novice - Leonardo NiceCaprio (B) v Over the Pants Handoffs (B)/G2 H1 - 2188966",
-         "replay": null
-        },
-        {
-         "part": "H2",
-         "match": 2188983,
-         "score": [
-          7,
-          3
-         ],
-         "minutes": 7.0,
-         "map": "EMERALD",
-         "url": "https://tagpro.eu/?match=2188983",
-         "tags": {
-          "a": "BOPH",
-          "b": "BLEO"
-         },
-         "players": {
-          "a": [
-           "42",
-           "sass",
-           "Rick G. #853",
-           "[leo] 4skin"
-          ],
-          "b": [
-           "KahnMan",
-           "BusinessBird",
-           "Anthracite",
-           "Victor messi"
-          ]
-         },
-         "folder": "NLTP S15/Week 01/Novice - Leonardo NiceCaprio (B) v Over the Pants Handoffs (B)/G2 H2 - 2188983",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G1",
-       "score": [
-        8,
-        10
-       ],
-       "winner": "Over the Pants Handoffs (B)",
-       "played": "Wed 15 May 2019, 09:15 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": "H1",
-         "match": 2189000,
-         "score": [
-          5,
-          4
-         ],
-         "minutes": 10.0,
-         "map": "EMERALD",
-         "url": "https://tagpro.eu/?match=2189000",
-         "tags": {
-          "a": "BLEO",
-          "b": "BOPH"
-         },
-         "players": {
-          "a": [
-           "[leo] 4skin",
-           "Rick G. #853",
-           "sass",
-           "42"
-          ],
-          "b": [
-           "Accel",
-           "Galvatron",
-           "kwib",
-           "360broscope"
-          ]
-         },
-         "folder": "NLTP S15/Week 01/Novice - Leonardo NiceCaprio (B) v Over the Pants Handoffs (B)/G1 H1 - 2189000",
-         "replay": null
-        },
-        {
-         "part": "H2",
-         "match": 2189013,
-         "score": [
-          3,
-          6
-         ],
-         "minutes": 10.0,
-         "map": "EMERALD",
-         "url": "https://tagpro.eu/?match=2189013",
-         "tags": {
-          "a": "BLEO",
-          "b": "BOPH"
-         },
-         "players": {
-          "a": [
-           "42",
-           "Rick G. #853",
-           "[leo] 4skin",
-           "sass"
-          ],
-          "b": [
-           "360broscope",
-           "Accel",
-           "Galvatron",
-           "sweater"
-          ]
-         },
-         "folder": "NLTP S15/Week 01/Novice - Leonardo NiceCaprio (B) v Over the Pants Handoffs (B)/G1 H2 - 2189013",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G2",
-       "score": [
-        6,
-        14
-       ],
-       "winner": "Over the Pants Handoffs (B)",
-       "played": "Wed 15 May 2019, 09:43 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": "H1",
-         "match": 2189033,
-         "score": [
-          3,
-          5
-         ],
-         "minutes": 10.0,
-         "map": "Sugar Hill",
-         "url": "https://tagpro.eu/?match=2189033",
-         "tags": {
-          "a": "BLEO",
-          "b": "BOPH"
-         },
-         "players": {
-          "a": [
-           "42",
-           "nanner",
-           "Rick G. #853",
-           "fanseman"
-          ],
-          "b": [
-           "360broscope",
-           "sweater",
-           "Galvatron",
-           "kwib"
-          ]
-         },
-         "folder": "NLTP S15/Week 01/Novice - Leonardo NiceCaprio (B) v Over the Pants Handoffs (B)/G2 H1 - 2189033",
-         "replay": null
-        },
-        {
-         "part": "H2",
-         "match": 2189051,
-         "score": [
-          3,
-          9
-         ],
-         "minutes": 10.0,
-         "map": "Sugar Hill",
-         "url": "https://tagpro.eu/?match=2189051",
-         "tags": {
-          "a": "BLEO",
-          "b": "BOPH"
-         },
-         "players": {
-          "a": [
-           "[leo] 4skin",
-           "fanseman",
-           "sass",
-           "nanner"
-          ],
-          "b": [
-           "sweater",
-           "Accel",
-           "kwib",
-           "Galvatron"
-          ]
-         },
-         "folder": "NLTP S15/Week 01/Novice - Leonardo NiceCaprio (B) v Over the Pants Handoffs (B)/G2 H2 - 2189051",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G3",
-       "score": [
-        4,
-        12
-       ],
-       "winner": "Over the Pants Handoffs (B)",
-       "played": "Wed 15 May 2019, 10:11 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": "H1",
-         "match": 2189066,
-         "score": [
-          2,
-          9
-         ],
-         "minutes": 10.0,
-         "map": "EMERALD",
-         "url": "https://tagpro.eu/?match=2189066",
-         "tags": {
-          "a": "BLEO",
-          "b": "BOPH"
-         },
-         "players": {
-          "a": [
-           "nanner",
-           "Rick G. #853",
-           "fanseman",
-           "[leo] 4skin"
-          ],
-          "b": [
-           "kwib",
-           "360broscope",
-           "Galvatron",
-           "Accel"
-          ]
-         },
-         "folder": "NLTP S15/Week 01/Novice - Leonardo NiceCaprio (B) v Over the Pants Handoffs (B)/G3 H1 - 2189066",
-         "replay": null
-        },
-        {
-         "part": "H2",
-         "match": 2189081,
-         "score": [
-          2,
-          3
-         ],
-         "minutes": 10.0,
-         "map": "EMERALD",
-         "url": "https://tagpro.eu/?match=2189081",
-         "tags": {
-          "a": "BLEO",
-          "b": "BOPH"
-         },
-         "players": {
-          "a": [
-           "fanseman",
-           "Rick G. #853",
-           "42",
-           "sass"
-          ],
-          "b": [
-           "sweater",
-           "kwib",
-           "360broscope",
-           "Accel"
-          ]
-         },
-         "folder": "NLTP S15/Week 01/Novice - Leonardo NiceCaprio (B) v Over the Pants Handoffs (B)/G3 H2 - 2189081",
-         "replay": null
-        }
-       ]
-      }
-     ],
      "Novice - Blockhole Surfers (B) v Flairbnb (B)": [
       {
        "game": "G1",
@@ -761535,6 +760502,236 @@
           ]
          },
          "folder": "NLTP S15/Week 01/Novice - Blockhole Surfers (B) v Flairbnb (B)/G3 H2 - 2189077",
+         "replay": null
+        }
+       ]
+      }
+     ],
+     "Novice - Leonardo NiceCaprio (B) v Over the Pants Handoffs (B)": [
+      {
+       "game": "G1",
+       "score": [
+        8,
+        10
+       ],
+       "winner": "Over the Pants Handoffs (B)",
+       "played": "Wed 15 May 2019, 09:15 PM ET",
+       "record": "tagpro.eu",
+       "check": "checked against tagpro.eu",
+       "problems": [],
+       "matches": [
+        {
+         "part": "H1",
+         "match": 2189000,
+         "score": [
+          5,
+          4
+         ],
+         "minutes": 10.0,
+         "map": "EMERALD",
+         "url": "https://tagpro.eu/?match=2189000",
+         "tags": {
+          "a": "BLEO",
+          "b": "BOPH"
+         },
+         "players": {
+          "a": [
+           "[leo] 4skin",
+           "Rick G. #853",
+           "sass",
+           "42"
+          ],
+          "b": [
+           "Accel",
+           "Galvatron",
+           "kwib",
+           "360broscope"
+          ]
+         },
+         "folder": "NLTP S15/Week 01/Novice - Leonardo NiceCaprio (B) v Over the Pants Handoffs (B)/G1 H1 - 2189000",
+         "replay": null
+        },
+        {
+         "part": "H2",
+         "match": 2189013,
+         "score": [
+          3,
+          6
+         ],
+         "minutes": 10.0,
+         "map": "EMERALD",
+         "url": "https://tagpro.eu/?match=2189013",
+         "tags": {
+          "a": "BLEO",
+          "b": "BOPH"
+         },
+         "players": {
+          "a": [
+           "42",
+           "Rick G. #853",
+           "[leo] 4skin",
+           "sass"
+          ],
+          "b": [
+           "360broscope",
+           "Accel",
+           "Galvatron",
+           "sweater"
+          ]
+         },
+         "folder": "NLTP S15/Week 01/Novice - Leonardo NiceCaprio (B) v Over the Pants Handoffs (B)/G1 H2 - 2189013",
+         "replay": null
+        }
+       ]
+      },
+      {
+       "game": "G2",
+       "score": [
+        6,
+        14
+       ],
+       "winner": "Over the Pants Handoffs (B)",
+       "played": "Wed 15 May 2019, 09:43 PM ET",
+       "record": "tagpro.eu",
+       "check": "checked against tagpro.eu",
+       "problems": [],
+       "matches": [
+        {
+         "part": "H1",
+         "match": 2189033,
+         "score": [
+          3,
+          5
+         ],
+         "minutes": 10.0,
+         "map": "Sugar Hill",
+         "url": "https://tagpro.eu/?match=2189033",
+         "tags": {
+          "a": "BLEO",
+          "b": "BOPH"
+         },
+         "players": {
+          "a": [
+           "42",
+           "nanner",
+           "Rick G. #853",
+           "fanseman"
+          ],
+          "b": [
+           "360broscope",
+           "sweater",
+           "Galvatron",
+           "kwib"
+          ]
+         },
+         "folder": "NLTP S15/Week 01/Novice - Leonardo NiceCaprio (B) v Over the Pants Handoffs (B)/G2 H1 - 2189033",
+         "replay": null
+        },
+        {
+         "part": "H2",
+         "match": 2189051,
+         "score": [
+          3,
+          9
+         ],
+         "minutes": 10.0,
+         "map": "Sugar Hill",
+         "url": "https://tagpro.eu/?match=2189051",
+         "tags": {
+          "a": "BLEO",
+          "b": "BOPH"
+         },
+         "players": {
+          "a": [
+           "[leo] 4skin",
+           "fanseman",
+           "sass",
+           "nanner"
+          ],
+          "b": [
+           "sweater",
+           "Accel",
+           "kwib",
+           "Galvatron"
+          ]
+         },
+         "folder": "NLTP S15/Week 01/Novice - Leonardo NiceCaprio (B) v Over the Pants Handoffs (B)/G2 H2 - 2189051",
+         "replay": null
+        }
+       ]
+      },
+      {
+       "game": "G3",
+       "score": [
+        4,
+        12
+       ],
+       "winner": "Over the Pants Handoffs (B)",
+       "played": "Wed 15 May 2019, 10:11 PM ET",
+       "record": "tagpro.eu",
+       "check": "checked against tagpro.eu",
+       "problems": [],
+       "matches": [
+        {
+         "part": "H1",
+         "match": 2189066,
+         "score": [
+          2,
+          9
+         ],
+         "minutes": 10.0,
+         "map": "EMERALD",
+         "url": "https://tagpro.eu/?match=2189066",
+         "tags": {
+          "a": "BLEO",
+          "b": "BOPH"
+         },
+         "players": {
+          "a": [
+           "nanner",
+           "Rick G. #853",
+           "fanseman",
+           "[leo] 4skin"
+          ],
+          "b": [
+           "kwib",
+           "360broscope",
+           "Galvatron",
+           "Accel"
+          ]
+         },
+         "folder": "NLTP S15/Week 01/Novice - Leonardo NiceCaprio (B) v Over the Pants Handoffs (B)/G3 H1 - 2189066",
+         "replay": null
+        },
+        {
+         "part": "H2",
+         "match": 2189081,
+         "score": [
+          2,
+          3
+         ],
+         "minutes": 10.0,
+         "map": "EMERALD",
+         "url": "https://tagpro.eu/?match=2189081",
+         "tags": {
+          "a": "BLEO",
+          "b": "BOPH"
+         },
+         "players": {
+          "a": [
+           "fanseman",
+           "Rick G. #853",
+           "42",
+           "sass"
+          ],
+          "b": [
+           "sweater",
+           "kwib",
+           "360broscope",
+           "Accel"
+          ]
+         },
+         "folder": "NLTP S15/Week 01/Novice - Leonardo NiceCaprio (B) v Over the Pants Handoffs (B)/G3 H2 - 2189081",
          "replay": null
         }
        ]
@@ -763006,7 +762203,6 @@
     },
     "missing_or_extra": [
      "BML v LBT (B team) G2: G1 OT filed as G2",
-     "LEO v OPH (B team) G1-G2: warm-ups filed as games",
      "UPR v DNO (B team) G3: G2 OT filed as G3"
     ]
    },
@@ -764369,310 +763565,6 @@
        ]
       }
      ],
-     "Novice - Leonardo NiceCaprio (B) v Under the Pants Rubgrabs (B)": [
-      {
-       "game": "G1",
-       "score": [
-        2,
-        6
-       ],
-       "winner": "Under the Pants Rubgrabs (B)",
-       "played": "Wed 22 May 2019, 08:59 PM ET",
-       "record": "tagpro.eu",
-       "check": "problem",
-       "problems": [
-        "H2 (tagpro.eu 2193987): no score, and tagpro.eu's can't be put in team order"
-       ],
-       "matches": [
-        {
-         "part": "H1",
-         "match": 2193978,
-         "score": [
-          2,
-          6
-         ],
-         "minutes": 7.0,
-         "map": "Sugar Hill",
-         "url": "https://tagpro.eu/?match=2193978",
-         "tags": {
-          "a": "BLEO",
-          "b": "BUPR"
-         },
-         "players": {
-          "a": [
-           "TurdFerguson",
-           "JSwan",
-           "Rick G. #853",
-           "twomad"
-          ],
-          "b": [
-           "iSuckDix4$",
-           "garet",
-           "serendipitou"
-          ]
-         },
-         "folder": "NLTP S15/Week 02/Novice - Leonardo NiceCaprio (B) v Under the Pants Rubgrabs (B)/G1 H1 - 2193978",
-         "replay": null
-        },
-        {
-         "part": "H2",
-         "match": 2193987,
-         "score": null,
-         "minutes": 7.0,
-         "map": "gfy",
-         "url": "https://tagpro.eu/?match=2193987",
-         "tags": {
-          "a": "BUPR",
-          "b": "BLEO"
-         },
-         "players": {
-          "a": [
-           "[leo] 4skin",
-           "garet",
-           "serendipitou",
-           "iSuckDix4$"
-          ],
-          "b": [
-           "Rick G. #853",
-           "Anti Vaccine",
-           "twomad",
-           "JSwan"
-          ]
-         },
-         "folder": "NLTP S15/Week 02/Novice - Leonardo NiceCaprio (B) v Under the Pants Rubgrabs (B)/G1 H2 - 2193987",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G1",
-       "score": [
-        9,
-        2
-       ],
-       "winner": "Leonardo NiceCaprio (B)",
-       "played": "Wed 22 May 2019, 09:25 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": "H1",
-         "match": 2194013,
-         "score": [
-          4,
-          1
-         ],
-         "minutes": 10.0,
-         "map": "Sugar Hill",
-         "url": "https://tagpro.eu/?match=2194013",
-         "tags": {
-          "a": "BLEO",
-          "b": "BUPR"
-         },
-         "players": {
-          "a": [
-           "Rick G. #853",
-           "[leo] 4skin",
-           "garet",
-           "serendipitou"
-          ],
-          "b": [
-           "ballyball",
-           "kool aid",
-           "Sadness",
-           "infinity."
-          ]
-         },
-         "folder": "NLTP S15/Week 02/Novice - Leonardo NiceCaprio (B) v Under the Pants Rubgrabs (B)/G1 H1 - 2194013",
-         "replay": null
-        },
-        {
-         "part": "H2",
-         "match": 2194028,
-         "score": [
-          5,
-          1
-         ],
-         "minutes": 10.0,
-         "map": "Sugar Hill",
-         "url": "https://tagpro.eu/?match=2194028",
-         "tags": {
-          "a": "BLEO",
-          "b": "BUPR"
-         },
-         "players": {
-          "a": [
-           "Rick G. #853",
-           "[leo] 4skin",
-           "serendipitou",
-           "glob?"
-          ],
-          "b": [
-           "ballyball",
-           "kool aid",
-           "Sadness",
-           "infinity."
-          ]
-         },
-         "folder": "NLTP S15/Week 02/Novice - Leonardo NiceCaprio (B) v Under the Pants Rubgrabs (B)/G1 H2 - 2194028",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G2",
-       "score": [
-        1,
-        9
-       ],
-       "winner": "Under the Pants Rubgrabs (B)",
-       "played": "Wed 22 May 2019, 09:50 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": "H1",
-         "match": 2194046,
-         "score": [
-          0,
-          2
-         ],
-         "minutes": 10.0,
-         "map": "gfy",
-         "url": "https://tagpro.eu/?match=2194046",
-         "tags": {
-          "a": "BLEO",
-          "b": "BUPR"
-         },
-         "players": {
-          "a": [
-           "fanseman",
-           "[leo] 4skin",
-           "serendipitou",
-           "glob?"
-          ],
-          "b": [
-           "kool aid",
-           "ballyball",
-           "Sadness",
-           "infinity."
-          ]
-         },
-         "folder": "NLTP S15/Week 02/Novice - Leonardo NiceCaprio (B) v Under the Pants Rubgrabs (B)/G2 H1 - 2194046",
-         "replay": null
-        },
-        {
-         "part": "H2",
-         "match": 2194060,
-         "score": [
-          1,
-          7
-         ],
-         "minutes": 10.0,
-         "map": "gfy",
-         "url": "https://tagpro.eu/?match=2194060",
-         "tags": {
-          "a": "BLEO",
-          "b": "BUPR"
-         },
-         "players": {
-          "a": [
-           "fanseman",
-           "garet",
-           "JSwan",
-           "glob?"
-          ],
-          "b": [
-           "ballyball",
-           "kool aid",
-           "Sadness",
-           "infinity."
-          ]
-         },
-         "folder": "NLTP S15/Week 02/Novice - Leonardo NiceCaprio (B) v Under the Pants Rubgrabs (B)/G2 H2 - 2194060",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G3",
-       "score": [
-        7,
-        6
-       ],
-       "winner": "Leonardo NiceCaprio (B)",
-       "played": "Wed 22 May 2019, 10:18 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": "H1",
-         "match": 2194081,
-         "score": [
-          4,
-          4
-         ],
-         "minutes": 10.0,
-         "map": "Sugar Hill",
-         "url": "https://tagpro.eu/?match=2194081",
-         "tags": {
-          "a": "BLEO",
-          "b": "BUPR"
-         },
-         "players": {
-          "a": [
-           "[leo] 4skin",
-           "garet",
-           "JSwan",
-           "glob?"
-          ],
-          "b": [
-           "ballyball",
-           "kool aid",
-           "Sadness",
-           "infinity."
-          ]
-         },
-         "folder": "NLTP S15/Week 02/Novice - Leonardo NiceCaprio (B) v Under the Pants Rubgrabs (B)/G3 H1 - 2194081",
-         "replay": null
-        },
-        {
-         "part": "H2",
-         "match": 2194095,
-         "score": [
-          3,
-          2
-         ],
-         "minutes": 10.0,
-         "map": "Sugar Hill",
-         "url": "https://tagpro.eu/?match=2194095",
-         "tags": {
-          "a": "BLEO",
-          "b": "BUPR"
-         },
-         "players": {
-          "a": [
-           "fanseman",
-           "serendipitou",
-           "garet",
-           "JSwan"
-          ],
-          "b": [
-           "ballyball",
-           "kool aid",
-           "Sadness",
-           "infinity."
-          ]
-         },
-         "folder": "NLTP S15/Week 02/Novice - Leonardo NiceCaprio (B) v Under the Pants Rubgrabs (B)/G3 H2 - 2194095",
-         "replay": null
-        }
-       ]
-      }
-     ],
      "Novice - Blockhole Surfers (B) v Manipulation Station (B)": [
       {
        "game": "G1",
@@ -765405,6 +764297,236 @@
           ]
          },
          "folder": "NLTP S15/Week 02/Novice - Over the Pants Handoffs (B) v WCYDinos (B)/extra 7 - 2194125",
+         "replay": null
+        }
+       ]
+      }
+     ],
+     "Novice - Leonardo NiceCaprio (B) v Under the Pants Rubgrabs (B)": [
+      {
+       "game": "G1",
+       "score": [
+        9,
+        2
+       ],
+       "winner": "Leonardo NiceCaprio (B)",
+       "played": "Wed 22 May 2019, 09:25 PM ET",
+       "record": "tagpro.eu",
+       "check": "checked against tagpro.eu",
+       "problems": [],
+       "matches": [
+        {
+         "part": "H1",
+         "match": 2194013,
+         "score": [
+          4,
+          1
+         ],
+         "minutes": 10.0,
+         "map": "Sugar Hill",
+         "url": "https://tagpro.eu/?match=2194013",
+         "tags": {
+          "a": "BLEO",
+          "b": "BUPR"
+         },
+         "players": {
+          "a": [
+           "Rick G. #853",
+           "[leo] 4skin",
+           "garet",
+           "serendipitou"
+          ],
+          "b": [
+           "ballyball",
+           "kool aid",
+           "Sadness",
+           "infinity."
+          ]
+         },
+         "folder": "NLTP S15/Week 02/Novice - Leonardo NiceCaprio (B) v Under the Pants Rubgrabs (B)/G1 H1 - 2194013",
+         "replay": null
+        },
+        {
+         "part": "H2",
+         "match": 2194028,
+         "score": [
+          5,
+          1
+         ],
+         "minutes": 10.0,
+         "map": "Sugar Hill",
+         "url": "https://tagpro.eu/?match=2194028",
+         "tags": {
+          "a": "BLEO",
+          "b": "BUPR"
+         },
+         "players": {
+          "a": [
+           "Rick G. #853",
+           "[leo] 4skin",
+           "serendipitou",
+           "glob?"
+          ],
+          "b": [
+           "ballyball",
+           "kool aid",
+           "Sadness",
+           "infinity."
+          ]
+         },
+         "folder": "NLTP S15/Week 02/Novice - Leonardo NiceCaprio (B) v Under the Pants Rubgrabs (B)/G1 H2 - 2194028",
+         "replay": null
+        }
+       ]
+      },
+      {
+       "game": "G2",
+       "score": [
+        1,
+        9
+       ],
+       "winner": "Under the Pants Rubgrabs (B)",
+       "played": "Wed 22 May 2019, 09:50 PM ET",
+       "record": "tagpro.eu",
+       "check": "checked against tagpro.eu",
+       "problems": [],
+       "matches": [
+        {
+         "part": "H1",
+         "match": 2194046,
+         "score": [
+          0,
+          2
+         ],
+         "minutes": 10.0,
+         "map": "gfy",
+         "url": "https://tagpro.eu/?match=2194046",
+         "tags": {
+          "a": "BLEO",
+          "b": "BUPR"
+         },
+         "players": {
+          "a": [
+           "fanseman",
+           "[leo] 4skin",
+           "serendipitou",
+           "glob?"
+          ],
+          "b": [
+           "kool aid",
+           "ballyball",
+           "Sadness",
+           "infinity."
+          ]
+         },
+         "folder": "NLTP S15/Week 02/Novice - Leonardo NiceCaprio (B) v Under the Pants Rubgrabs (B)/G2 H1 - 2194046",
+         "replay": null
+        },
+        {
+         "part": "H2",
+         "match": 2194060,
+         "score": [
+          1,
+          7
+         ],
+         "minutes": 10.0,
+         "map": "gfy",
+         "url": "https://tagpro.eu/?match=2194060",
+         "tags": {
+          "a": "BLEO",
+          "b": "BUPR"
+         },
+         "players": {
+          "a": [
+           "fanseman",
+           "garet",
+           "JSwan",
+           "glob?"
+          ],
+          "b": [
+           "ballyball",
+           "kool aid",
+           "Sadness",
+           "infinity."
+          ]
+         },
+         "folder": "NLTP S15/Week 02/Novice - Leonardo NiceCaprio (B) v Under the Pants Rubgrabs (B)/G2 H2 - 2194060",
+         "replay": null
+        }
+       ]
+      },
+      {
+       "game": "G3",
+       "score": [
+        7,
+        6
+       ],
+       "winner": "Leonardo NiceCaprio (B)",
+       "played": "Wed 22 May 2019, 10:18 PM ET",
+       "record": "tagpro.eu",
+       "check": "checked against tagpro.eu",
+       "problems": [],
+       "matches": [
+        {
+         "part": "H1",
+         "match": 2194081,
+         "score": [
+          4,
+          4
+         ],
+         "minutes": 10.0,
+         "map": "Sugar Hill",
+         "url": "https://tagpro.eu/?match=2194081",
+         "tags": {
+          "a": "BLEO",
+          "b": "BUPR"
+         },
+         "players": {
+          "a": [
+           "[leo] 4skin",
+           "garet",
+           "JSwan",
+           "glob?"
+          ],
+          "b": [
+           "ballyball",
+           "kool aid",
+           "Sadness",
+           "infinity."
+          ]
+         },
+         "folder": "NLTP S15/Week 02/Novice - Leonardo NiceCaprio (B) v Under the Pants Rubgrabs (B)/G3 H1 - 2194081",
+         "replay": null
+        },
+        {
+         "part": "H2",
+         "match": 2194095,
+         "score": [
+          3,
+          2
+         ],
+         "minutes": 10.0,
+         "map": "Sugar Hill",
+         "url": "https://tagpro.eu/?match=2194095",
+         "tags": {
+          "a": "BLEO",
+          "b": "BUPR"
+         },
+         "players": {
+          "a": [
+           "fanseman",
+           "serendipitou",
+           "garet",
+           "JSwan"
+          ],
+          "b": [
+           "ballyball",
+           "kool aid",
+           "Sadness",
+           "infinity."
+          ]
+         },
+         "folder": "NLTP S15/Week 02/Novice - Leonardo NiceCaprio (B) v Under the Pants Rubgrabs (B)/G3 H2 - 2194095",
          "replay": null
         }
        ]
@@ -766349,7 +765471,6 @@
     },
     "missing_or_extra": [
      "BML v REC (B team) G2: maybe restart or warm-up",
-     "LEO v UPR (B team) G1: warm-up filed as G1",
      "OPH v DNO (B team) extra 7: G3 OT filed as extra 7"
     ]
    },
@@ -767619,312 +766740,6 @@
        ]
       }
      ],
-     "Novice - Manipulation Station (B) v The Flying Burrito Balls (B)": [
-      {
-       "game": "G1",
-       "score": [
-        10,
-        5
-       ],
-       "winner": "Manipulation Station (B)",
-       "played": "Wed 29 May 2019, 08:50 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": "H1",
-         "match": 2198891,
-         "score": [
-          8,
-          4
-         ],
-         "minutes": 8.0,
-         "map": "Market",
-         "url": "https://tagpro.eu/?match=2198891",
-         "tags": {
-          "a": "omega",
-          "b": "good team"
-         },
-         "players": {
-          "a": [
-           "i love HD",
-           "lil potato",
-           "Moon River",
-           "FLACCiD TRiP"
-          ],
-          "b": [
-           "Infinity.",
-           "hellyea",
-           "ThePlaymaker",
-           "naga"
-          ]
-         },
-         "folder": "NLTP S15/Week 03/Novice - Manipulation Station (B) v The Flying Burrito Balls (B)/G1 H1 - 2198891",
-         "replay": null
-        },
-        {
-         "part": "H2",
-         "match": 2198901,
-         "score": [
-          2,
-          1
-         ],
-         "minutes": 8.0,
-         "map": "Market",
-         "url": "https://tagpro.eu/?match=2198901",
-         "tags": {
-          "a": "omega",
-          "b": "good team"
-         },
-         "players": {
-          "a": [
-           "lil potato",
-           "Moon River",
-           "Zig",
-           "FLACCiD TRiP"
-          ],
-          "b": [
-           "hellyea",
-           "Infinity.",
-           "ThePlaymaker",
-           "naga"
-          ]
-         },
-         "folder": "NLTP S15/Week 03/Novice - Manipulation Station (B) v The Flying Burrito Balls (B)/G1 H2 - 2198901",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G1",
-       "score": [
-        6,
-        3
-       ],
-       "winner": "Manipulation Station (B)",
-       "played": "Wed 29 May 2019, 09:27 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": "H1",
-         "match": 2198934,
-         "score": [
-          4,
-          1
-         ],
-         "minutes": 10.0,
-         "map": "gfy",
-         "url": "https://tagpro.eu/?match=2198934",
-         "tags": {
-          "a": "BNIP",
-          "b": "BFBB"
-         },
-         "players": {
-          "a": [
-           "Moon River",
-           "i love HD",
-           "stevepotato",
-           "FLACCiD TRiP"
-          ],
-          "b": [
-           "Jukester",
-           "Some Ballz",
-           "DEIRF",
-           "Bric"
-          ]
-         },
-         "folder": "NLTP S15/Week 03/Novice - Manipulation Station (B) v The Flying Burrito Balls (B)/G1 H1 - 2198934",
-         "replay": null
-        },
-        {
-         "part": "H2",
-         "match": 2198955,
-         "score": [
-          2,
-          2
-         ],
-         "minutes": 10.0,
-         "map": "gfy",
-         "url": "https://tagpro.eu/?match=2198955",
-         "tags": {
-          "a": "BNIP",
-          "b": "BFBB"
-         },
-         "players": {
-          "a": [
-           "stevepotato",
-           "MoistOintmnt",
-           "Adarssh",
-           "Zig"
-          ],
-          "b": [
-           "Takihole",
-           "Some Ballz",
-           "Bric",
-           "mutilator"
-          ]
-         },
-         "folder": "NLTP S15/Week 03/Novice - Manipulation Station (B) v The Flying Burrito Balls (B)/G1 H2 - 2198955",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G2",
-       "score": [
-        9,
-        4
-       ],
-       "winner": "Manipulation Station (B)",
-       "played": "Wed 29 May 2019, 09:59 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": "H1",
-         "match": 2198978,
-         "score": [
-          5,
-          3
-         ],
-         "minutes": 10.0,
-         "map": "Market",
-         "url": "https://tagpro.eu/?match=2198978",
-         "tags": {
-          "a": "BNIP",
-          "b": "BFBB"
-         },
-         "players": {
-          "a": [
-           "MoistOintmnt",
-           "i love HD",
-           "Adarssh",
-           "FLACCiD TRiP"
-          ],
-          "b": [
-           "Jukester",
-           "mutilator",
-           "Some Ballz",
-           "DEIRF"
-          ]
-         },
-         "folder": "NLTP S15/Week 03/Novice - Manipulation Station (B) v The Flying Burrito Balls (B)/G2 H1 - 2198978",
-         "replay": null
-        },
-        {
-         "part": "H2",
-         "match": 2198996,
-         "score": [
-          4,
-          1
-         ],
-         "minutes": 10.0,
-         "map": "Market",
-         "url": "https://tagpro.eu/?match=2198996",
-         "tags": {
-          "a": "BNIP",
-          "b": "BFBB"
-         },
-         "players": {
-          "a": [
-           "Moon River",
-           "stevepotato",
-           "Zig",
-           "Adarssh"
-          ],
-          "b": [
-           "Takihole",
-           "Makin Bacon",
-           "DEIRF",
-           "Bric"
-          ]
-         },
-         "folder": "NLTP S15/Week 03/Novice - Manipulation Station (B) v The Flying Burrito Balls (B)/G2 H2 - 2198996",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G3",
-       "score": [
-        9,
-        6
-       ],
-       "winner": "Manipulation Station (B)",
-       "played": "Wed 29 May 2019, 10:27 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": "H1",
-         "match": 2199008,
-         "score": [
-          4,
-          4
-         ],
-         "minutes": 10.0,
-         "map": "gfy",
-         "url": "https://tagpro.eu/?match=2199008",
-         "tags": {
-          "a": "BNIP",
-          "b": "BFBB"
-         },
-         "players": {
-          "a": [
-           "Moon River",
-           "MoistOintmnt",
-           "stevepotato",
-           "FLACCiD TRiP"
-          ],
-          "b": [
-           "Takihole",
-           "Makin Bacon",
-           "Some Ballz",
-           "Bric"
-          ]
-         },
-         "folder": "NLTP S15/Week 03/Novice - Manipulation Station (B) v The Flying Burrito Balls (B)/G3 H1 - 2199008",
-         "replay": null
-        },
-        {
-         "part": "H2",
-         "match": 2199022,
-         "score": [
-          5,
-          2
-         ],
-         "minutes": 10.0,
-         "map": "gfy",
-         "url": "https://tagpro.eu/?match=2199022",
-         "tags": {
-          "a": "BNIP",
-          "b": "BFBB"
-         },
-         "players": {
-          "a": [
-           "Zig",
-           "i love HD",
-           "Adarssh",
-           "FLACCiD TRiP"
-          ],
-          "b": [
-           "Makin Bacon",
-           "Takihole",
-           "Bric",
-           "mutilator"
-          ]
-         },
-         "folder": "NLTP S15/Week 03/Novice - Manipulation Station (B) v The Flying Burrito Balls (B)/G3 H2 - 2199022",
-         "replay": null
-        }
-       ]
-      }
-     ],
      "Novice - Blockhole Surfers (B) v Red Hot Chili Poppers (B)": [
       {
        "game": "G1",
@@ -768153,175 +766968,233 @@
          "replay": null
         }
        ]
-      },
+      }
+     ],
+     "Novice - Manipulation Station (B) v The Flying Burrito Balls (B)": [
       {
-       "game": "extra 7",
-       "score": null,
-       "winner": null,
-       "played": "Wed 29 May 2019, 10:44 PM ET",
-       "record": "tagpro.eu",
-       "check": "problem",
-       "problems": [
-        "extra 7 (tagpro.eu 2199019): no score, and tagpro.eu's can't be put in team order",
-        "no score from any source",
-        "a match beyond the games this matchup was scheduled for (7 minutes): a restart, or a game filed under the wrong matchup"
+       "game": "G1",
+       "score": [
+        6,
+        3
        ],
+       "winner": "Manipulation Station (B)",
+       "played": "Wed 29 May 2019, 09:27 PM ET",
+       "record": "tagpro.eu",
+       "check": "checked against tagpro.eu",
+       "problems": [],
        "matches": [
         {
-         "part": null,
-         "match": 2199019,
-         "score": null,
-         "minutes": 7.0,
-         "map": "Lemon ",
-         "url": "https://tagpro.eu/?match=2199019",
+         "part": "H1",
+         "match": 2198934,
+         "score": [
+          4,
+          1
+         ],
+         "minutes": 10.0,
+         "map": "gfy",
+         "url": "https://tagpro.eu/?match=2198934",
          "tags": {
-          "a": "BRCP",
-          "b": "BBHS"
+          "a": "BNIP",
+          "b": "BFBB"
          },
          "players": {
           "a": [
-           "KahnMan",
-           "Kooler",
-           "Tinderfella",
-           "Victor messi"
+           "Moon River",
+           "i love HD",
+           "stevepotato",
+           "FLACCiD TRiP"
           ],
           "b": [
-           "Tantrew",
-           "height",
-           "Crony",
-           "BAI_I_"
+           "Jukester",
+           "Some Ballz",
+           "DEIRF",
+           "Bric"
           ]
          },
-         "folder": "NLTP S15/Week 03/Novice - Blockhole Surfers (B) v Red Hot Chili Poppers (B)/extra 7 - 2199019",
+         "folder": "NLTP S15/Week 03/Novice - Manipulation Station (B) v The Flying Burrito Balls (B)/G1 H1 - 2198934",
+         "replay": null
+        },
+        {
+         "part": "H2",
+         "match": 2198955,
+         "score": [
+          2,
+          2
+         ],
+         "minutes": 10.0,
+         "map": "gfy",
+         "url": "https://tagpro.eu/?match=2198955",
+         "tags": {
+          "a": "BNIP",
+          "b": "BFBB"
+         },
+         "players": {
+          "a": [
+           "stevepotato",
+           "MoistOintmnt",
+           "Adarssh",
+           "Zig"
+          ],
+          "b": [
+           "Takihole",
+           "Some Ballz",
+           "Bric",
+           "mutilator"
+          ]
+         },
+         "folder": "NLTP S15/Week 03/Novice - Manipulation Station (B) v The Flying Burrito Balls (B)/G1 H2 - 2198955",
          "replay": null
         }
        ]
       },
       {
-       "game": "extra 8",
-       "score": null,
-       "winner": null,
-       "played": "Wed 29 May 2019, 10:52 PM ET",
-       "record": "tagpro.eu",
-       "check": "problem",
-       "problems": [
-        "extra 8 (tagpro.eu 2199023): no score, and tagpro.eu's can't be put in team order",
-        "no score from any source",
-        "a match beyond the games this matchup was scheduled for (1.36 minutes): a restart, or a game filed under the wrong matchup"
+       "game": "G2",
+       "score": [
+        9,
+        4
        ],
+       "winner": "Manipulation Station (B)",
+       "played": "Wed 29 May 2019, 09:59 PM ET",
+       "record": "tagpro.eu",
+       "check": "checked against tagpro.eu",
+       "problems": [],
        "matches": [
         {
-         "part": null,
-         "match": 2199023,
-         "score": null,
-         "minutes": 1.36,
-         "map": "Lemon ",
-         "url": "https://tagpro.eu/?match=2199023",
-         "tags": {
-          "a": "BRCP",
-          "b": "BBHS"
-         },
-         "players": {
-          "a": [
-           "Kooler",
-           "KahnMan",
-           "Tinderfella",
-           "Victor messi"
-          ],
-          "b": [
-           "height",
-           "Crony",
-           "Tantrew",
-           "BAI_I_"
-          ]
-         },
-         "folder": "NLTP S15/Week 03/Novice - Blockhole Surfers (B) v Red Hot Chili Poppers (B)/extra 8 - 2199023",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "extra 9",
-       "score": null,
-       "winner": null,
-       "played": "Wed 29 May 2019, 10:57 PM ET",
-       "record": "tagpro.eu",
-       "check": "problem",
-       "problems": [
-        "extra 9 (tagpro.eu 2199031): no score, and tagpro.eu's can't be put in team order",
-        "no score from any source",
-        "a match beyond the games this matchup was scheduled for (7 minutes): a restart, or a game filed under the wrong matchup"
-       ],
-       "matches": [
-        {
-         "part": null,
-         "match": 2199031,
-         "score": null,
-         "minutes": 7.0,
+         "part": "H1",
+         "match": 2198978,
+         "score": [
+          5,
+          3
+         ],
+         "minutes": 10.0,
          "map": "Market",
-         "url": "https://tagpro.eu/?match=2199031",
+         "url": "https://tagpro.eu/?match=2198978",
          "tags": {
-          "a": "BRCP",
-          "b": "BBHS"
+          "a": "BNIP",
+          "b": "BFBB"
          },
          "players": {
           "a": [
-           "KahnMan",
-           "Kooler",
-           "Tinderfella",
-           "Victor messi"
+           "MoistOintmnt",
+           "i love HD",
+           "Adarssh",
+           "FLACCiD TRiP"
           ],
           "b": [
-           "Crony",
-           "tommy buns",
-           "BAI_I_",
-           "Tantrew"
+           "Jukester",
+           "mutilator",
+           "Some Ballz",
+           "DEIRF"
           ]
          },
-         "folder": "NLTP S15/Week 03/Novice - Blockhole Surfers (B) v Red Hot Chili Poppers (B)/extra 9 - 2199031",
+         "folder": "NLTP S15/Week 03/Novice - Manipulation Station (B) v The Flying Burrito Balls (B)/G2 H1 - 2198978",
+         "replay": null
+        },
+        {
+         "part": "H2",
+         "match": 2198996,
+         "score": [
+          4,
+          1
+         ],
+         "minutes": 10.0,
+         "map": "Market",
+         "url": "https://tagpro.eu/?match=2198996",
+         "tags": {
+          "a": "BNIP",
+          "b": "BFBB"
+         },
+         "players": {
+          "a": [
+           "Moon River",
+           "stevepotato",
+           "Zig",
+           "Adarssh"
+          ],
+          "b": [
+           "Takihole",
+           "Makin Bacon",
+           "DEIRF",
+           "Bric"
+          ]
+         },
+         "folder": "NLTP S15/Week 03/Novice - Manipulation Station (B) v The Flying Burrito Balls (B)/G2 H2 - 2198996",
          "replay": null
         }
        ]
       },
       {
-       "game": "extra 10",
-       "score": null,
-       "winner": null,
-       "played": "Wed 29 May 2019, 11:05 PM ET",
-       "record": "tagpro.eu",
-       "check": "problem",
-       "problems": [
-        "extra 10 (tagpro.eu 2199043): no score, and tagpro.eu's can't be put in team order",
-        "no score from any source",
-        "a match beyond the games this matchup was scheduled for (7 minutes): a restart, or a game filed under the wrong matchup"
+       "game": "G3",
+       "score": [
+        9,
+        6
        ],
+       "winner": "Manipulation Station (B)",
+       "played": "Wed 29 May 2019, 10:27 PM ET",
+       "record": "tagpro.eu",
+       "check": "checked against tagpro.eu",
+       "problems": [],
        "matches": [
         {
-         "part": null,
-         "match": 2199043,
-         "score": null,
-         "minutes": 7.0,
-         "map": "Market",
-         "url": "https://tagpro.eu/?match=2199043",
+         "part": "H1",
+         "match": 2199008,
+         "score": [
+          4,
+          4
+         ],
+         "minutes": 10.0,
+         "map": "gfy",
+         "url": "https://tagpro.eu/?match=2199008",
          "tags": {
-          "a": "BBHS",
-          "b": "BRCP"
+          "a": "BNIP",
+          "b": "BFBB"
          },
          "players": {
           "a": [
-           "Tantrew",
-           "tommy buns",
-           "BAI_I_",
-           "Crony"
+           "Moon River",
+           "MoistOintmnt",
+           "stevepotato",
+           "FLACCiD TRiP"
           ],
           "b": [
-           "KahnMan",
-           "Kooler",
-           "Tinderfella",
-           "Victor messi"
+           "Takihole",
+           "Makin Bacon",
+           "Some Ballz",
+           "Bric"
           ]
          },
-         "folder": "NLTP S15/Week 03/Novice - Blockhole Surfers (B) v Red Hot Chili Poppers (B)/extra 10 - 2199043",
+         "folder": "NLTP S15/Week 03/Novice - Manipulation Station (B) v The Flying Burrito Balls (B)/G3 H1 - 2199008",
+         "replay": null
+        },
+        {
+         "part": "H2",
+         "match": 2199022,
+         "score": [
+          5,
+          2
+         ],
+         "minutes": 10.0,
+         "map": "gfy",
+         "url": "https://tagpro.eu/?match=2199022",
+         "tags": {
+          "a": "BNIP",
+          "b": "BFBB"
+         },
+         "players": {
+          "a": [
+           "Zig",
+           "i love HD",
+           "Adarssh",
+           "FLACCiD TRiP"
+          ],
+          "b": [
+           "Makin Bacon",
+           "Takihole",
+           "Bric",
+           "mutilator"
+          ]
+         },
+         "folder": "NLTP S15/Week 03/Novice - Manipulation Station (B) v The Flying Burrito Balls (B)/G3 H2 - 2199022",
          "replay": null
         }
        ]
@@ -769847,11 +768720,8 @@
      ]
     },
     "missing_or_extra": [
-     "BHS v RCP (B team) extra 7-10: scrims, not league",
-     "BHS v RCP extra 7-10: scrims, not league",
      "FLB v UPR (B team) G2: G1 OT filed as G2",
      "FLB v UPR (B team) extra 8: G3 OT filed as extra 8",
-     "NIP v FBB (B team) G1: warm-up filed as G1",
      "WIZ v WHC (B team) extra 7: G3 OT filed as extra 7"
     ]
    },
@@ -769884,127 +768754,6 @@
          "tags": null,
          "players": null,
          "folder": null,
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G1",
-       "score": [
-        3,
-        4
-       ],
-       "winner": "reCAPTCHA",
-       "played": "Tue 11 Jun 2019, 08:49 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": "H1",
-         "match": 2208354,
-         "score": [
-          1,
-          1
-         ],
-         "minutes": 7.0,
-         "map": "Lemon ",
-         "url": "https://tagpro.eu/?match=2208354",
-         "tags": {
-          "a": "Red",
-          "b": "Blue"
-         },
-         "players": {
-          "a": [
-           "CoolCat",
-           "K42larson",
-           "blackberry",
-           "Pam Mueller"
-          ],
-          "b": [
-           "juke dough",
-           "omart",
-           "pk",
-           "tnt"
-          ]
-         },
-         "folder": "NLTP S15/Week 04/Novice - Flairbnb v reCAPTCHA/G1 H1 - 2208354",
-         "replay": null
-        },
-        {
-         "part": "H2",
-         "match": 2208365,
-         "score": [
-          2,
-          3
-         ],
-         "minutes": 7.0,
-         "map": "Catch-22",
-         "url": "https://tagpro.eu/?match=2208365",
-         "tags": {
-          "a": "Red",
-          "b": "Blue"
-         },
-         "players": {
-          "a": [
-           "blackberry",
-           "K42larson",
-           "Pam Mueller",
-           "CoolCat"
-          ],
-          "b": [
-           "juke dough",
-           "pk",
-           "tnt",
-           "omart"
-          ]
-         },
-         "folder": "NLTP S15/Week 04/Novice - Flairbnb v reCAPTCHA/G1 H2 - 2208365",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G2",
-       "score": [
-        3,
-        2
-       ],
-       "winner": "Flairbnb",
-       "played": "Tue 11 Jun 2019, 09:06 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": "H1",
-         "match": 2208372,
-         "score": [
-          3,
-          2
-         ],
-         "minutes": 5.0,
-         "map": "Catch-22",
-         "url": "https://tagpro.eu/?match=2208372",
-         "tags": {
-          "a": "Blue",
-          "b": "Red"
-         },
-         "players": {
-          "a": [
-           "blackberry",
-           "K42larson",
-           "Pam Mueller",
-           "CoolCat"
-          ],
-          "b": [
-           "juke dough",
-           "pk",
-           "tnt",
-           "omar"
-          ]
-         },
-         "folder": "NLTP S15/Week 04/Novice - Flairbnb v reCAPTCHA/G2 - 2208372",
          "replay": null
         }
        ]
@@ -772988,170 +771737,17 @@
         }
        ]
       }
-     ],
-     "Novice - Hogwarts School v The Blokes": [
-      {
-       "game": "G1",
-       "score": [
-        2,
-        2
-       ],
-       "winner": "tie",
-       "played": "Tue 11 Jun 2019, 08:30 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": "H1",
-         "match": 2208337,
-         "score": [
-          1,
-          0
-         ],
-         "minutes": 7.0,
-         "map": "Catch-22",
-         "url": "https://tagpro.eu/?match=2208337",
-         "tags": {
-          "a": "Red",
-          "b": "Blue"
-         },
-         "players": {
-          "a": [
-           "LifeOfBrian",
-           "BertaFuckToy",
-           "Celtic",
-           "TomRiddle"
-          ],
-          "b": [
-           "raz",
-           "eDD",
-           "nOice!!",
-           "BAIl-e"
-          ]
-         },
-         "folder": "NLTP S15/Week 04/Novice - Hogwarts School v The Blokes/G1 H1 - 2208337",
-         "replay": null
-        },
-        {
-         "part": "H2",
-         "match": 2208345,
-         "score": [
-          1,
-          2
-         ],
-         "minutes": 7.0,
-         "map": "Catch-22",
-         "url": "https://tagpro.eu/?match=2208345",
-         "tags": {
-          "a": "Blue",
-          "b": "Red"
-         },
-         "players": {
-          "a": [
-           "LifeOfBrian",
-           "Celtic",
-           "TomRiddle",
-           "BertaFuckToy"
-          ],
-          "b": [
-           "eDD",
-           "nOice!!",
-           "Boo Caw Mute",
-           "raz"
-          ]
-         },
-         "folder": "NLTP S15/Week 04/Novice - Hogwarts School v The Blokes/G1 H2 - 2208345",
-         "replay": null
-        }
-       ]
-      },
-      {
-       "game": "G2",
-       "score": [
-        5,
-        6
-       ],
-       "winner": "The Blokes",
-       "played": "Tue 11 Jun 2019, 08:49 PM ET",
-       "record": "tagpro.eu",
-       "check": "checked against tagpro.eu",
-       "problems": [],
-       "matches": [
-        {
-         "part": "H1",
-         "match": 2208353,
-         "score": [
-          2,
-          4
-         ],
-         "minutes": 7.0,
-         "map": "Lemon ",
-         "url": "https://tagpro.eu/?match=2208353",
-         "tags": {
-          "a": "Blue",
-          "b": "Red"
-         },
-         "players": {
-          "a": [
-           "LifeOfBrian",
-           "BertaFuckToy",
-           "TomRiddle",
-           "Celtic"
-          ],
-          "b": [
-           "eDD",
-           "nOice!!",
-           "Boo Caw Mute",
-           "raz"
-          ]
-         },
-         "folder": "NLTP S15/Week 04/Novice - Hogwarts School v The Blokes/G2 H1 - 2208353",
-         "replay": null
-        },
-        {
-         "part": "H2",
-         "match": 2208363,
-         "score": [
-          3,
-          2
-         ],
-         "minutes": 7.0,
-         "map": "Lemon ",
-         "url": "https://tagpro.eu/?match=2208363",
-         "tags": {
-          "a": "Red",
-          "b": "Blue"
-         },
-         "players": {
-          "a": [
-           "LifeOfBrian",
-           "BertaFuckToy",
-           "TomRiddle",
-           "Celtic"
-          ],
-          "b": [
-           "eDD",
-           "nOice!!",
-           "Boo Caw Mute",
-           "raz"
-          ]
-         },
-         "folder": "NLTP S15/Week 04/Novice - Hogwarts School v The Blokes/G2 H2 - 2208363",
-         "replay": null
-        }
-       ]
-      }
      ]
     },
     "missing_or_extra": [
      "BML v FBB (B team) G1: short match (2 min), unknown",
-     "FLB v REC (B team) G1-G2: probably scrims",
      "FLB v REC (B team) extra 7: G3 OT filed as extra 7",
-     "FLB v REC G1-G2: probably scrims",
+     "FLB v REC G2: no eu, pastebin score only",
      "FLB v REC G4: missing, eu lost",
-     "WIZ v BLK (B team) G1-G2: probably scrims",
-     "WIZ v BLK G1-G2: probably scrims"
+     "WIZ v BLK (A team) G1: whole series missing",
+     "WIZ v BLK (A team) G2: whole series missing",
+     "WIZ v BLK (A team) G3: whole series missing",
+     "WIZ v BLK (A team) G4: whole series missing"
     ]
    },
    "Week 5": {
