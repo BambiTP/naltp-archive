@@ -1,26 +1,12 @@
 # NALTP Archive
 
-Home page for the NALTP (North American TagPro leagues) archive: https://bambitp.github.io/naltp-archive/
+The North American TagPro leagues (Majors, Minors, Novice), every season: https://bambitp.github.io/naltp-archive/
 
-The archive itself is served from a home machine through a Cloudflare quick tunnel, which is
-handed a new address every time it restarts. There are two ways to reach it, and which one you
-want depends on whether you are writing the address down anywhere.
+- `almanac/`: a page per season with its teams, schedule and results, draft, rosters and trades. Sources link to the
+  Google Sheet cell they were read from, and games to tagpro.eu.
+- `coverage.html`: every week of every season, which games are on tagpro.eu, which are lost, and why.
+- `downloads/`: the data as JSON and CSV.
+- Releases: every game as a season / week / matchup / game folder with its tagpro.eu match file and, from S31 on, its
+  TagPro replay.
 
-**A link that keeps working.** A redirect that always points at wherever the tunnel is now:
-
-    https://tagpro-archive-tunnel.bambitagpro.workers.dev/h/naltp/go/<path>
-
-The path carries through, so `/h/naltp/go/export/teams.csv` fetches that file. This is the
-address to put in a script or hand to someone else, because it survives a rotation. While the
-home machine is down it answers 503 with a short explanation instead of a dead link.
-
-**The current address itself.** `tunnel.json` holds it in its `url` field, updated automatically
-whenever it changes. The pages here read that file directly; anything else reading it has to read
-it again after every rotation, which is what the redirect above exists to avoid.
-`<base>/tunnel-check.txt` contains `naltp-archive` when the server is up.
-
-Whether the host is online, and how long ago it last checked in:
-
-    https://tagpro-archive-tunnel.bambitagpro.workers.dev/h/naltp/status
-
-See `llms.txt` for every path and data format.
+Everything here is plain files; nothing has to be running anywhere for the site to work.

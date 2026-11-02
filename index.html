@@ -4,130 +4,39 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NALTP Archive</title>
-<meta name="description" content="The history of the North American TagPro leagues (MLTP, mLTP, NLTP, ALTP): schedules, games, drafts, rosters and trades from every season.">
-<link rel="alternate" type="text/plain" title="Guide for AI assistants and programs" href="llms.txt">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>">
 <style>
-:root{--bg:#f6f7f9;--card:#fff;--ink:#16181d;--muted:#5b6270;--line:#dfe3ea;--accent:#1f5fd1;--accent-ink:#fff;
-  --good:#1d7a45;--bad:#b3261e;--soft:#eef2f8}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101216;--card:#181b21;--ink:#e8eaee;--muted:#9aa2b1;
-  --line:#2a2f38;--accent:#7aa7ff;--accent-ink:#0b1020;--good:#5cc98a;--bad:#f28b82;--soft:#1f242c}}
-:root[data-theme="dark"]{--bg:#101216;--card:#181b21;--ink:#e8eaee;--muted:#9aa2b1;--line:#2a2f38;--accent:#7aa7ff;
-  --accent-ink:#0b1020;--good:#5cc98a;--bad:#f28b82;--soft:#1f242c}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-main{max-width:880px;margin:0 auto;padding:40px 16px 64px}
-h1{font-size:clamp(28px,5vw,40px);line-height:1.1;margin:0 0 10px;letter-spacing:-.02em}
-.lede{color:var(--muted);margin:0 0 18px;max-width:62ch}
-.status{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);background:var(--card);
-  border:1px solid var(--line);border-radius:999px;padding:4px 12px}
-.dot{width:9px;height:9px;border-radius:50%;background:var(--muted)}
-.status.up .dot{background:var(--good)} .status.down .dot{background:var(--bad)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:28px 0}
-.card{display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:12px;
-  padding:18px;color:inherit;text-decoration:none}
-a.card:hover{border-color:var(--accent)}
-.card h2{font-size:18px;margin:0}
-.card p{margin:0;color:var(--muted);font-size:14.5px}
-.card .go{margin-top:auto;padding-top:8px;color:var(--accent);font-weight:600;font-size:14.5px}
-.files{display:grid;gap:8px;margin-top:6px}
-h3+.files{margin-top:0}
-.files a{display:flex;justify-content:space-between;gap:10px;align-items:baseline;text-decoration:none;color:var(--ink);
-  background:var(--soft);border-radius:8px;padding:8px 10px;font-size:14.5px}
-.files a:hover{outline:1px solid var(--accent)}
-.files small{color:var(--muted)}
-h3{font-size:15px;margin:36px 0 8px}
-.note{color:var(--muted);font-size:13.5px;margin-top:40px}
-.off .needs-server{opacity:.55;pointer-events:none}
+body { font: 16px/1.5 system-ui, sans-serif; max-width: 760px; margin: 0 auto; padding: 24px 16px; }
+li { margin-bottom: 6px; }
+small { color: #666; }
 </style>
 </head>
 <body>
-<main>
-  <h1>NALTP Archive</h1>
-  <p class="lede">The history of the North American TagPro leagues — MLTP, mLTP, NLTP and ALTP: every season's schedule, games, drafts, rosters and trades.</p>
-  <span class="status" id="status" role="status"><span class="dot"></span><span id="statustext">Connecting to the archive…</span></span>
+<h1>NALTP Archive</h1>
+<p>The North American TagPro leagues: Majors, Minors and Novice, every season.</p>
+<ul>
+<li><a href="almanac/index.html">Seasons</a> <small>each season's teams, schedule and results, draft, rosters and trades</small></li>
+<li><a href="coverage.html">Coverage</a> <small>every week of every season: which games are on tagpro.eu, which are lost, and why</small></li>
+</ul>
+<h2>Downloads</h2>
+<ul>
+<li><a href="downloads/games.json" download>games.json</a> <small>every game: seasons, weeks, matchups, scores, each tagpro.eu match and its line-ups</small></li>
+<li><a href="downloads/games.csv" download>games.csv</a> <small>the same games, one row per tagpro.eu match</small></li>
+<li><a href="downloads/schedule.csv" download>schedule.csv</a> <small>every matchup the schedule owed, with how many games were found</small></li>
+<li><a href="downloads/draft.csv" download>draft.csv</a> <small>every draft pick</small></li>
+<li><a href="downloads/rosters_after_draft.csv" download>rosters_after_draft.csv</a> <small>every team&#x27;s players after the draft</small></li>
+<li><a href="downloads/rosters_end_of_season.csv" download>rosters_end_of_season.csv</a> <small>every team&#x27;s players at the end of the season</small></li>
+<li><a href="downloads/playoff_series.csv" download>playoff_series.csv</a> <small>every playoff series</small></li>
+<li><a href="downloads/playoff_games.csv" download>playoff_games.csv</a> <small>every playoff game</small></li>
+<li><a href="downloads/playoff_champions.csv" download>playoff_champions.csv</a> <small>every champion</small></li>
+<li><a href="downloads/missing_games.csv" download>missing_games.csv</a> <small>every game the archive doesn&#x27;t have, and why</small></li>
+<li><a href="downloads/games_index.json" download>games_index.json</a> <small>every game, its tagpro.eu match and replay files in the zips below, and each week&#x27;s missing or extra games</small></li>
+<li><a href="downloads/pastebin_records.zip" download>pastebin_records.zip</a> <small>every match saved to pastebin</small></li>
+</ul>
+<h2>Every game's files</h2>
+<ul>
+<li><a href="https://github.com/BambiTP/naltp-archive/releases/download/naltp-games-2026-11-02/NALTP_games_tagpro_eu.zip">NALTP_games_tagpro_eu.zip</a> <small>every game in a season / week / matchup / game folder: its full tagpro.eu match file, an info.txt, and a txt per week saying what&#x27;s missing or extra (100 MB)</small></li>
+<li><a href="https://github.com/BambiTP/naltp-archive/releases/download/naltp-games-2026-11-02/NALTP_games_replays_S31-S39.zip">NALTP_games_replays_S31-S39.zip</a> <small>TagPro&#x27;s replays, with player positions, of 3,737 S31-S39 games, in the same folders: unzip it in the same place as the one above (2 GB)</small></li>
+</ul>
 
-  <div class="grid">
-    <a class="card needs-server" data-app="almanac/index.html">
-      <h2>Seasons</h2>
-      <p>Pick a season to see its schedule, results, draft, rosters and trades.</p>
-      <span class="go">Browse seasons →</span>
-    </a>
-    <a class="card needs-server" data-app="viewer/">
-      <h2>Spreadsheets</h2>
-      <p>Every sheet the league kept — season hubs, draft packets, stats sheets — exactly as they were. Each row of the archive's data links to the cell it was read from.</p>
-      <span class="go">Open the sheets →</span>
-    </a>
-    <a class="card" href="coverage.html">
-      <h2>Game coverage</h2>
-      <p>Every season and week, colored by how many of its games are on tagpro.eu, with links to each game and each season's hub.</p>
-      <span class="go">See coverage →</span>
-    </a>
-    <a class="card" href="playoffs.html">
-      <h2>Playoffs</h2>
-      <p>Every postseason the archive holds, round by round: the seeds, the series, every game of it, and who won.</p>
-      <span class="go">See the brackets →</span>
-    </a>
-    <a class="card" href="playoffs.html">
-      <h2>Playoffs</h2>
-      <p>Every postseason the archive holds, round by round: the seeds, the series, every game of it, and who won.</p>
-      <span class="go">See the brackets →</span>
-    </a>
-    <a class="card" href="replays.html">
-      <h2>Replay search</h2>
-      <p>Games tagpro.eu never recorded. TagPro has kept a recording of every game since September 2023, so if you played in one it may still be in your replay list.</p>
-      <span class="go">Find a game →</span>
-    </a>
-  </div>
-
-  <h3>Downloads</h3>
-  <div class="files needs-server">
-    <a data-path="viewer/data/records/games.csv" download>games.csv <small>every game: teams, score, map, replay link</small></a>
-    <a data-path="viewer/data/records/rosters.csv" download>rosters.csv <small>every team's players, after the draft and at season end</small></a>
-    <a data-path="viewer/data/records/misc.csv" download>misc.csv <small>trades and signings, teams, rules committee, maps</small></a>
-    <a data-path="conflicts.csv" download>conflicts.csv <small>every place sources disagree, with what tagpro.eu and the hub show</small></a>
-  </div>
-  <div class="files">
-    <a href="matches.json" download>matches.json <small>every match by season, league and week: score, date, map, line-ups</small></a>
-    <a href="pastebin_records.zip" download>pastebin_records.zip <small>every match saved to pastebin, kept here in case the pastebin goes</small></a>
-    <a href="https://github.com/BambiTP/naltp-archive/releases/download/naltp-games-2026-11-02/NALTP_games_tagpro_eu.zip">NALTP_games_tagpro_eu.zip <small>every game's tagpro.eu match in a season / week / matchup folder, with what's missing or extra each week (100 MB)</small></a>
-    <a href="https://github.com/BambiTP/naltp-archive/releases/download/naltp-games-2026-11-02/NALTP_games_replays_S31-S39.zip">NALTP_games_replays_S31-S39.zip <small>TagPro replays of 3,737 S31-S39 games, same folders; unzip next to the one above (2 GB)</small></a>
-    <a href="eu_archive_index.json" download>eu_archive_index.json <small>every game, match, folder, replay and missing or extra note in one file</small></a>
-  </div>
-
-  <p class="note">“Confirmed” means two separate sources agree.</p>
-
-</main>
-<script>
-(() => {
-  const onTunnel = /trycloudflare\.com$|^127\.0\.0\.1$|^localhost$/.test(location.hostname);
-  let base = onTunnel ? location.origin + "/" : null;
-  const status = document.getElementById("status"), text = document.getElementById("statustext");
-
-  const wire = () => {
-    document.querySelectorAll("[data-path]").forEach(a => { a.href = base + a.dataset.path; });
-    // on GitHub Pages the archive opens inside app.html, so the address stays here
-    document.querySelectorAll("[data-app]").forEach(a => { a.href = onTunnel ? base + a.dataset.app : "app.html?p=" + encodeURIComponent(a.dataset.app); });
-  };
-  const setState = up => {
-    status.classList.toggle("up", up); status.classList.toggle("down", !up);
-    document.body.classList.toggle("off", !up);
-    text.textContent = up ? "Archive online" : "Archive offline right now — try again later";
-  };
-
-  (async () => {
-    try {
-      if (!base) {
-        const t = await fetch("tunnel.json", {cache: "no-store"}).then(r => r.json());
-        base = t.url.replace(/\/?$/, "/");
-      }
-      wire();
-      const r = await fetch(base + "tunnel-check.txt", {cache: "no-store"});
-      setState(r.ok && (await r.text()).trim() === "naltp-archive");
-    } catch (e) { if (base) wire(); setState(false); }
-  })();
-
-})();
-</script>
 </body>
 </html>

@@ -1,0 +1,304 @@
+<title>Season 4 · NALTP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;600&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+:root{--paper:#f3f5f8;--surface:#ffffff;--sunk:#e9edf3;--ink:#19202b;--muted:#5d6778;--line:#d6dce6;
+--red:#c7383b;--blue:#2b61c6;--good:#2b8452;--warn:#a66a12;--chip:#e3e8f0;--on-team:#ffffff;--gold:#c8971a;
+--display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;--body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+--mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#0f1319;--surface:#161b23;--sunk:#1c222c;
+--ink:#e3e7ee;--muted:#9aa3b3;--line:#29313d;--red:#ec6b6b;--blue:#72a0f2;--good:#5cc28a;--warn:#e0a54a;--chip:#232a35;--on-team:#12161d;--gold:#e4b93f}}
+:root[data-theme="dark"]{--paper:#0f1319;--surface:#161b23;--sunk:#1c222c;--ink:#e3e7ee;--muted:#9aa3b3;--line:#29313d;
+--red:#ec6b6b;--blue:#72a0f2;--good:#5cc28a;--warn:#e0a54a;--chip:#232a35;--on-team:#12161d;--gold:#e4b93f}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:15px/1.5 var(--body);padding-inline:16px;padding-block:0 64px}
+a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto}
+header.top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;padding-block:28px 12px;border-bottom:3px solid var(--ink)}
+.eyebrow{font:600 12px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1{font:700 clamp(40px,7vw,64px)/.95 var(--display);letter-spacing:.01em;margin:6px 0 0;text-wrap:balance}
+h1 .red{color:var(--red)} h1 .blue{color:var(--blue)}
+h2{font:700 30px/1.1 var(--display);margin:0;letter-spacing:.01em}
+h3{font:700 20px/1.2 var(--display);letter-spacing:.02em;margin:0 0 8px;text-transform:uppercase}
+h4{font:600 14px/1.2 var(--body);margin:0}
+.pager{display:flex;gap:14px;font:600 14px/1 var(--display);letter-spacing:.08em;text-transform:uppercase}
+.lede{color:var(--muted);max-width:70ch;margin:10px 0 0}
+.facts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:14px 0 0;padding:0;list-style:none;color:var(--muted)}
+.facts b{color:var(--ink);font-weight:600}
+nav.jump{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+display:flex;gap:2px 16px;flex-wrap:wrap;padding-block:10px 0;font:600 13px/1 var(--display);letter-spacing:.1em;text-transform:uppercase}
+nav.jump button{border:0;background:none;color:var(--muted);font:inherit;letter-spacing:inherit;text-transform:inherit;
+cursor:pointer;padding:0 0 10px;border-bottom:2px solid transparent}
+nav.jump button:hover{color:var(--ink)}
+nav.jump a.away{color:var(--muted);text-decoration:none;padding:0 0 10px;border-bottom:2px solid transparent}
+nav.jump a.away:hover{color:var(--ink)}
+nav.jump button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--ink)}
+.tabbar{display:flex;flex-wrap:wrap;gap:4px;margin:20px 0 0;border-bottom:1px solid var(--line)}
+.tabbar button{border:0;background:none;color:var(--muted);cursor:pointer;padding:7px 12px;
+font:600 12px/1.2 var(--display);letter-spacing:.1em;text-transform:uppercase;border-bottom:2px solid transparent}
+.tabbar button:hover{color:var(--ink)}
+.tabbar button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--ink);background:var(--sunk)}
+.pane>.block:first-child{margin-top:18px}
+[hidden]{display:none!important}
+section.tier{margin-top:40px;scroll-margin-top:72px}
+.pane,.block{scroll-margin-top:72px}
+.tierhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+.swatch{width:14px;height:14px;background:var(--blue);align-self:center}
+.swatch.minors{background:var(--red)} .swatch.novice{background:var(--good)} .swatch.mm{background:var(--warn)}
+.block{margin-top:26px}
+.note{color:var(--muted);font-size:13px;max-width:80ch}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{background:var(--chip);border-radius:3px;padding:2px 7px;font-size:12.5px;white-space:nowrap}
+.chip.miss{color:var(--warn)} .chip.ok{color:var(--good)}
+.scroll{overflow-x:auto;border:1px solid var(--line);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{font:600 12px/1.2 var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);background:var(--sunk);white-space:nowrap}
+td{padding:6px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:12.5px;white-space:nowrap}
+.dim{color:var(--muted)}
+td.vote{text-align:center;white-space:nowrap;font-size:12.5px}
+td.vote.for{color:var(--good)} td.vote.against{color:var(--red)}
+.week{font:700 13px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:var(--sunk)}
+.score{font-family:var(--mono);font-size:12.5px;white-space:nowrap}
+.score .w{font-weight:700}
+.red{color:var(--red)} .blue{color:var(--blue)}
+.score a.red{color:var(--red);font-weight:700} .score a.blue{color:var(--blue);font-weight:700}
+.score a.saved{border-bottom:1px dotted var(--muted)}
+.score .otgroup{background:var(--sunk);border-radius:3px;padding:1px 5px}
+.score .otgroup a+a{margin-left:5px}
+.score i{font:600 11px/1 var(--mono);color:var(--muted);font-style:normal;margin-left:2px;
+vertical-align:3px}
+.score .otpair a+a{margin-left:5px;padding-left:5px;border-left:1px solid var(--line)}
+.matchup{display:grid;grid-template-columns:var(--teamw,15em) 2.2em auto auto auto;align-items:baseline;gap:0;
+position:relative}
+.matchup .ta{justify-self:end;text-align:right} .matchup .tb{justify-self:start}
+.matchup .vs{color:var(--muted);text-align:center;font-size:12px}
+.matchup .num{justify-self:start;text-align:left;margin-left:10px}
+.pop{display:none;position:absolute;z-index:20;top:calc(100% + 2px);left:50%;transform:translateX(-50%);
+background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:10px 14px;
+box-shadow:0 8px 24px rgba(0,0,0,.18);font:400 12.5px/1.5 var(--body);color:var(--ink);white-space:nowrap;
+grid-template-columns:auto auto;gap:6px 26px;text-align:left}
+.matchup:hover .pop,.matchup:focus-within .pop{display:grid}
+.popteam h6{font:700 12px/1.2 var(--display);letter-spacing:.08em;text-transform:uppercase;margin:0 0 4px}
+.popteam dl{display:grid;grid-template-columns:auto auto;gap:1px 16px;margin:0}
+.popteam dt{margin:0} .popteam dd{margin:0;text-align:right;color:var(--muted)}
+.crown{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;background:var(--sunk);
+border-left:3px solid var(--gold);border-radius:0 4px 4px 0;padding:10px 14px;margin:12px 0 0}
+.crown .ribbon{font:700 10px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.crown b{font-size:16px}
+.crown .dim{font-size:13px}
+h5.squad{font:700 12px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:18px 0 0}
+.bracketwrap{overflow-x:auto;padding-bottom:4px;margin-top:10px}
+.bracket{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(15.5em,1fr);gap:0 14px;
+min-width:calc(var(--rounds) * 16em)}
+.rnd{display:flex;flex-direction:column;justify-content:space-around;gap:8px;padding-left:14px;
+border-left:1px solid var(--line)}
+.rnd:first-child{padding-left:0;border-left:0}
+.rnd h6{display:flex;align-items:baseline;gap:6px;font:700 11px/1 var(--display);letter-spacing:.12em;
+text-transform:uppercase;color:var(--muted);margin:0 0 2px}
+.rnd h6 .when{font:400 10.5px var(--mono);letter-spacing:0;text-transform:none}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--muted);flex:none}
+.dot.all{background:var(--good)} .dot.some{background:var(--warn)} .dot.none{background:var(--red)}
+.all>.dot{background:var(--good)} .some>.dot{background:var(--warn)} .none>.dot{background:var(--red)}
+.ser{display:grid;gap:1px;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);
+border-radius:5px;padding:7px 9px;cursor:pointer;font:inherit;color:inherit}
+.ser:hover{border-color:var(--muted)}
+.ser[aria-pressed=true]{border-color:var(--ink);box-shadow:inset 3px 0 0 var(--ink)}
+.ser.bye{border-style:dashed;background:transparent;cursor:default}
+.ser.bye b{font:600 9px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.ser .row{display:grid;grid-template-columns:1.6em minmax(0,1fr) auto;align-items:baseline;gap:6px;
+color:var(--muted);font-size:13.5px}
+.ser .row.won{color:var(--ink)}
+.ser .row.won .nm{font-weight:600}
+.ser .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ser .sd{font:500 10.5px var(--mono);font-style:normal;color:var(--muted);text-align:right}
+.ser .row b{font:600 13px var(--mono)}
+.ser .meta{display:flex;align-items:center;gap:6px;margin-top:4px;font-size:11px;color:var(--muted)}
+.ser .up{font:600 9px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--warn);font-style:normal}
+.serpanel{margin-top:14px}
+.serdetail{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 14px;margin-top:10px}
+.sertop{display:grid;grid-template-columns:1fr auto 1fr;align-items:baseline;gap:10px}
+.sertop .who{color:var(--muted);font-size:15px}
+.sertop .who:first-child{text-align:right}
+.sertop .who.won{color:var(--ink);font-weight:600}
+.sertop .sd{font:500 11px var(--mono);font-style:normal;color:var(--muted);margin:0 6px}
+.sertop .sc{font:400 20px/1 var(--mono)} .sertop .sc b{font-weight:400} .sertop .sc b.w{font-weight:600}
+.serdetail .meta{color:var(--muted);font-size:12.5px;margin:6px 0 0;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.games{display:flex;flex-wrap:wrap;gap:4px 6px;margin:8px 0 0}
+.gm{display:inline-flex;align-items:baseline;gap:4px;background:var(--chip);border-radius:4px;padding:3px 8px;
+font:500 12.5px var(--mono);white-space:nowrap;text-decoration:none;color:var(--ink);border:1px solid transparent}
+a.gm:hover{border-color:var(--muted)}
+.gm .g{color:var(--muted);font-size:11px}
+.gm .s.red{color:var(--red)} .gm .s.blue{color:var(--blue)}
+.gm a.way{font:600 8.5px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+text-decoration:none;border-bottom:1px solid currentColor;margin-left:5px;align-self:center}
+.gm a.way:hover{color:var(--ink)}
+.gm.miss{background:transparent;border:1px dashed var(--line);color:var(--muted)}
+.gm i{font-style:normal;color:var(--muted);font-size:11px}
+.lineups{display:grid;grid-template-columns:repeat(auto-fit,minmax(14em,1fr));gap:10px 26px;margin-top:12px;
+border-top:1px solid var(--line);padding-top:10px}
+@media (max-width:720px){
+.bracket{grid-auto-columns:minmax(13.5em,1fr);min-width:calc(var(--rounds) * 14em)}
+.sertop{grid-template-columns:1fr auto;gap:2px 10px}
+.sertop .who{text-align:left} .sertop .who:first-child{text-align:left}
+.sertop .sc{grid-row:1;grid-column:2}
+}
+h5.round{font:700 13px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;margin:18px 0 4px;
+color:var(--ink)}
+.sc .won{font-size:12.5px;color:var(--ink);margin-top:6px;line-height:1.35}
+.sc .won span{font:700 9.5px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
+margin-right:5px}
+.teamchip{padding:1px 7px;border-radius:3px;color:var(--on-team);font-weight:700;white-space:nowrap;
+overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.teamchip.red{background:var(--red)} .teamchip.blue{background:var(--blue)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);padding:12px 14px}
+.card h4{font:700 18px/1.15 var(--display);letter-spacing:.02em}
+.card .sub{color:var(--muted);font-size:12.5px;margin-top:2px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+.pair h5{font:600 11px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.pair ol{list-style:none;margin:0;padding:0;display:grid;gap:3px}
+.pair li{display:flex;justify-content:space-between;gap:6px;font-size:13.5px;line-height:1.3}
+.pair li .n{min-width:0;overflow-wrap:anywhere}
+.mk{font-size:11px;color:var(--muted);white-space:nowrap}
+.two{color:var(--good);font-weight:700}
+.cap{font:700 10px/1 var(--display);letter-spacing:.08em;color:var(--red);margin-left:3px}
+details{margin-top:8px} summary{cursor:pointer;color:var(--muted);font-size:13px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:12.5px;color:var(--muted);margin:8px 0 0}
+.grid-seasons{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-top:14px}
+.sc{display:block;background:var(--surface);border:1px solid var(--line);padding:10px 12px;text-decoration:none;color:var(--ink)}
+.sc:hover{border-color:var(--blue)}
+.sc b{font:700 22px/1 var(--display);letter-spacing:.02em}
+.sc .yr{color:var(--muted);font-size:12.5px}
+.sc .chips{margin-top:8px}
+.era{margin-top:34px}
+@media (max-width:520px){.pair{grid-template-columns:1fr}.cards{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+<div class="wrap"><style>:root{--teamw:13.2em}</style><header class="top"><div><div class="eyebrow">MLTP — Majors and Minors</div><h1>Season 4</h1></div><nav class="pager" aria-label="Seasons"><a href="../index.html">All seasons</a><a href="S3.html">← Season 3</a><a href="S5.html">Season 5 →</a></nav></header><ul class="facts"><li><b>Played</b> dates not recorded</li><li><b>Tiers</b> Majors &amp; Minors</li></ul><nav class="jump" role="tablist" aria-label="Sections"><button type="button" role="tab" aria-selected="true" data-panel="majors-minors">Majors &amp; Minors</button></nav><div class="legend"><span>Everything shown is confirmed by two separate sources.</span><span><span class="num">212 min</span> minutes played for the team</span></div><section class="tier" id="majors-minors"><div class="tierhead"><span class="swatch mm"></span><h2>Majors &amp; Minors</h2></div><p class="note">A franchise draft: each franchise drafted once for both of its teams, and the sheets do not say which player went to which tier, so these rosters are by franchise.</p><div class="tabbar" role="tablist"><button type="button" role="tab" aria-selected="true" data-panel="majors-minors-0">Standings</button><button type="button" role="tab" aria-selected="false" data-panel="majors-minors-1">Rosters</button><button type="button" role="tab" aria-selected="false" data-panel="majors-minors-2">Transactions</button></div><div class="pane" id="majors-minors-0"><div class="block"><h3>Standings</h3><p class="note">The league's own table, worked out from the games themselves: three points for a win, two for winning in overtime, one for losing in overtime. A game settled by playing another counts once, to whoever won the one that settled it. Ties are broken here on cap difference and then caps scored; the league settles them on head-to-head first.</p><div class="scroll"><table><thead><tr><th>#</th><th>Team</th><th>Abbr.</th><th>Pts</th><th>W</th><th>OTW</th><th>OTL</th><th>L</th><th>CF</th><th>CA</th><th>+/-</th><th>Captains</th></tr></thead><tbody><tr><td class="num dim">1</td><td><b>((((Ballrentheses))))</b></td><td class="num"></td><td class="num dim" colspan="8">—</td><td>JGibbs</td></tr><tr><td class="num dim">2</td><td><b>Ball€himedes</b></td><td class="num"></td><td class="num dim" colspan="8">—</td><td>Chalksy</td></tr><tr><td class="num dim">3</td><td><b>Centra Limit Theorem</b></td><td class="num"></td><td class="num dim" colspan="8">—</td><td>Swingman</td></tr><tr><td class="num dim">4</td><td><b>CoSinners</b></td><td class="num"></td><td class="num dim" colspan="8">—</td><td>Marwels23</td></tr><tr><td class="num dim">5</td><td><b>Evercapping Gobpoppers</b></td><td class="num"></td><td class="num dim" colspan="8">—</td><td>The Abbot</td></tr><tr><td class="num dim">6</td><td><b>Lagprone</b></td><td class="num"></td><td class="num dim" colspan="8">—</td><td>Steppin</td></tr><tr><td class="num dim">7</td><td><b>Marble Madness</b></td><td class="num"></td><td class="num dim" colspan="8">—</td><td>Felix</td></tr><tr><td class="num dim">8</td><td><b>Orville-Redenballers</b></td><td class="num"></td><td class="num dim" colspan="8">—</td><td>Infinity</td></tr><tr><td class="num dim">9</td><td><b>Pop&#x27;em Block&#x27;em Probots</b></td><td class="num"></td><td class="num dim" colspan="8">—</td><td>Sidewalk</td></tr><tr><td class="num dim">10</td><td><b>Skillz that Killz</b></td><td class="num"></td><td class="num dim" colspan="8">—</td><td>Dino</td></tr><tr><td class="num dim">11</td><td><b>The Nevermores</b></td><td class="num"></td><td class="num dim" colspan="8">—</td><td>raven513</td></tr><tr><td class="num dim">12</td><td><b>The Rolling Stones</b></td><td class="num"></td><td class="num dim" colspan="8">—</td><td>The Boulder</td></tr></tbody></table></div></div></div><div class="pane" id="majors-minors-1" hidden><div class="block"><h3>Rosters</h3><div class="cards"><div class="card"><h4>((((Ballrentheses))))</h4><div class="sub">JGibbs</div><div class="pair"><div><h5>After the draft · 26</h5><ol><li><span class="n">B.I.G.money</span></li><li><span class="n">Balls Jr</span></li><li><span class="n">BergieBerg</span></li><li><span class="n">bizkut</span></li><li><span class="n">Bweurp</span></li><li><span class="n">Cahru</span></li><li><span class="n">CalcPie314</span></li><li><span class="n">chalushian</span></li><li><span class="n">dad</span></li><li><span class="n">Ferris</span></li><li><span class="n">Green</span></li><li><span class="n">Iblis</span></li><li><span class="n">Ly</span></li><li><span class="n">Mamba</span></li><li><span class="n">MangoDave</span></li><li><span class="n">Manute Ball</span></li><li><span class="n">MLX2JUKE</span></li><li><span class="n">Nathan719</span></li><li><span class="n">NewCompte</span></li><li><span class="n">PrivateMajor</span></li><li><span class="n">rabbat</span></li><li><span class="n">Skeeball</span></li><li><span class="n">Supershibe</span></li><li><span class="n">Ted Bundy</span></li><li><span class="n">Vassal Wolf</span></li><li><span class="n">yu31</span></li></ol></div><div><h5>End of season</h5><p class="dim" style="margin:0;font-size:13px">not confirmed</p></div></div></div><div class="card"><h4>Ball€himedes</h4><div class="sub">Chalksy</div><div class="pair"><div><h5>After the draft · 25</h5><ol><li><span class="n">Boywa</span></li><li><span class="n">bread</span></li><li><span class="n">Cam</span></li><li><span class="n">chiinacat</span></li><li><span class="n">ChinaBlack</span></li><li><span class="n">curlymike</span></li><li><span class="n">Duke of Juke</span></li><li><span class="n">Extractum11</span></li><li><span class="n">jegs</span></li><li><span class="n">kr</span></li><li><span class="n">Lizard Wizard</span></li><li><span class="n">loaf</span></li><li><span class="n">Mikero</span></li><li><span class="n">Montaballer</span></li><li><span class="n">Nutshell</span></li><li><span class="n">Phaiv</span></li><li><span class="n">pizza4dinner</span></li><li><span class="n">Riptide</span></li><li><span class="n">Ryder</span></li><li><span class="n">Shabba</span></li><li><span class="n">Shakalaka</span></li><li><span class="n">SryBtUrAnkls</span></li><li><span class="n">Tinker Creek</span></li><li><span class="n">Watball</span></li><li><span class="n">XYZT</span></li></ol></div><div><h5>End of season</h5><p class="dim" style="margin:0;font-size:13px">not confirmed</p></div></div></div><div class="card"><h4>Centra Limit Theorem</h4><div class="sub">Swingman</div><div class="pair"><div><h5>After the draft · 26</h5><ol><li><span class="n">Aaron215</span></li><li><span class="n">Adurox</span></li><li><span class="n">Cook my Sock</span></li><li><span class="n">Cruyff</span></li><li><span class="n">DICK LICKER</span></li><li><span class="n">Donk</span></li><li><span class="n">dywz</span></li><li><span class="n">Haash</span></li><li><span class="n">Heisenball</span></li><li><span class="n">Jaylez</span></li><li><span class="n">jose_canseco</span></li><li><span class="n">LEEROY</span></li><li><span class="n">MSByrne</span></li><li><span class="n">Oogi</span></li><li><span class="n">Ozymandias</span></li><li><span class="n">Philish</span></li><li><span class="n">Pyopi</span></li><li><span class="n">Raven</span></li><li><span class="n">Razzamatazm</span></li><li><span class="n">SirDan</span></li><li><span class="n">Spiller</span></li><li><span class="n">tim-sanchez</span></li><li><span class="n">Turtlemansam</span></li><li><span class="n">Walrus</span></li><li><span class="n">WreckingBall</span></li><li><span class="n">ZumgAPanda</span></li></ol></div><div><h5>End of season</h5><p class="dim" style="margin:0;font-size:13px">not confirmed</p></div></div></div><div class="card"><h4>CoSinners</h4><div class="sub">Marwels23</div><div class="pair"><div><h5>After the draft · 26</h5><ol><li><span class="n">AiR95</span></li><li><span class="n">Ballon</span></li><li><span class="n">Ballrog</span></li><li><span class="n">Big Nuts</span></li><li><span class="n">Corhal</span></li><li><span class="n">DeAngeloBall</span></li><li><span class="n">Defender</span></li><li><span class="n">Frostlight</span></li><li><span class="n">Gman8181</span></li><li><span class="n">Guy Fawkes</span></li><li><span class="n">Harry Ball</span></li><li><span class="n">Ice</span></li><li><span class="n">konarf</span></li><li><span class="n">laxinlapris</span></li><li><span class="n">MrMcCracken</span></li><li><span class="n">mrMENACE</span></li><li><span class="n">Muppy</span></li><li><span class="n">Orb</span></li><li><span class="n">PaintBall</span></li><li><span class="n">Prettyboyswa</span></li><li><span class="n">Spherious</span></li><li><span class="n">Train</span></li><li><span class="n">Triskyjoe</span></li><li><span class="n">wxyandz</span></li><li><span class="n">Xile</span></li><li><span class="n">Yellow</span></li></ol></div><div><h5>End of season</h5><p class="dim" style="margin:0;font-size:13px">not confirmed</p></div></div></div><div class="card"><h4>Evercapping Gobpoppers</h4><div class="sub">The Abbot</div><div class="pair"><div><h5>After the draft · 26</h5><ol><li><span class="n">ABnew</span></li><li><span class="n">annyong</span></li><li><span class="n">balls2u</span></li><li><span class="n">BAllstar</span></li><li><span class="n">Boom</span></li><li><span class="n">cardinal507</span></li><li><span class="n">CosbysJello</span></li><li><span class="n">cz</span></li><li><span class="n">Danny</span></li><li><span class="n">Datballdoe</span></li><li><span class="n">Dude</span></li><li><span class="n">Fank1</span></li><li><span class="n">Forcekin</span></li><li><span class="n">foxi</span></li><li><span class="n">Gratii</span></li><li><span class="n">JAMES_BUD</span></li><li><span class="n">mjmj</span></li><li><span class="n">MrJoehobo</span></li><li><span class="n">Nagball</span></li><li><span class="n">Orangutan</span></li><li><span class="n">Pescis (USA)</span></li><li><span class="n">poopv</span></li><li><span class="n">SPAM</span></li><li><span class="n">SwiftBacon</span></li><li><span class="n">The Worst</span></li><li><span class="n">trendygrub</span></li></ol></div><div><h5>End of season</h5><p class="dim" style="margin:0;font-size:13px">not confirmed</p></div></div></div><div class="card"><h4>Lagprone</h4><div class="sub">Steppin</div><div class="pair"><div><h5>After the draft · 26</h5><ol><li><span class="n">1000 Hornets</span></li><li><span class="n">Alterius</span></li><li><span class="n">Aurel</span></li><li><span class="n">Balldemort</span></li><li><span class="n">BigBalls</span></li><li><span class="n">cignul9</span></li><li><span class="n">CondoKP</span></li><li><span class="n">Ferg</span></li><li><span class="n">Foxie</span></li><li><span class="n">josh61616</span></li><li><span class="n">LagPro</span></li><li><span class="n">lobsterhunt</span></li><li><span class="n">Lucky Spammer</span></li><li><span class="n">LuckyDuckyDan</span></li><li><span class="n">MuscleCups</span></li><li><span class="n">rainmaker</span></li><li><span class="n">Rems</span></li><li><span class="n">samurai</span></li><li><span class="n">Some Ball</span></li><li><span class="n">T Sac</span></li><li><span class="n">Thuggsy</span></li><li><span class="n">Trapsin</span></li><li><span class="n">Truck</span></li><li><span class="n">Wumbo</span></li><li><span class="n">ت</span></li><li><span class="n">ツ</span></li></ol></div><div><h5>End of season</h5><p class="dim" style="margin:0;font-size:13px">not confirmed</p></div></div></div><div class="card"><h4>Marble Madness</h4><div class="sub">Felix</div><div class="pair"><div><h5>After the draft · 25</h5><ol><li><span class="n">BG</span></li><li><span class="n">Bilbo (new)</span></li><li><span class="n">BrownFellow</span></li><li><span class="n">Chip</span></li><li><span class="n">CocaCola</span></li><li><span class="n">Dethos</span></li><li><span class="n">Dimez</span></li><li><span class="n">dungdeuce69</span></li><li><span class="n">ecoli</span></li><li><span class="n">Fez</span></li><li><span class="n">FUCKING LAG</span></li><li><span class="n">HiLite</span></li><li><span class="n">jbh</span></li><li><span class="n">Jerryrome</span></li><li><span class="n">Kvatras</span></li><li><span class="n">Lights</span></li><li><span class="n">Mercury</span></li><li><span class="n">Mesut Ozball</span></li><li><span class="n">Micaso</span></li><li><span class="n">Recks</span></li><li><span class="n">Rislyeu</span></li><li><span class="n">Rod Stewart</span></li><li><span class="n">schmohawk</span></li><li><span class="n">Slip</span></li><li><span class="n">Swerve</span></li></ol></div><div><h5>End of season</h5><p class="dim" style="margin:0;font-size:13px">not confirmed</p></div></div></div><div class="card"><h4>Orville-Redenballers</h4><div class="sub">Infinity</div><div class="pair"><div><h5>After the draft · 26</h5><ol><li><span class="n">Akiki</span></li><li><span class="n">AloneID</span></li><li><span class="n">Chancho Jomp</span></li><li><span class="n">Cleffer</span></li><li><span class="n">Fizzgig</span></li><li><span class="n">FooFoo</span></li><li><span class="n">get hype</span></li><li><span class="n">Gumpshun</span></li><li><span class="n">Hyponome</span></li><li><span class="n">JakeFromSF</span></li><li><span class="n">Just &#x27;nads</span></li><li><span class="n">KobeMaybe</span></li><li><span class="n">Love</span></li><li><span class="n">LukeM</span></li><li><span class="n">oFREAKo</span></li><li><span class="n">poooo</span></li><li><span class="n">ppppow</span></li><li><span class="n">Rambo</span></li><li><span class="n">Stef</span></li><li><span class="n">Strem</span></li><li><span class="n">SwifT</span></li><li><span class="n">t-pat</span></li><li><span class="n">Turbo</span></li><li><span class="n">WoOt</span></li><li><span class="n">youradhere</span></li><li><span class="n">➵</span></li></ol></div><div><h5>End of season</h5><p class="dim" style="margin:0;font-size:13px">not confirmed</p></div></div></div><div class="card"><h4>Pop&#x27;em Block&#x27;em Probots</h4><div class="sub">Sidewalk</div><div class="pair"><div><h5>After the draft · 26</h5><ol><li><span class="n">Aiakos</span></li><li><span class="n">bad</span></li><li><span class="n">BallCostas</span></li><li><span class="n">Balls Sr</span></li><li><span class="n">BuckyBall</span></li><li><span class="n">Bull</span></li><li><span class="n">Deaf&amp;Dumb</span></li><li><span class="n">Dole_Bananas</span></li><li><span class="n">elsestar</span></li><li><span class="n">FlagBurglar</span></li><li><span class="n">FPSushi</span></li><li><span class="n">gg hotshot</span></li><li><span class="n">Hydrad</span></li><li><span class="n">Jerry&lt;3</span></li><li><span class="n">Kai</span></li><li><span class="n">Kard</span></li><li><span class="n">LakeShow</span></li><li><span class="n">Pnaoxt</span></li><li><span class="n">Ramrod</span></li><li><span class="n">socony</span></li><li><span class="n">some square</span></li><li><span class="n">Tanador</span></li><li><span class="n">Taylor Swift</span></li><li><span class="n">teddybear</span></li><li><span class="n">tothewall</span></li><li><span class="n">Trollseph</span></li></ol></div><div><h5>End of season</h5><p class="dim" style="margin:0;font-size:13px">not confirmed</p></div></div></div><div class="card"><h4>Skillz that Killz</h4><div class="sub">Dino</div><div class="pair"><div><h5>After the draft · 26</h5><ol><li><span class="n">66</span></li><li><span class="n">BamBam</span></li><li><span class="n">Bric™</span></li><li><span class="n">Coolking77</span></li><li><span class="n">Curl</span></li><li><span class="n">Djcookie187</span></li><li><span class="n">Drake</span></li><li><span class="n">Ginseng</span></li><li><span class="n">Jesus</span></li><li><span class="n">jjpoole</span></li><li><span class="n">jsun365</span></li><li><span class="n">KDOG</span></li><li><span class="n">MikeNN</span></li><li><span class="n">MoltenGrog</span></li><li><span class="n">MRCOW</span></li><li><span class="n">Noobkin</span></li><li><span class="n">PuppyGuarder</span></li><li><span class="n">Saint Enigma</span></li><li><span class="n">saunuku</span></li><li><span class="n">SexPanther</span></li><li><span class="n">Spheroid</span></li><li><span class="n">Stalin</span></li><li><span class="n">Sweaty</span></li><li><span class="n">TheBob18</span></li><li><span class="n">Willster206</span></li><li><span class="n">Xolani 2.0</span></li></ol></div><div><h5>End of season</h5><p class="dim" style="margin:0;font-size:13px">not confirmed</p></div></div></div><div class="card"><h4>The Nevermores</h4><div class="sub">raven513</div><div class="pair"><div><h5>After the draft · 26</h5><ol><li><span class="n">AnalShipment</span></li><li><span class="n">Awful</span></li><li><span class="n">BALLOCAUST</span></li><li><span class="n">Bob Loblaw</span></li><li><span class="n">DBuckers</span></li><li><span class="n">DUSTY</span></li><li><span class="n">Fawlty</span></li><li><span class="n">Feles</span></li><li><span class="n">FutureYPR</span></li><li><span class="n">Garbageman</span></li><li><span class="n">Golden</span></li><li><span class="n">H8asnake</span></li><li><span class="n">Havoc</span></li><li><span class="n">Hazlexnut</span></li><li><span class="n">itsacow</span></li><li><span class="n">J0nSn0w</span></li><li><span class="n">Lugubrious</span></li><li><span class="n">Nawse</span></li><li><span class="n">Oz God</span></li><li><span class="n">P=NP</span></li><li><span class="n">Rackem</span></li><li><span class="n">Salamander</span></li><li><span class="n">Strategio</span></li><li><span class="n">SweatyBalls</span></li><li><span class="n">Tottenham</span></li><li><span class="n">UberNub</span></li></ol></div><div><h5>End of season</h5><p class="dim" style="margin:0;font-size:13px">not confirmed</p></div></div></div><div class="card"><h4>The Rolling Stones</h4><div class="sub">The Boulder</div><div class="pair"><div><h5>After the draft · 26</h5><ol><li><span class="n">ballit</span></li><li><span class="n">BATMAN</span></li><li><span class="n">BBQ Chicken</span></li><li><span class="n">Beltonious</span></li><li><span class="n">BumBum</span></li><li><span class="n">Carp</span></li><li><span class="n">Casper</span></li><li><span class="n">cat</span></li><li><span class="n">CC</span></li><li><span class="n">CynicalW0lf</span></li><li><span class="n">deadkitty</span></li><li><span class="n">E-Tally</span></li><li><span class="n">Honus</span></li><li><span class="n">Irish</span></li><li><span class="n">Jbdawinna</span></li><li><span class="n">Jet2</span></li><li><span class="n">JoBallocks</span></li><li><span class="n">Master Ball</span></li><li><span class="n">mcpastore</span></li><li><span class="n">MEGATRON</span></li><li><span class="n">MKo</span></li><li><span class="n">pooppants</span></li><li><span class="n">Rigbert</span></li><li><span class="n">Shun</span></li><li><span class="n">Steveholt</span></li><li><span class="n">Trondby</span></li></ol></div><div><h5>End of season</h5><p class="dim" style="margin:0;font-size:13px">not confirmed</p></div></div></div></div></div></div><div class="pane" id="majors-minors-2" hidden><div class="block"><h3>Transactions</h3></div></div></section></div>
+<script>
+const NALTP = (() => {
+  let store = null;
+  try { sessionStorage.setItem("naltp:t", "1"); sessionStorage.removeItem("naltp:t"); store = sessionStorage; } catch (e) {}
+  const FRESH = 4 * 60 * 60 * 1000;
+
+  const read = key => {
+    if (!store) return null;
+    try {
+      const s = JSON.parse(store.getItem(key) || "null");
+      return s && Date.now() - (s.at || 0) < FRESH ? s : null;
+    } catch (e) { return null; }
+  };
+  const write = (key, value) => {
+    if (!store) return;
+    try { store.setItem(key, JSON.stringify({...value, at: Date.now()})); }
+    catch (e) {                                              // full: this session's own pages go first
+      try { for (const k of Object.keys(store)) if (k.startsWith("naltp:")) store.removeItem(k); } catch (_) {}
+    }
+  };
+
+  // what a page fetched, kept for as long as the tab lives, so coming back draws at once
+  const held = {
+    get: name => read("naltp:held:" + name),
+    set: (name, value) => write("naltp:held:" + name, {value}),
+    async json(name, url) {
+      const had = held.get(name);
+      if (had && had.value) return had.value;
+      const got = await fetch(url).then(r => (r.ok ? r.json() : Promise.reject(new Error(r.status))));
+      held.set(name, got);
+      return got;
+    },
+  };
+
+  const keep = opts => {
+    opts = opts || {};
+    const key = "naltp:where:" + location.pathname + location.search;
+    const was = read(key);
+    // a link that names a place on the page beats what a reader left behind - unless it is the same
+    // place they left from, which is exactly what coming back looks like
+    const fresh = !!location.hash && (!was || was.hash !== location.hash);
+    const put = s => {
+      if (!s || fresh) return;
+      const most = Math.max(0, document.documentElement.scrollHeight - innerHeight);
+      window.scrollTo(0, Math.min(s.y || 0, most));
+      for (const el of document.querySelectorAll("[data-keep]")) {
+        const at = s.parts && s.parts[el.dataset.keep];
+        if (at != null) el.scrollTop = at;
+      }
+    };
+    const save = () => {
+      const s = {y: window.scrollY || document.documentElement.scrollTop || 0, hash: location.hash, parts: {}};
+      for (const el of document.querySelectorAll("[data-keep]")) s.parts[el.dataset.keep] = el.scrollTop;
+      try { Object.assign(s, opts.get ? opts.get() : {}); } catch (e) {}
+      write(key, s);
+    };
+    if (!store) return {save: () => {}, was: null, back: () => {}, fresh};
+    let t = 0;
+    addEventListener("scroll", () => { clearTimeout(t); t = setTimeout(save, 120); }, {passive: true});
+    addEventListener("click", e => { if (e.target.closest("a")) save(); }, true);
+    addEventListener("pagehide", save);
+    addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") save(); });
+    if (was) {
+      try { opts.set && opts.set(was, fresh); } catch (e) {}
+      if (!fresh) {
+        if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+        put(was);                                            // now, once it has drawn, once it has settled
+        requestAnimationFrame(() => put(was));
+        addEventListener("load", () => setTimeout(() => put(was), 0));
+      }
+    }
+    return {save, was, back: () => put(was), fresh};
+  };
+
+  return {keep, held};
+})();
+const keepState = NALTP.keep;
+
+// each row of tabs owns the panels its buttons name, so the leagues and the tables inside one
+// work the same way; a link to a panel still opens it, and without this the page reads straight down
+for (const bar of document.querySelectorAll('[role=tablist]')) {
+  const ids = [...bar.querySelectorAll('[data-panel]')].map(b => b.dataset.panel);
+  const show = id => {
+    for (const b of bar.querySelectorAll('[data-panel]')) b.setAttribute('aria-selected', b.dataset.panel === id);
+    for (const other of ids) { const el = document.getElementById(other); if (el) el.hidden = other !== id; }
+  };
+  bar.__show = show;
+  bar.addEventListener('click', e => {
+    const b = e.target.closest('[data-panel]');
+    if (b) { show(b.dataset.panel); history.replaceState(null, '', '#' + b.dataset.panel); }
+  });
+  const want = decodeURIComponent(location.hash.slice(1));
+  if (want && ids.includes(want)) show(want);
+  else if (want && document.getElementById(want)) {
+    const holder = document.getElementById(want).closest('[id]');
+    for (const id of ids) if (document.getElementById(id) && document.getElementById(id).contains(document.getElementById(want))) show(id);
+  }
+}
+
+// the bracket: a series is a button, and the panel underneath is whichever one is open. Without
+// this script every series' detail simply reads down the page, which is the honest fallback.
+for (const panel of document.querySelectorAll('.serpanel')) {
+  const block = panel.closest('.block');
+  const boxes = [...block.querySelectorAll('.ser')];
+  const show = id => {
+    for (const d of panel.querySelectorAll('.serdetail')) d.hidden = d.id !== 'd-' + id;
+    for (const b of boxes) b.setAttribute('aria-pressed', String(b.dataset.s === id));
+    panel.dataset.open = id;
+  };
+  for (const b of boxes) b.addEventListener('click', () => show(b.dataset.s));
+  const last = [...block.querySelectorAll('.ser')].pop();   // the final, where a bracket ends
+  show((last && last.dataset.s) || panel.dataset.open);
+}
+
+// where you were: open a game, a sheet or a hub from here and coming back finds the same tabs open
+// at the same place on the page, instead of the season starting over at the top
+keepState({
+  get: () => ({tabs: [...document.querySelectorAll('[role=tablist]')]
+    .map(bar => (bar.querySelector('[aria-selected=true]') || {dataset: {}}).dataset.panel || '')}),
+  set: s => {
+    if (location.hash || !s.tabs) return;                   // a link that names a tab says which one
+    document.querySelectorAll('[role=tablist]').forEach((bar, i) => { if (s.tabs[i]) bar.__show(s.tabs[i]); });
+  }
+});
+</script>
