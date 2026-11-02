@@ -284215,7 +284215,7 @@
     },
     "missing_or_extra": [
      "GRE v PRO G1: OT eu not in archive",
-     "JIB v NWO G5: missing, unknown"
+     "JIB v NWO G5: not on eu (hub 1-5)"
     ]
    },
    "Week 4": {
@@ -288310,7 +288310,7 @@
      ]
     },
     "missing_or_extra": [
-     "ACS v NWO G1: missing, unknown",
+     "ACS v NWO G1: not on eu (hub 5-2)",
      "ACS v NWO G4: OT eu not in archive"
     ]
    },
