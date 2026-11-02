@@ -193,9 +193,10 @@ let tab = "eu", cells = [];
 function render(name) {
   tab = name; cells = [];
   const D = DATA.tabs[name], T = TABS[name];
-  $("legend-pct").hidden = name === "both";
+  if ($("legend-pct")) $("legend-pct").hidden = name === "both";
   $("legend-status").hidden = name !== "both";
-  if (PUBLIC) { document.querySelector("nav.tabs").hidden = true; $("legend-status-dot").hidden = true; }
+  // (removed, not hidden: the page's own display rules would show a hidden tab row anyway)
+  if (PUBLIC) for (const el of [document.querySelector("nav.tabs"), $("legend-pct"), $("legend-status-dot")]) if (el) el.remove();
   const sum = {have: 0, lost: 0, not_played: 0, unknown: 0, extra: 0};
   document.querySelectorAll("nav.tabs button").forEach(b => b.setAttribute("aria-selected", String(b.dataset.tab === name)));
   $("intro").textContent = (PUBLIC && T.publicIntro ? T.publicIntro : T.intro).replace(/\s+/g, " ");
