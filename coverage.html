@@ -303,7 +303,7 @@ function show(i) {
 }
 
 $("eras").addEventListener("click", e => { const b = e.target.closest("button.cell"); if (b) show(+b.dataset.i); });
-document.querySelector("nav.tabs").addEventListener("click", e => {
+document.querySelector("nav.tabs")?.addEventListener("click", e => {
   const b = e.target.closest("button[data-tab]");
   if (b) { render(b.dataset.tab); try { localStorage.setItem("tab", b.dataset.tab); } catch (err) {} }
 });
